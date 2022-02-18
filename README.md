@@ -10,6 +10,9 @@ Repositório destinado a Sprint
      
 -Suba no repositório 
     / git push
+    
+-Não esqueça de dar Git commit para que fique claro a alteração 
+/ git commit -m "Alteração feitas (Atualização do css)"
      
 -Não esqueça de manter a pasta atualizada 
     / git pull 
