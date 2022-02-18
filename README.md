@@ -12,7 +12,7 @@ Repositório destinado a Sprint
     / git push
     
 -Não esqueça de dar Git commit para que fique claro a alteração 
-/ git commit -m "Alteração feitas (Atualização do css)"
+/ git commit -m "Alteração feita (Atualização do css)"
      
 -Não esqueça de manter a pasta atualizada 
     / git pull 
