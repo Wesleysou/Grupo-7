@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./assets/imgs/logos/omniview-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./public/css/defaultstyle.css">
+    <link rel="stylesheet" href="./public/css/indexstyle.css">
+    <link rel="stylesheet" href="./public/css/indexresponsivo.css">
+    <title>OmniView | Home</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav class="navbar" id="navBar">
+                <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
+                <ul>
+
+                    <li><a href="" class="li-checked">Home</a></li>
+                    <li><a href="contatos.html">Contatos</a></li>
+                    <li><a href="cadastro.html">Cadastre-se</a></li>
+                    <li><a href="login.html"><button class="botao-entrar">Entrar</button></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="lateral-m">
+        <nav>
+            <div class="nav">
+                <input type="checkbox" id="menu_lateral" class="input-menu">
+
+                <label for="menu_lateral">
+                    <div class="menu">
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+
+                <label for="menu_lateral" class="botao-fechar">x</label>
+
+                <div class="box-menu">
+                    <a href="" class="li-checked">Home</a>
+                    <a href="sobre.html">Login</a>
+                    <a href="cadastro.html">Cadastre-se</a>
+                    <a href="contatos.html">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <br><br><br><br><br><br><br>
+
+    <section class="container">
+        <div class="introducao">
+            <div class="align-introducao">
+                <h1> <a class="nome"> OMNIVIEW </a> MONITORAÇÃO INTELIGENTE</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et gravida magna, id malesuada arcu. Nulla ultricies nisi id efficitur consectetur. Nunc in lacinia arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                    mus. Integer facilisis dolor ac commodo rhoncus. Vivamus porta scelerisque imperdiet. Maecenas placerat ut lectus molestie tempor. Aenean luctus risus mi, quis lacinia nisl vulputate in. Mauris ultrices elit at libero eleifend varius.
+                    Pellentesque aliquam tincidunt pharetra.</p>
+
+            </div>
+
+            <div class="align-introducao" id="img-noc">
+                <img src="./assets/imgs/imagem-noc.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="time">
+        <div class="container">
+            <h1>Sobre Nós</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a felis eleifend, porta libero non, placerat tellus. Donec eu odio in arcu mollis cursus. Nullam luctus sed eros commodo commodo. Integer cursus commodo laoreet. Orci varius natoque penatibus
+                et magnis dis parturient montes, nascetur ridiculus mus. Ut lectus lacus, varius.
+            </p>
+            <div class="sobre-container">
+                <div class="missao-sobre">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+
+                <div class="visao-sobre">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+
+                <div class="valorews-sobre">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="carrosel">
+        <div class="container">
+            <div class="topics">
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <div class="container">
+                <div class="align-links-footer">
+                    <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
+                    <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
+                    <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                <p>© 2022 by OmniView todos direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    (function() {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('header-active');
+                navBar.classList.add('navbar-active');
+                navBar.classList.remove('navbar');
+                logoNavbar.src = "./assets/imgs/logos/omniview-logo.png";
+            } else {
+                header.classList.remove('header-active');
+                navBar.classList.remove('navbar-active');
+                navBar.classList.add('navbar');
+                logoNavbar.src = "./assets/imgs/logos/omniview-logo.png";
+            }
+        });
+    })();
+</script>

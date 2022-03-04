@@ -1,0 +1,33 @@
+/* Colors 
+_________________________________ */
+
+:root {
+    --color-primary: #97ABB7;
+    --color-weight: #324048;
+    --color-blue: #5176b5;
+    --color-white: #ffffff;
+    --color-gray: #f3f3f3;
+}
+
+.cadastro {
+    text-align: left;
+    margin-bottom: 38rem;
+}
+
+
+/*  Texts
+_________________________________ */
+
+.cadastro h1 {
+    font-size: 45px;
+    text-align: justify center;
+    color: var(--color-blue);
+}
+
+.cadastro p {
+    font-size: 18px;
+    font-weight: 800;
+    text-align: justify center;
+    color: #435da5;
+    margin: 30px 0;
+}

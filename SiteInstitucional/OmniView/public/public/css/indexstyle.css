@@ -1,0 +1,133 @@
+/* Colors 
+_________________________________ */
+
+:root {
+    --color-primary: #97ABB7;
+    --color-weight: #324048;
+    --color-blue: #5176b5;
+    --color-white: #ffffff;
+    --color-gray: #f3f3f3;
+}
+
+
+/* introducao 
+_________________________________ */
+
+.introducao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.align-introducao {
+    text-align: center;
+}
+
+.align-introducao:first-of-type {
+    width: 40%;
+}
+
+.align-introducao:last-of-type {
+    width: 60%;
+}
+
+.align-introducao h1 {
+    font-size: 45px;
+    color: var(--color-weight);
+}
+
+.align-introducao h1 a {
+    font-size: 70px;
+}
+
+.align-introducao p {
+    text-align: justify;
+    margin: 40px 0;
+    font-size: 18px;
+    color: var(--color-blue);
+}
+
+.align-introducao img {
+    height: 400px;
+    transform: translateY(0px);
+    filter: drop-shadow(0 50px 50px #42318f63);
+    animation: float 5s ease-in-out infinite;
+    z-index: 1;
+}
+
+
+/* time 
+_________________________________ */
+
+.time {
+    width: 100%;
+    background: var(--color-weight);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.time h1 {
+    font-size: 45px;
+    text-align: justify center;
+    color: var(--color-gray);
+}
+
+.time p {
+    text-align: justify center;
+    color: var(--color-gray);
+    margin: 30px 0;
+}
+
+.time img {
+    width: 50%;
+}
+
+.time h1,
+.time p,
+.time img {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+/* carrosel 
+_________________________________ */
+
+.carrosel {
+    width: 100%;
+    padding: 80px 0;
+}
+
+.topics {
+    height: 350px;
+    padding: 0 3%;
+    border-radius: 10px;
+    background: var(--color-white);
+    box-shadow: 0px 0px 30px #0000002c;
+    margin: 150px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topics img {
+    height: 130%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px #0000002c;
+}
+
+:root {
+    --cor-principal: #97ABB7;
+    --azul-titulo: #878a8b;
+    --branco-ideal: #f8f8ff;
+    --branco-gelo: #e6e6e6;
+    --ombre-rose-brosseau: #ffe9f8;
+}
+
+.sobre-container {
+    text-align: center;
+    width: 35%;
+    flex-direction: column-reverse;
+    display: -webkit-box;
+}
