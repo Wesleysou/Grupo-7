@@ -37,10 +37,11 @@
     <div class="lateral-m">
         <nav>
             <div class="nav">
-                <input type="checkbox" id="menu_lateral" class="input-menu">
+                <input type="checkbox" id="menu_lateral" class="input-menu ">
 
                 <label for="menu_lateral">
                     <div class="menu">
+
                         <span class="hamburguer"></span>
                     </div>
                 </label>
@@ -48,21 +49,39 @@
                 <label for="menu_lateral" class="botao-fechar">x</label>
 
                 <div class="box-menu">
-                    <a href="" class="li-checked">Home</a>
+                    <a href="" class="li-checked">Cadastre-se</a>
+                    <a href="index.html">Home</a>
                     <a href="sobre.html">Login</a>
-                    <a href="cadastro.html">Cadastre-se</a>
-                    <a href="contatos.html">Contato</a>
+                    <a href="cadastro.html">Contato</a>
                 </div>
             </div>
         </nav>
     </div>
+
+
+
+
 
     <br><br><br><br><br><br><br>
     <section class="container">
         <div class="cadastro_banner">
             <div class="cadastro">
                 <h1>Cadastre aqui a sua empresa</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit, Voluptas suscipit, pariatur odit quisquam iure reprehenderit ex nemo consequatur id architecto.</p>
+   
+                    <div>
+                        <form id="form-cadastro" action=" ">
+                            <input type="text" placeholder="Nome Completo" maxlength="50">
+                            <input type="email" placeholder="E-mail" maxlength="50">
+                            <input type="email" placeholder="Confirmar E-mail" maxlength="50">
+                            <input oninput="mascara(this)" type="text" placeholder="CPF">
+
+
+                            
+                            <button>Cadastrar</button>
+                        </form>
+            
+                    </div>
+                </section>
             </div>
 
             <div class="input-cadastro">
@@ -110,6 +129,10 @@
 
 
     </section>
+
+
+    
+
     <section class="container">
 
         <footer>
@@ -137,6 +160,22 @@
 </html>
 
 <script>
+
+function mascara(i){
+   
+   var v = i.value;
+   
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   
+   i.setAttribute("maxlength", "14");
+   if (v.length == 3 || v.length == 7) i.value += ".";
+   if (v.length == 11) i.value += "-";
+
+}
+
     (function() {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 100) {
