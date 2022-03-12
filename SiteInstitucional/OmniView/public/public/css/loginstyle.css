@@ -9,38 +9,44 @@ _________________________________ */
     --color-gray: #f3f3f3;
 }
 
-
-/*  Texts
-_________________________________ */
-
-.cadastro h1 {
-    font-size: 45px;
-    text-align: justify center;
-    color: var(--color-blue);
+.cadastro {
+    text-align: left;
 }
-
-.cadastro p {
-    font-size: 18px;
-    font-weight: 800;
-    text-align: justify center;
-    color: #435da5;
-    margin: 30px 0;
-}
-
-/*  Cadastro
+/* Login 
 _________________________________ */
-body{
+body { 
     padding: 0;
     margin: 0; 
     overflow-x: hidden;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
 }
 
-.banner-cadastro .card_medio_cad {
+.banner-login{
+    margin: 0;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background-size: cover;
+}
+
+  .banner-login .container_login {
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner-login {
+    color: var(--color-weight);
+  }
+  
+  .banner-login .card_medio {
     background-color:var(--color-primary);
-    height: 45vh;
-    width: 50vw;
+    height: 60vh;
+    width: 30vw;
     display: flex;
     justify-content: center;
     align-content: space-around;
@@ -52,40 +58,22 @@ body{
   }
 
 .class_check{
-  margin-left:5%;
-  margin-right: 10%;
-  cursor: pointer;
-}
+    margin-left:5%;
+    margin-right: 10%;
+    cursor: pointer;
+  }
 
 #img_login {
     height: 300px;
 }
-
-.banner-cadastro{
-    margin: 0;
-    height: 57vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-
-
-  .banner-cadastro .container_login {
-    height: 550px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   
-  .banner-cadastro {
-    color: var(--color-weight);
-  }
-  
-  .banner-cadastro a {
+  .banner-login a {
     color: var(--color-weight);
     text-decoration: none;
+  }
+  
+  .banner-login #div_erros_login {
+    margin-top: 15px;
   }
   
   button {
@@ -103,7 +91,6 @@ body{
     outline: none;
     cursor: pointer;
     background-color: var(--color-blue);
-    ;
 }
 
 .btn:hover{
@@ -112,23 +99,6 @@ body{
 
 .btn:active{
     transform: scale(0.98);
-}
-
-#form_cadastro{
-  display: flex;
-  flex-direction: row;
-}
-
-#div_cadastro_esquerda{
-  width: 50%;
-  height: 100%;
-  margin-left: 0%;
-  margin-right: 10%;
-}
-
-#div_cadastro_direita{
-  width: 50%;
-  height: 80%;
 }
 
 .form__input{
@@ -141,12 +111,19 @@ body{
     outline: none;
     background: #eeeeee;
     transition: background 0.2,border-color 0.2s;
-    flex-direction: column;
 }
 
 .form__input:focus{
-   border-color:var(--color-blue);
+    border-color:var(--color-blue);
     background: #ffffff;
+}
+
+#id_cadastre_se{
+    border-color:var(--color-blue);;
+}
+
+#id_cadastre_se:hover{
+    font-weight: 600;
 }
 
 .span_nome_cargo{
