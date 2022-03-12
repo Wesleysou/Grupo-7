@@ -67,29 +67,17 @@
         <div class="cadastro_banner">
             <div class="cadastro">
                 <h1>Cadastre aqui a sua empresa</h1>
-   
-                    <div>
-                        <form id="form-cadastro" action=" ">
-                            <input type="text" placeholder="Nome Completo" maxlength="50">
-                            <input type="email" placeholder="E-mail" maxlength="50">
-                            <input type="email" placeholder="Confirmar E-mail" maxlength="50">
-                            <input oninput="mascara(this)" type="text" placeholder="CPF">
-
-
-                            
-                            <button>Cadastrar</button>
-                        </form>
-            
-                    </div>
                 </section>
             </div>
 
             <div class="input-cadastro">
                 <div class="banner-cadastro ">
+                <img id="img_login" src="./assets/imgs/logos/contato-vector.png " alt="Contato ">
                     <div class="container_login ">
                         <div class="card_medio_cad">
                             <div class="formulario">
                                 <div id="form_cadastro">
+                                    <div id="div_cadastro_esquerda">
                                     Nome:
                                     <br>
                                     <input class="form__input" id="nome_input" type="text" placeholder="Nome de usuário">
@@ -101,7 +89,7 @@
                                     CPF:
                                     <br>
                                     <input class="form__input" oninput="mascara(this)" type="text" placeholder="CPF">
-                                    <br>
+                                    </div><div id="div_cadastro_direita">
                                     Senha:
                                     <br>
                                     <input class="form__input" id="senha_input" type="password" placeholder="******">
@@ -112,10 +100,10 @@
                                     <br>
                                     Cargo:
                                     <br>
-                                    <span class="span_nome_cargo">Gerente</span><input class="form__input" type="checkbox">
-                                    <span class="span_nome_cargo">Suporte</span><input class="form__input" type="checkbox">
-                                    <br>
+                                    <span class="span_nome_cargo">Gerente</span><input class="class_check" id="check_gerente" type="checkbox"><label for="check_gerente"></label>
+                                    <span class="span_nome_cargo">Suporte</span><input class="class_check" id="check_suporte" type="checkbox"><label for="check_suporte"></label>
                                     <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                                    </div>
 
                                 </div>
                             </div>
@@ -191,4 +179,61 @@ function mascara(i){
             }
         });
     })();
+
+    function cadastrar(){
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        let checkGerente = document.getElementById('check_gerente');
+        let checkSuporte = document.getElementById('check_suporte');
+
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nomeVar == "") {
+                console.log('nome está em branco')
+            }
+            if (emailVar == "") {
+                console.log('email está em branco')
+            }
+            if (senhaVar == "") {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenhaVar == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+        
+            return false;
+        }
+
+        if (!checkGerente.checked && !checkSuporte.checked){
+            window.alert("Preencha todos os campos para prosseguir!");
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            
+            return false;
+        }
+
+        if (senhaVar != confirmacaoSenhaVar ) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            
+            return false;
+        }
+
+        if (checkGerente.checked && checkSuporte.checked){
+        window.alert("Selecione apenas o cargo em que você atua.");
+        return false;
+        
+    }
+        else if (checkGerente.checked){
+        window.alert("Bem vindo gerente")
+        }
+        else if(checkSuporte.checked){
+        window.alert("Bem vindo suporte");
+        }
+    }
 </script>
