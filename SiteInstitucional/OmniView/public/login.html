@@ -8,8 +8,8 @@
     <title>OmniView | Entrar</title>
     <link rel="stylesheet" href="public/css/loginstyle.css">
     <link rel="stylesheet" href="./public/css/defaultstyle.css">
-    <link rel="stylesheet" href="./public/css/indexresponsivo.css">
-    
+    <link rel="stylesheet" href="./public/css/contatoresponsivo.css">
+
 </head>
 
 <body>
@@ -22,8 +22,8 @@
 
                     <li><a href="index.html">Home</a></li>
                     <li><a href="contatos.html">Contato</a>
-                        <li><a href="cadastro.html">Cadastre-se</a></li>
-                        <li><a href="" class="li-checked"><button class="botao-entrar">Entrar</button></a></li>
+                    <li><a href="cadastro.html">Cadastre-se</a></li>
+                    <li><a href="" class="li-checked"><button class="botao-entrar">Entrar</button></a></li>
 
 
                 </ul>
@@ -60,30 +60,46 @@
 
 
     <br><br><br><br><br><br><br>
-    <div class="banner-login">
+
+
+    <section class="forms">
+        <h1>Login</h1>
+
+        <div>
+            <form action="">
+                E-mail:
+                <input class="form__input" id="email_input" type="text" placeholder="Digite seu E-mail">
+                <br>
+                Senha:
+                <input class="form__input" id="senha_input" type="password" placeholder="******">
+                <br>
+                <button class="btn" onclick="entrar()">Entrar</button>
+            </form>
+            <img src="./assets/imgs/logos/contato-vector.png " alt="Contato ">
+        </div>
+
+
+    </section>
+
+<!---
+       <div class="banner-login">
         <div class="container_login">
             <div class="card_medio">
                 <h2>Login</h2>
                 <div class="formulario">
                     <div>
-                        E-mail:
-                        <input class="form__input" id="email_input" type="text" placeholder="Digite seu E-mail">
-                        <br>
-                        Senha:
-                        <input class="form__input" id="senha_input" type="password" placeholder="******">
-                        <br>
-                        <button class="btn" onclick="entrar()">Entrar</button>
+
                     </div>
 
 
                 </div> <br><br>
 
                 <a href="cadastro.html" id="id_cadastre_se">
-                    <span>Não tem login? Cadastre-se agora!</span> 
-                   
+                    <span>Não tem login? Cadastre-se agora!</span>
+
                 </a>
 
-                
+
 
                 <div id="div_erros_login">
 
@@ -93,6 +109,8 @@
         <img id="img_login" src="./assets/imgs/logos/contato-vector.png " alt="Contato ">
     </div>
 
+-->
+ 
 
 
     <section class="container">
@@ -117,11 +135,12 @@
             </div>
         </footer>
     </section>
-</body>     
+</body>
+
 </html>
 <script>
     function entrar() {
-       
+
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -132,19 +151,19 @@
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (emailVar == "" || senhaVar == "") {
             window.alert("Preencha todos os campos para prosseguir!");
-       
+
             return false;
         }
 
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-       
+
             return false;
         }
 
-        if (emailVar == "Leonardo@sptech.com"){
-        window.location.href = 'dashboard_gerente.html'
-        }else {
+        if (emailVar == "Leonardo@sptech.com") {
+            window.location.href = 'dashboard_gerente.html'
+        } else {
             window.location.href = 'dashboard_suporte.html'
         }
     }

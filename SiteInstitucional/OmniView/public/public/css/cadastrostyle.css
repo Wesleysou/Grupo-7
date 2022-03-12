@@ -119,14 +119,14 @@ body{
   flex-direction: row;
 }
 
-#div_cadastro_esquerda{
+.cadastro_esquerda{
   width: 50%;
   height: 100%;
   margin-left: 0%;
   margin-right: 10%;
 }
 
-#div_cadastro_direita{
+.cadastro_direita{
   width: 50%;
   height: 80%;
 }
@@ -143,6 +143,9 @@ body{
     transition: background 0.2,border-color 0.2s;
     flex-direction: column;
 }
+.cargo{
+  color: #324048;
+}
 
 .form__input:focus{
    border-color:var(--color-blue);
@@ -151,6 +154,93 @@ body{
 
 .span_nome_cargo{
     font-size: small;
-    color:var(--color-white);
+    color:var(--color-black);
 }
 
+section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.forms {
+  padding: 100px 0 100px;
+  width: 100%;
+}
+
+.forms:last-of-type {
+  background: #324048;
+}
+
+.forms:last-of-type h1 {
+  color: #f3f3f3;
+  margin-top: 30px;
+}
+
+input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid #30303030;
+  text-align: center;
+  font-size: 15px;
+  color: #303030;
+  padding: 3%;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid #30303030;
+  text-align: center;
+  font-size: 15px;
+  color: #303030;
+  padding: 3%;
+  /* height: 40px; */
+  width: 300px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+form button {
+  background-color: #324048;
+  color: #fff;
+  padding: 20px 50px;
+  border-radius: 51px;
+  border: none;
+  cursor: pointer;
+  transition: background-color .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+form button:hover {
+  background: #847ee2;
+}
+
+.forms img {
+  height: 300px;
+}
+
+.forms>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 70px;
+}
+
+.forms form {
+  height: 395px;
+  width: 875px;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #2f4c671f;
+  box-shadow: 0 0 20px #00000065;
+  padding: 1% 4% 1% 5%;
+  border-radius: 4px;
+  border-top: 4px solid #97ABB7;
+  overflow-y: auto;
+  flex-direction: row;
+}
