@@ -1,0 +1,22 @@
+.div_dash{
+    height: 65vh;
+    width: 100vw;
+}
+
+h2{
+    text-align: center;
+    color: #324048;
+}
+
+#totem1{
+    background-color: aqua;
+    height: 20vh;
+    width: 10vw;
+    border-radius: 100%; 
+}
+
+#totem1 p{
+    text-align: center;
+    align-items: center;
+    font-size: small;
+}
