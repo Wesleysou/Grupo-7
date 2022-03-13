@@ -49,7 +49,7 @@ body{
 
 .align-introducao p {
     text-align: justify;
-    margin: 40px 0;
+    margin: 40px 45px;
     font-size: 18px;
     color: var(--color-blue);
     font-weight: bold;
