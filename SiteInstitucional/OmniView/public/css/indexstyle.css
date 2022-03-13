@@ -211,42 +211,97 @@ _________________________________ */
 /* carrosel 
 _________________________________ */
 
-.carrosel {
-    width: 100%;
-    padding: 80px 0;
+* {box-sizing:border-box}
+
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-.topics {
-    height: 350px;
-    padding: 0 3%;
-    border-radius: 10px;
-    background: var(--color-white);
-    box-shadow: 0px 0px 30px #0000002c;
-    margin: 150px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.Slides {
+  display: none;
 }
 
-.topics img {
-    height: 130%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 30px #0000002c;
+
+.slide_anterior, .slide_prox {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #5743af;
+  font-weight: bold;
+  font-size: 18px;
+  
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-:root {
-    --cor-principal: #97ABB7;
-    --azul-titulo: #878a8b;
-    --branco-ideal: #f8f8ff;
-    --branco-gelo: #e6e6e6;
-    --ombre-rose-brosseau: #ffe9f8;
+.slide_prox {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.sobre-container {
-    text-align: center;
-    width: 35%;
-    flex-direction: column-reverse;
-    display: -webkit-box;
+
+.slide_anterior:hover, .slide_prox:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
 /* Cards
@@ -335,4 +390,10 @@ _________________________________ */
     display: flex;
     margin-top: 5vh;
     justify-content: space-evenly;
+}
+.topics{
+  
+    margin-top: 75px;
+    margin-bottom: 75px;
+   
 }
