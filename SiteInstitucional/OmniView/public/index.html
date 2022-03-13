@@ -77,22 +77,38 @@
     <section class="time">
         <div class="container">
             <h1>Sobre Nós</h1>
-           
-            <div class="sobre-container">
-                <div class="missao-sobre">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <div id="position_card">
+            <div class="flip" id="card" title="MISSÃO">
+                <div class="face" id="front">
+                    <img src="assets/imgs/logos/missao.png" alt="missão">
                 </div>
-
-                <div class="visao-sobre">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <div class="face" id="back">
+                    . Ser referência no ramo de monitoramento de recursos computacionais <br> <br>
+                    . Ser a maior empresa em monitoramento de recursos computacionais do Brasil 
                 </div>
-
-                <div class="valorews-sobre">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
-
-
             </div>
+            <div class="flip" id="card2" title="VISÃO">
+                <div class="face2" id="front2">
+                    <img src="assets/imgs/logos/visao.png" alt="visão">
+                </div>
+                <div class="face2" id="back2">
+                    Criar soluções em monitoramento de recursos, onde nossos clientes terão
+                    total controle do que acontece em seus ambiente computacionais
+                </div>
+            </div>
+            <div class="flip" id="card3" title="VALORES">
+                <div class="face3" id="front3">
+                    <img src="assets/imgs/logos/valor-alto.png" alt="valores">
+                </div>
+                <div class="face3" id="back3">
+                   . Diversidade <br>
+                   . Sucesso está no nosso DNA <br>
+                   . O desafio nos move <br>
+                   . Trabalho em equipe é importante, porém o potencial de cada funcionário é
+                   observado como único
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -178,4 +194,18 @@
             }
         });
     })();
+</script>
+<script>
+    const card = document.querySelector("#card")
+    card.addEventListener("click",(e)=>{
+        card.classList.toggle("flip")
+    })
+    const card2 = document.querySelector("#card2")
+    card2.addEventListener("click",(e)=>{
+        card2.classList.toggle("flip")
+    })
+    const card3 = document.querySelector("#card3")
+    card3.addEventListener("click",(e)=>{
+        card3.classList.toggle("flip")
+    })
 </script>

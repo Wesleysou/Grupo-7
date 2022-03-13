@@ -70,7 +70,7 @@ textarea {
   margin-bottom: 20px;
 }
 
-form button {
+.form button {
   background-color: #324048;
   color: #fff;
   padding: 20px 50px;
@@ -80,7 +80,7 @@ form button {
   transition: background-color .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
-form button:hover {
+.form button:hover {
   background: #847ee2;
 }
 
@@ -96,7 +96,7 @@ form button:hover {
   margin-top: 70px;
 }
 
-.forms form {
+.forms .form {
   height: 300px;
   width: 530px;
   display: flex;

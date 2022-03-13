@@ -66,7 +66,7 @@
         <h1>Login</h1>
 
         <div>
-            <form action="">
+            <div class="form">
                 E-mail:
                 <input class="form__input" id="email_input" type="text" placeholder="Digite seu E-mail">
                 <br>
@@ -74,7 +74,7 @@
                 <input class="form__input" id="senha_input" type="password" placeholder="******">
                 <br>
                 <button class="btn" onclick="entrar()">Entrar</button>
-            </form>
+            </div>
             <img src="./assets/imgs/logos/contato-vector.png " alt="Contato ">
         </div>
 
@@ -160,8 +160,8 @@
             return false;
         }
 
-        if (emailVar == "Leonardo@sptech.com") {
-            window.location.href = 'dashboard_gerente.html'
+        if (emailVar == "Leonardo@sptech.com" && senhaVar == "urubu100") {
+            window.location.href = 'gerente_caixa.html'
         } else {
             window.location.href = 'dashboard_suporte.html'
         }

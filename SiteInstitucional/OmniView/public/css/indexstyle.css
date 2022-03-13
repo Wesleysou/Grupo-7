@@ -13,6 +13,12 @@ _________________________________ */
 /* introducao 
 _________________________________ */
 
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 .introducao {
     width: 100%;
     display: flex;
@@ -46,6 +52,7 @@ _________________________________ */
     margin: 40px 0;
     font-size: 18px;
     color: var(--color-blue);
+    font-weight: bold;
 }
 
 .align-introducao img {
@@ -172,6 +179,7 @@ _________________________________ */
     background: var(--color-weight);
     padding: 50px 0;
     text-align: center;
+    height: 55vh;
 }
 
 .time h1 {
@@ -239,4 +247,92 @@ _________________________________ */
     width: 35%;
     flex-direction: column-reverse;
     display: -webkit-box;
+}
+
+/* Cards
+_________________________________ */
+
+#card{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+#card2{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+#card3{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+.face{
+    width: 15vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+.face2{
+    width: 15vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: bold;
+    color: whitesmoke;
+    border-radius: 10px;
+}
+.face3{
+    width: 15vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: bold;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+#front{
+    background-color: var(--color-primary);
+    transform: rotateY(180deg);
+}
+#front2{
+    background-color: var(--color-primary);
+    transform: rotateY(180deg);
+}
+#front3{
+    background-color: var(--color-primary);
+    transform: rotateY(180deg);
+}
+#back{
+    background-color: var(--color-blue);
+    backface-visibility: hidden;
+}
+#back2{
+    background-color: var(--color-blue);
+    backface-visibility: hidden;
+}
+#back3{
+    background-color: var(--color-blue);
+    backface-visibility: hidden;
+}
+.flip{
+    transform: rotateY(180deg);
+}
+
+.time .container #position_card{
+    display: flex;
+    margin-top: 5vh;
+    justify-content: space-evenly;
 }
