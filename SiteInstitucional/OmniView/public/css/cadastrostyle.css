@@ -164,8 +164,9 @@ section {
 }
 
 .forms {
-  padding: 86px 0 100px;
+  padding: 86px 0 55px;
   width: 100%;
+
 }
 
 .forms:last-of-type {
@@ -251,7 +252,7 @@ form button:hover {
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 14px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

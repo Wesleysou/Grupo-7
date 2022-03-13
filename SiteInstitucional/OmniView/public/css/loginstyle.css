@@ -31,6 +31,7 @@ section {
 .forms {
   padding: 100px 0 100px;
   width: 100%;
+  margin-bottom: 130px;
 }
 
 .forms:last-of-type {
