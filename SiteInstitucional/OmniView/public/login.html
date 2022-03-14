@@ -62,9 +62,9 @@
 
     <br><br><br><br><br><br><br>
 
-
+    <div id="titulo_login">
+    <h1>Login</h1></div>
     <section class="forms">
-        <h1>Login</h1>
 
         <div>
             <div class="form">
@@ -134,6 +134,8 @@
 
         if (emailVar == "Leonardo@sptech.com" && senhaVar == "urubu100") {
             window.location.href = 'gerente_caixa.html'
+        setTimeout(() =>alert(`Bem vindo(a)!!`), 1000 );
+        
         } else {
             window.location.href = 'dashboard_suporte.html'
         }

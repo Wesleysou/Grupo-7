@@ -3,6 +3,23 @@ section {
     flex-flow: column nowrap;
     align-items: center;
 }
+#titulo_contato h1 {
+    font-size: 45px;
+    text-align: justify center;
+    color: #5176b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+  }
+  
+  #titulo_contato p {
+    font-size: 18px;
+    font-weight: 800;
+    text-align: justify center;
+    color: #435da5;
+    margin: 30px 0;
+  }
 
 .forms {
     padding: 100px 0 100px;
