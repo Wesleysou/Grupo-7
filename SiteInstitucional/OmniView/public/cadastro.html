@@ -72,6 +72,10 @@
         <div class="cadastro">
             <form action="">
                 <div class="cadastro_esquerda">
+                    Nome da Empresa:
+                    <br>
+                    <input class="form__input" id="nome_input" type="text" placeholder="Nome de usuário">
+                    <br>
                     Nome:
                     <br>
                     <input class="form__input" id="nome_input" type="text" placeholder="Nome de usuário">
@@ -83,6 +87,11 @@
                     CPF:
                     <br>
                     <input class="form__input" oninput="mascara(this)" type="text" placeholder="CPF">
+                    <br>
+                    CNPJ:
+                    <br>
+                    <input id="produto-1-cnpj" class="form__input" type="text" placeholder="CNPJ"
+                        maxlength="18" />
                 </div>
                 <div class="cadastro_direita">
                     Senha:
@@ -98,20 +107,21 @@
                         <br>
                         <br>
 
-                        <label class="span_nome_cargo" id="check_gerente" >Gerente <input  type="radio" checked="checked" name="radio">
+                        <label class="span_nome_cargo" id="check_gerente">Gerente <input type="radio" checked="checked"
+                                name="radio">
                             <span class="checkmark"></span>
                         </label>
 
-                        <label class="span_nome_cargo" id="check_suporte" >Suporte <input type="radio" name="radio">
+                        <label class="span_nome_cargo" id="check_suporte">Suporte <input type="radio" name="radio">
                             <span class="checkmark"></span>
                         </label>
-                       
 
-                        
+
+
                         <button class="btn" onclick="cadastrar()">Cadastrar</button>
 
-                      
-                     
+
+
 
                     </div>
                 </div>
@@ -159,6 +169,12 @@
 
 <script>
 
+
+    document.getElementById('produto-1-cnpj').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
+        e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
+    });
+
     function mascara(i) {
 
         var v = i.value;
@@ -173,6 +189,7 @@
         if (v.length == 11) i.value += "-";
 
     }
+
 
     (function () {
         window.addEventListener('scroll', function () {
