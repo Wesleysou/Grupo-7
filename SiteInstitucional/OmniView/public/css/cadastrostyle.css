@@ -229,11 +229,11 @@ form button:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 70px;
+  margin-top: -50px;
 }
 
 .forms form {
-  height: 405px;
+  height: 500px;
   width: 875px;
   display: flex;
   flex-flow: column nowrap;
