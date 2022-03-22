@@ -1,0 +1,308 @@
+/* Colors 
+_________________________________ */
+
+:root {
+    --color-primary: #97ABB7;
+    --color-weight: #324048;
+    --color-blue: #5176b5;
+    --color-white: #ffffff;
+    --color-gray: #f3f3f3;
+}
+
+
+/*  Texts
+_________________________________ */
+
+.cadastro h1 {
+    font-size: 45px;
+    text-align: justify center;
+    color: var(--color-blue);
+}
+
+.cadastro p {
+    font-size: 18px;
+    font-weight: 800;
+    text-align: justify center;
+    color: #435da5;
+    margin: 30px 0;
+}
+
+/*  Cadastro
+_________________________________ */
+body{
+    padding: 0;
+    margin: 0; 
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.banner-cadastro .card_medio_cad {
+    background-color:var(--color-primary);
+    height: 45vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 0 0 20px #00000065;
+    border-radius: 5px;
+  }
+
+.class_check{
+  margin-left:5%;
+  margin-right: 10%;
+  cursor: pointer;
+}
+
+#img_login {
+    height: 300px;
+}
+
+.banner-cadastro{
+    margin: 0;
+    height: 57vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+
+
+  .banner-cadastro .container_login {
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner-cadastro {
+    color: var(--color-weight);
+  }
+  
+  .banner-cadastro a {
+    color: var(--color-weight);
+    text-decoration: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .btn{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--color-blue);
+    ;
+}
+
+.btn:hover{
+    background-color: var(--color-weight);
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+#form_cadastro{
+  display: flex;
+  flex-direction: row;
+}
+
+.cadastro_esquerda{
+  width: 50%;
+  height: 100%;
+  margin-left: 0%;
+  margin-right: 10%;
+}
+
+.cadastro_direita{
+  width: 50%;
+  height: 80%;
+}
+
+.form__input{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2,border-color 0.2s;
+    flex-direction: column;
+}
+.cargo{
+  color: #324048;
+}
+
+.form__input:focus{
+   border-color:var(--color-blue);
+    background: #ffffff;
+}
+
+.span_nome_cargo{
+    font-size: small;
+    color:var(--color-black);
+}
+
+section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.forms {
+  padding: 86px 0 55px;
+  width: 100%;
+
+}
+
+.forms:last-of-type {
+  background: #324048;
+}
+
+.forms:last-of-type h1 {
+  color: #f3f3f3;
+  margin-top: 30px;
+}
+
+input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid #30303030;
+  text-align: center;
+  font-size: 15px;
+  color: #303030;
+  padding: 3%;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid #30303030;
+  text-align: center;
+  font-size: 15px;
+  color: #303030;
+  padding: 3%;
+  /* height: 40px; */
+  width: 300px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+form button {
+  background-color: #324048;
+  color: #fff;
+  padding: 20px 50px;
+  border-radius: 51px;
+  border: none;
+  cursor: pointer;
+  transition: background-color .5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+form button:hover {
+  background: #847ee2;
+}
+
+.forms img {
+  height: 300px;
+}
+
+.forms>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: -50px;
+}
+
+.forms form {
+  height: 500px;
+  width: 875px;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #2f4c671f;
+  box-shadow: 0 0 20px #00000065;
+  padding: 1% 4% 1% 5%;
+  border-radius: 4px;
+  border-top: 4px solid #97ABB7;
+  overflow-y: auto;
+  flex-direction: row;
+}
+
+.container {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
