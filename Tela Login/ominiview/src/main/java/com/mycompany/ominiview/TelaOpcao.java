@@ -33,12 +33,14 @@ public class TelaOpcao extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        checkSuporte = new javax.swing.JCheckBox();
-        checkGerente = new javax.swing.JCheckBox();
+        checkCaixa = new javax.swing.JCheckBox();
+        checkTotem = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jCheckBox1.setText("Suporte");
 
@@ -57,25 +59,25 @@ public class TelaOpcao extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        checkSuporte.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        checkSuporte.setText("Suporte");
-        checkSuporte.addActionListener(new java.awt.event.ActionListener() {
+        checkCaixa.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        checkCaixa.setText("Caixa");
+        checkCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkSuporteActionPerformed(evt);
+                checkCaixaActionPerformed(evt);
             }
         });
 
-        checkGerente.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        checkGerente.setText("Gerente");
-        checkGerente.addActionListener(new java.awt.event.ActionListener() {
+        checkTotem.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        checkTotem.setText("Totem");
+        checkTotem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkGerenteActionPerformed(evt);
+                checkTotemActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Sitka Text", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Sitka Text", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(81, 118, 181));
-        jLabel2.setText("Informe seu cargo:");
+        jLabel2.setText("Cadastro");
 
         btnEnviar.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         btnEnviar.setText("Enviar");
@@ -85,6 +87,9 @@ public class TelaOpcao extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 14)); // NOI18N
+        jLabel1.setText("Tipo de equipamento:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -92,31 +97,36 @@ public class TelaOpcao extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(74, 74, 74)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(checkCaixa)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(157, 157, 157)
+                                .addComponent(checkTotem, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(checkGerente, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(checkSuporte))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
+                        .addGap(161, 161, 161)
                         .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel2)
-                .addGap(27, 27, 27)
-                .addComponent(checkSuporte)
+                .addGap(53, 53, 53)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(checkCaixa))
                 .addGap(28, 28, 28)
-                .addComponent(checkGerente)
-                .addGap(28, 28, 28)
+                .addComponent(checkTotem)
+                .addGap(41, 41, 41)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,7 +155,7 @@ public class TelaOpcao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(43, 43, 43)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,22 +173,22 @@ public class TelaOpcao extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void checkSuporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkSuporteActionPerformed
+    private void checkCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCaixaActionPerformed
         
-        checkGerente.setSelected(false);
-    }//GEN-LAST:event_checkSuporteActionPerformed
+        checkTotem.setSelected(false);
+    }//GEN-LAST:event_checkCaixaActionPerformed
 
-    private void checkGerenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkGerenteActionPerformed
+    private void checkTotemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTotemActionPerformed
        
-        checkSuporte.setSelected(false);
-    }//GEN-LAST:event_checkGerenteActionPerformed
+        checkCaixa.setSelected(false);
+    }//GEN-LAST:event_checkTotemActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         
-        if(jCheckBox1.isSelected()){
-            JOptionPane.showMessageDialog(null, "Bem vindo,seu cargo é suporte");
+        if(checkCaixa.isSelected()){
+            JOptionPane.showMessageDialog(null, "Você cadastrou um caixa!");
         }else{
-             JOptionPane.showMessageDialog(null, "Bem vindo,seu cargo é gerente");
+             JOptionPane.showMessageDialog(null, "Você cadastrou um totem!");
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
@@ -219,11 +229,12 @@ public class TelaOpcao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JCheckBox checkGerente;
-    private javax.swing.JCheckBox checkSuporte;
+    private javax.swing.JCheckBox checkCaixa;
+    private javax.swing.JCheckBox checkTotem;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
