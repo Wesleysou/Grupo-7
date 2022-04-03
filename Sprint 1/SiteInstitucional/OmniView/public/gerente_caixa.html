@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniView | Gerente</title>
+    <link rel="stylesheet" href="./css/defaultstyle.css">
+    <link rel="shortcut icon" href="./assets/imgs/logos/omniview-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/indexresponsivo.css">
+    <link rel="stylesheet" href="./css/dashboardgerente.css">
+    <link rel="stylesheet" href="./css/indexstyle.css">
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav class="navbar" id="navBar">
+                <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
+                <ul>
+                    <li><a href="" class="li-checked">Caixas</a></li>
+                    <li><a href="gerente_totem.html">Totem</a>
+                    <li><a href="sair.html"><button class="botao-entrar">Sair</button></a></li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="lateral-m">
+        <nav>
+            <div class="nav">
+                <input type="checkbox" id="menu_lateral" class="input-menu ">
+
+                <label for="menu_lateral">
+                    <div class="menu">
+
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+
+                <label for="menu_lateral" class="botao-fechar">x</label>
+                
+                <div class="box-menu">
+                    <a href="" class="li-checked">Cadastre-se</a>
+                    <a href="index.html">Home</a>
+                    <a href="login.html">Login</a>
+                    <a href="contatos.html">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br><br><br><br><br><br><br>
+
+
+    <section class="clientes">
+      <div class="container">
+          <div class="topics">
+              <div class="div_dash">
+                <h2>Horário de funcionamento dos caixas</h2>
+                <canvas id="myChart" style="height: 90%;width: 100%;"></canvas>
+              </div>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+          </div>
+
+        <section class="container">
+
+          
+        
+        </section>
+        <footer>
+            <div class="footer-info">
+                <div class="container">
+                    <div class="align-links-footer">
+                        <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
+                        <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
+                        <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
+    
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-copyright">
+                <div class="container">
+                    <p>© 2022 by OmniView todos direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+            
+        
+  
+
+</body>
+</html>
+<script>
+    const labels = [
+      'Segunda',
+      'Terça',
+      'Quarta',
+      'Quinta',
+      'Sexta',
+      'Sábado',
+      'Domingo',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Caixa 1',
+        backgroundColor: '#6A5ACD',
+        borderColor: '#6A5ACD',
+        data: [10, 8, 8, 6, 4, 8, 11],
+      },
+      {
+        label: 'Caixa 2',
+        backgroundColor: '#00008B',
+        borderColor: '#00008B',
+        data: [10, 0, 10, 7, 11, 12, 9],
+      },
+      {
+        label: 'Caixa 3',
+        backgroundColor: '#4169E1',
+        borderColor: '#4169E1',
+        data: [9, 8, 9, 9, 11, 10, 9],
+      },
+      {
+        label: 'Caixa 4',
+        backgroundColor: '#00BFFF',
+        borderColor: '#00BFFF',
+        data: [10, 8, 10, 9, 11, 10, 9],
+      }]
+    }
+  
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+  </script>
+  <script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
