@@ -1,0 +1,298 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+    
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+}
+
+.header{
+    width: 100%;
+    height: 9.5vh;
+    background-color: #282c34;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: white 3px solid;
+    align-items: center;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.conteudoHeader{
+    width: 30%;
+    height: 100%;
+    background-color: #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 800;
+    color: #fff;
+}
+
+.imgSup{
+    width: 49%;
+    height: 98%;
+}
+
+.imgSup img{
+    height: 100%;
+    border-radius: 100px;
+}
+
+.info{
+    width: 49%;
+    height: 98%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.info p{
+    float: left;
+    width: 100%;
+    height: 30%;
+    margin-top: 6px;
+}
+
+.titulo_maquina{
+    font-size: larger;
+}
+
+.conteudoHeader button{
+    float: right;
+}
+
+.conteudoPai{
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    background-color: azure;
+}
+
+.botoes{
+    width: 20vw;
+    height: 90vh;
+    background-color: coral;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: 	#282c34;
+    border-right: white 3px solid;
+}
+
+.botoes button{
+    width: 70%;
+    height: 10vh;
+    border-radius: 10px;
+    border: none;
+    background-color:#191970;	
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+
+}
+
+button:hover{
+    width: 80%;
+    height: 11vh;
+    background-color:white;	
+    color: #191970;
+    transition: 0.3s;
+}
+
+.graficos{
+    width: 80vw;
+    height: 90vh;
+    background-color: #282c34;
+}
+
+.graf_cima{
+    width: 80vw;
+    height: 45vh;
+    display: flex;
+}
+
+.graf_cima_esq{
+    width: 40vw;
+    height: 45vh;
+}
+
+.graf_cima_dir{
+    width: 40vw;
+    height: 45vh;
+}
+
+#graf_cima_dir_tot1{
+    background-color: #b2b2f8;
+}
+
+#graf_cima_dir_tot2{
+    background-color: #000000;
+}
+
+#graf_cima_dir_tot3{
+    background-color: #007423;
+}
+
+#graf_cima_dir_cai1{
+    background-color: #707070;
+}
+
+#graf_cima_dir_cai2{
+    background-color: #ff0909e7;
+}
+
+#graf_cima_esq_tot1{
+    background-color: #191970;
+}
+
+#graf_cima_esq_tot2{
+    background-color: #dadaff;
+}
+
+#graf_cima_esq_tot3{
+    background-color: #2433ff;
+}
+
+#graf_cima_esq_cai1{
+    background-color: #e5ff00;
+}
+
+#graf_cima_esq_cai2{
+    background-color: #c300ff;
+}
+
+#graf_esq_tot1{
+    background-color: #282c34;
+}
+
+#graf_esq_tot2{
+    background-color: #282c34;
+}
+
+#graf_esq_tot3{
+    background-color: #282c34;
+}
+
+#graf_esq_cai1{
+    background-color: #282c34;
+}
+
+#graf_esq_cai2{
+    background-color: #282c34;
+}
+
+#graf_dir_tot1{
+    background-color: #86ffaf;
+}
+
+#graf_dir_tot2{
+    background-color: #a32727;
+}
+
+#graf_dir_tot3{
+    background-color: #9375ff;
+}
+
+#graf_dir_cai1{
+    background-color: #080946;
+}
+
+#graf_dir_cai2{
+    background-color: #252e00;
+}
+
+
+.graf_baixo{
+    width: 80vw;
+    height: 45vh;
+    background-color: rgb(0, 102, 102);
+    display: flex;
+}
+
+.graf_esq{
+    width: 40vw;
+    height: 45vh;
+    background-color: #7979cc;
+}
+
+.graf_dir{
+    width: 40vw;
+    height: 45vh;
+    background-color: brown;
+}
+
+.dark{
+    background:#000;
+    color:#fff;
+    }
+    
+    .light{
+    background:#fff;
+    color:#4b4b4b;
+    }
+
+
+
+

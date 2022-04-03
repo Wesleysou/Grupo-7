@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css-dash-suporte.css">
+    <title>Suporte</title>
+    <script src="site.js/dash-suporte.js"></script>
+    <script src="https://kit.fontawesome.com/451870fbf6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="container">
+
+    <div class="headerPai">
+
+        <div class="header">
+
+            <div class="conteudoHeader">
+                
+                <div class="imgSup">
+
+                 <img src="assets/imgs/logos/do-utilizador.png" alt="">
+
+                </div>
+
+                <div class="info">
+                    <p>Wesley .M</p>
+                    <br>
+                     <p>email@email.com</p>
+                </div>
+
+
+            </div>
+
+            <div class="conteudoHeader">
+
+                <h1 id="id_nome_maquina" class="titulo_maquina">Totem 01</h1>
+
+            </div>
+
+            <div class="conteudoHeader">
+            <a href="">Sair</a>    
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="conteudoPai">
+
+        <div class="botoes">
+
+            <button class="botoesGrafico" onclick="but_totem_1()">Totem 1</button>
+            <button class="botoesGrafico" onclick="but_totem_2()">Totem 2</button>
+            <button class="botoesGrafico" onclick="but_totem_3()">Totem 3</button>
+            <button class="botoesGrafico" onclick="but_caixa_1()">Caixa 1</button>
+            <button class="botoesGrafico" onclick="but_caixa_2()">Caixa 2</button>
+
+        </div>
+
+        <div class="graficos">
+            <div class="graf_cima">
+
+              <div class="graf_cima_esq" id="graf_cima_esq_tot1">
+
+              </div>
+              <div class="graf_cima_esq" id="graf_cima_esq_tot2" style="display: none;" >
+
+              </div>
+              <div class="graf_cima_esq" id="graf_cima_esq_tot3" style="display: none;" >
+
+              </div>
+              <div class="graf_cima_esq" id="graf_cima_esq_cai1" style="display: none;" >
+
+              </div>
+              <div class="graf_cima_esq" id="graf_cima_esq_cai2" style="display: none;" >
+
+              </div>
+
+              <div class="graf_cima_dir" id="graf_cima_dir_tot1">
+
+              </div>
+              <div class="graf_cima_dir" id="graf_cima_dir_tot2" style="display: none;" >
+
+              </div>
+              <div class="graf_cima_dir" id="graf_cima_dir_tot3" style="display: none;" >
+
+              </div>
+              <div class="graf_cima_dir" id="graf_cima_dir_cai1" style="display: none;" >
+
+              </div>
+              <div class="graf_cima_dir" id="graf_cima_dir_cai2" style="display: none;" >
+
+              </div>
+
+            </div>
+
+            <div class="graf_baixo">
+
+                <div class="graf_esq" id="graf_esq_tot1">
+                    <canvas id="tot1_baixo_esquerda" style="height: 90%;width: 100%;"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                </div>
+                <div class="graf_esq" id="graf_esq_tot2" style="display: none;" >
+                    <canvas id="tot2_baixo_esquerda" style="height: 90%;width: 100%;"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                </div>
+                <div class="graf_esq" id="graf_esq_tot3" style="display: none;" >
+                    <canvas id="tot3_baixo_esquerda" style="height: 90%;width: 100%;"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                </div>
+                <div class="graf_esq" id="graf_esq_cai1" style="display: none;" >
+                    <canvas id="cai1_baixo_esquerda" style="height: 90%;width: 100%;"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                </div>
+                <div class="graf_esq" id="graf_esq_cai2" style="display: none;" >
+                    <canvas id="cai2_baixo_esquerda" style="height: 90%;width: 100%;"></canvas>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                </div>
+                
+                <div class="graf_dir" id="graf_dir_tot1" >
+
+                </div>
+
+                <div class="graf_dir" id="graf_dir_tot2" style="display: none;" >
+
+                </div>
+                <div class="graf_dir" id="graf_dir_tot3" style="display: none;" >
+
+                </div>
+                <div class="graf_dir" id="graf_dir_cai1" style="display: none;" >
+
+                </div>
+                <div class="graf_dir" id="graf_dir_cai2" style="display: none;" >
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+
+
+
+<script>
+
+    // Configuração do grafico Toten 01 esquerda 
+    const labels = [
+      '7h',
+      '9h',
+      '11h',
+      '13h',
+      '15h',
+      '17h',
+      '19h',
+      '21h',
+      '23h',
+      '24h',
+    ];
+
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'RAM(%)',
+        backgroundColor: '#0000aa',
+        borderColor: '#0000aa',
+        data: [46, 48, 48, 52,53, 50, 53, 51,49,50],
+      }]
+    }
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {}
+    };
+
+    const myChart = new Chart(
+      document.getElementById('tot1_baixo_esquerda'),
+      config
+    );
+
+//-----------------------------------------------------------
+
+    // Configuração do grafico Toten 02 esquerda 
+    const labels_tot2 = [
+      '7h',
+      '9h',
+      '11h',
+      '13h',
+      '15h',
+      '17h',
+      '19h',
+      '21h',
+      '23h',
+      '24h',
+    ];
+
+    const data_tot2 = {
+      labels: labels_tot2,
+      datasets: [{
+        label: 'RAM(%)',
+        backgroundColor: '#00ff4c',
+        borderColor: '#00ff4c',
+        data: [44, 48, 49, 52,51, 50, 53, 54,49,50],
+      }]
+    }
+
+    const config_tot2 = {
+      type: 'line',
+      data: data_tot2,
+      options: {}
+    };
+
+    const myChart_tot2 = new Chart(
+      document.getElementById('tot2_baixo_esquerda'),
+      config_tot2
+    );
+
+//-----------------------------------------------------------
+
+    // Configuração do grafico Toten 3 esquerda 
+    const labels_tot3 = [
+      '7h',
+      '9h',
+      '11h',
+      '13h',
+      '15h',
+      '17h',
+      '19h',
+      '21h',
+      '23h',
+      '24h',
+    ];
+
+    const data_tot3 = {
+      labels: labels_tot3,
+      datasets: [{
+        label: 'RAM(%)',
+        backgroundColor: '#e5ff00',
+        borderColor: '#e5ff00',
+        data: [45, 48, 48, 54,53, 50, 53, 51,49,50],
+      }]
+    }
+
+    const config_tot3 = {
+      type: 'line',
+      data: data_tot3,
+      options: {}
+    };
+
+    const myChart_tot3 = new Chart(
+      document.getElementById('tot3_baixo_esquerda'),
+      config_tot3
+    );
+//-----------------------------------------------------------
+
+    // Configuração do grafico Caixa 1 esquerda 
+    const labels_cai1 = [
+      '7h',
+      '9h',
+      '11h',
+      '13h',
+      '15h',
+      '17h',
+      '19h',
+      '21h',
+      '23h',
+      '24h',
+    ];
+
+    const data_cai1 = {
+      labels: labels_cai1,
+      datasets: [{
+        label: 'RAM(%)',
+        backgroundColor: '#c300ff',
+        borderColor: '#c300ff',
+        data: [59, 58, 56, 60,61, 63, 61, 61,60,60],
+      }]
+    }
+
+    const config_cai1 = {
+      type: 'line',
+      data: data_cai1,
+      options: {}
+    };
+
+    const myChart_cai1 = new Chart(
+      document.getElementById('cai1_baixo_esquerda'),
+      config_cai1
+    );
+//-----------------------------------------------------------
+
+    // Configuração do grafico Caixa 2 esquerda 
+    const labels_cai2 = [
+      '7h',
+      '9h',
+      '11h',
+      '13h',
+      '15h',
+      '17h',
+      '19h',
+      '21h',
+      '23h',
+      '24h',
+    ];
+
+    const data_cai2 = {
+      labels: labels_cai2,
+      datasets: [{
+        label: 'RAM(%)',
+        backgroundColor: '#a32727',
+        borderColor: '#a32727',
+        data: [56, 58, 55, 60,61, 60, 61, 61,62,60],
+      }]
+    }
+
+    const config_cai2 = {
+      type: 'line',
+      data: data_cai2,
+      options: {}
+    };
+
+    const myChart_cai2 = new Chart(
+      document.getElementById('cai2_baixo_esquerda'),
+      config_cai2
+    );
+
+  </script>
+</html>
