@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniView | Entrar</title>
+    <link rel="shortcut icon" href="./assets/imgs/logos/omniview-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/loginstyle.css">
+    <link rel="stylesheet" href="./css/defaultstyle.css">
+    <link rel="stylesheet" href="./css/contatoresponsivo.css">
+
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <nav class="navbar" id="navBar">
+                <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
+                <ul>
+
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contatos.html">Contato</a>
+                    <li><a href="cadastro.html">Cadastre-se</a></li>
+                    <li><a href="" class="li-checked"><button class="botao-entrar">Entrar</button></a></li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="lateral-m">
+        <nav>
+            <div class="nav">
+                <input type="checkbox" id="menu_lateral" class="input-menu ">
+
+                <label for="menu_lateral">
+                    <div class="menu">
+
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+
+                <label for="menu_lateral" class="botao-fechar">x</label>
+
+                <div class="box-menu">
+                    <a href="" class="li-checked">Cadastre-se</a>
+                    <a href="index.html">Home</a>
+                    <a href="sobre.html">Login</a>
+                    <a href="cadastro.html">Contato</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+
+    <br><br><br><br><br><br><br>
+
+    <div id="titulo_login">
+    <h1>Login</h1></div>
+    <section class="forms">
+
+        <div>
+            <div class="form">
+                E-mail:
+                <input class="form__input" id="email_input" type="text" placeholder="Digite seu E-mail">
+                <br>
+                Senha:
+                <input class="form__input" id="senha_input" type="password" placeholder="******">
+                <br>
+                <button class="btn" onclick="entrar()">Entrar</button>
+            </div>
+            <img src="./assets/imgs/Login.png " alt="Contato ">
+        </div>
+
+
+    </section>
+
+
+
+
+    <section class="container">
+
+        <footer>
+            <div class="footer-info">
+                <div class="container">
+                    <div class="align-links-footer">
+                        <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
+                        <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
+                        <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="container">
+                    <p>© 2022 by OmniView todos direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>
+<script>
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (emailVar == "" || senhaVar == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+
+            return false;
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+
+            return false;
+        }
+
+        if (emailVar == "Leonardo@sptech.com" && senhaVar == "urubu100") {
+            window.location.href = 'gerente_caixa.html'
+        setTimeout(() =>alert(`Bem vindo(a)!!`), 1000 );
+        
+        } else {
+            window.location.href = 'dashboard_suporte.html'
+        }
+    }
+</script>

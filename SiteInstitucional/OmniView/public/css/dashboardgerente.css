@@ -1,0 +1,229 @@
+:root {
+    --color-perigo: #fd1818;
+    --color-cuidado: #e6ff07;
+    --color-certo: #137200;
+    --color-primary: #97ABB7;
+    --color-weight: #324048;
+    --color-blue: #5176b5;
+    --color-white: #ffffff;
+    --color-gray: #f3f3f3;
+}
+.div_dash{
+    height: 65vh;
+    width: 95vw;
+  text-align: justify center;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+}
+
+h2{
+    text-align: center;
+    color: #324048;
+}
+
+/*CARDS */
+#card{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+#card2{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+#card3{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+#card4{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+#card5{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    transition: all.5s;
+}
+.face{
+    width: 10vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 100px;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+}
+.face2{
+    width: 10vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: bold;    
+    cursor: pointer;
+    color: #000000;
+    border-radius: 100px;
+}
+.face3{
+    width: 10vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+    color: #000000;
+
+}
+.face4{
+    width: 10vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+    color: #000000;
+
+}
+.face5{
+    width: 10vw;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-weight: bold;
+    border-radius: 100px;
+    color: #000000;
+    cursor: pointer;
+
+}
+#front{
+    background-color: var(--color-certo);
+    transform: rotateY(180deg);
+}
+#front2{
+    background-color: var(--color-perigo);
+    transform: rotateY(180deg);
+}
+#front3{
+    background-color: var(--color-certo);
+    transform: rotateY(180deg);
+}
+#front4{
+    background-color: var(--color-certo);
+    transform: rotateY(180deg);
+}
+#front5{
+    background-color: var(--color-cuidado);
+    transform: rotateY(180deg);
+}
+#back{
+    background-color: var(--color-certo);
+    backface-visibility: hidden;
+    font-size: xx-small;
+    color: #000000;
+}
+#back2{
+    background-color: var(--color-perigo);
+    font-size: xx-small;
+    color: #000000;
+    backface-visibility: hidden;
+}
+#back3{
+    background-color: var(--color-certo);
+    font-size: xx-small;
+    color: #000000;
+    backface-visibility: hidden;
+}
+#back4{
+    background-color: var(--color-certo);
+    font-size: xx-small;
+    color: #000000;
+    backface-visibility: hidden;
+}
+#back5{
+    background-color: var(--color-cuidado);
+    font-size: xx-small;
+    color: #000000;
+    backface-visibility: hidden;
+}
+.flip{
+    transform: rotateY(180deg);
+}
+
+.time .container #position_card{
+    display: flex;
+    margin-top: 5vh;
+    justify-content: space-evenly;
+}
+.topics{
+  
+    margin-top: 75px;
+    margin-bottom: 75px;
+   
+}
+
+/* time 
+_________________________________ */
+
+.time {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    height: 67vh;
+    background-color: var(--color-primary);
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.time h1 {
+    font-size: 45px;
+    text-align: justify center;
+    color: var(--color-gray);
+}
+
+.time p {
+    text-align: justify center;
+    color: var(--color-gray);
+    margin: 30px 0;
+}
+
+.time img {
+    width: 20%;
+}
+
+.time h1,
+.time p,
+.time img {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#titulo_verde{
+    color: var(--color-certo);
+}
+#titulo_amarelo{
+    color: var(--color-cuidado);
+}
+#titulo_vermelho{
+    color: var(--color-perigo);
+}
