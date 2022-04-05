@@ -5,6 +5,8 @@
 package com.mycompany.ominiview;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -230,18 +232,19 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-
         String email = txtEmail.getText();
         String senha = txtSenha.getText();
-
-        if(email.equals("ominiview@gmail.com") && senha.equals("1234")){
-            JOptionPane.showMessageDialog(null, "Login realizado com sucesso");
-            TelaOpcao tela = new TelaOpcao();
-            tela.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Acesso negado");
-        }
+         
+       Metodos.AutenticarLogin(email, senha);
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    public void setTxtEmail(JTextField txtEmail) {
+        this.txtEmail = txtEmail;
+    }
+
+    public void setTxtSenha(JPasswordField txtSenha) {
+        this.txtSenha = txtSenha;
+    }
 
     /**
      * @param args the command line arguments
