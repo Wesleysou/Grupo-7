@@ -27,31 +27,31 @@ h2{
     transform-style: preserve-3d;
     display: flex;
     justify-content: center;
-    transition: all.5s;
+    transition: all .5s;
 }
 #card2{
     transform-style: preserve-3d;
     display: flex;
     justify-content: center;
-    transition: all.5s;
+    transition: all .5s;
 }
 #card3{
     transform-style: preserve-3d;
     display: flex;
     justify-content: center;
-    transition: all.5s;
+    transition: all .5s;
 }
 #card4{
     transform-style: preserve-3d;
     display: flex;
     justify-content: center;
-    transition: all.5s;
+    transition: all .5s;
 }
 #card5{
     transform-style: preserve-3d;
     display: flex;
     justify-content: center;
-    transition: all.5s;
+    transition: all .5s;
 }
 .face{
     width: 10vw;
@@ -227,3 +227,141 @@ _________________________________ */
 #titulo_vermelho{
     color: var(--color-perigo);
 }
+
+#social_reiniciar{
+    height: 69vh;
+    background-color: #97ABB7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.div_reiniciar{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: baseline;
+    font-size: large;
+    font-weight: 900;
+    color: #f3f3f3;
+}
+
+.but_reiniciar{
+    padding: 0% 9% 0% 9%;
+    width: 16vw;
+    border: none;
+    height: 7vh;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.but_reiniciar:hover{
+    background-color: #eef9ff;    
+    font-weight: bolder ;
+    transition: all .1s;
+}
+
+.modal-overlay {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    top: 0;
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.8s;
+}
+
+.modal {
+ background: #324048;
+ position: relative;
+ height: 100%;
+ width: 90%;
+ max-width: 65%;
+ max-height: 80%;
+ z-index: 1;
+ border-radius: 0.75rem;
+ color: white;
+}
+
+/* CSS DOS ELEMENTOS DO MODAL */
+
+.modal .box-fechar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 5%;
+    font-size: x-large;
+    padding-right: 2%;
+}
+
+.box-fechar:hover{
+    -webkit-text-stroke: 5px rgba(121, 121, 121, 0.112); 
+    cursor: pointer;
+}
+
+.modal .container-top-title {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn-voltar:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #330065, #60008c);
+    background-image: -moz-linear-gradient(top, #330065, #60008c);
+    background-image: -ms-linear-gradient(top, #330065, #60008c);
+    background-image: -o-linear-gradient(top, #330065, #60008c);
+    background-image: linear-gradient(to bottom, #330065, #60008c);
+    text-decoration: none;
+}
+
+.modal .container-btn{
+    display: flex;
+    height: 60%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-area {
+    width: 30vw;
+    height: 12vh;
+    background-color: #97ABB7;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: 0.5s;
+}
+
+.btn-area:hover{
+    border: solid #5176b5 1px;
+    background: #5176b5;
+    background-image: -webkit-linear-gradient(top, #97ABB7, #8da8d7);
+    background-image: -moz-linear-gradient(top, #97ABB7, #8da8d7);
+    background-image: -ms-linear-gradient(top, #97ABB7, #8da8d7);
+    background-image: -o-linear-gradient(top, #97ABB7, #8da8d7);
+    background-image: -webkit-gradient(to bottom, #97ABB7, #8da8d7);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-area h2 {
+    font-size: x-large;
+}   
