@@ -15,7 +15,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	vertical-align: baseline;
 }
 
@@ -527,7 +527,7 @@ body{
     background-color: #282c34;
     display: flex;
     justify-content: space-around;
-    border-bottom: white 3px solid;
+    border-bottom: white 1px solid;
     align-items: center;
 }
 
@@ -600,7 +600,7 @@ a{
     justify-content: space-around;
     align-items: center;
     background-color: 	#282c34;
-    border-right: white 3px solid;
+    border-right: white 1px solid;
 }
 
 .botoes button{
@@ -646,43 +646,43 @@ button:hover{
 }
 
 #graf_cima_dir_tot1{
-    background-color: #b2b2f8;
+    background-color: #282c34;
 }
 
 #graf_cima_dir_tot2{
-    background-color: #000000;
+    background-color: #282c34;
 }
 
 #graf_cima_dir_tot3{
-    background-color: #007423;
+    background-color: #282c34;
 }
 
 #graf_cima_dir_cai1{
-    background-color: #707070;
+    background-color: #282c34;
 }
 
 #graf_cima_dir_cai2{
-    background-color: #ff0909e7;
+    background-color: #282c34;
 }
 
 #graf_cima_esq_tot1{
-    background-color: #191970;
+    background-color: #282c34;
 }
 
 #graf_cima_esq_tot2{
-    background-color: #dadaff;
+    background-color: #282c34;
 }
 
 #graf_cima_esq_tot3{
-    background-color: #2433ff;
+    background-color: #282c34;
 }
 
 #graf_cima_esq_cai1{
-    background-color: #e5ff00;
+    background-color: #282c34;
 }
 
 #graf_cima_esq_cai2{
-    background-color: #c300ff;
+    background-color: #282c34;
 }
 
 #graf_esq_tot1{
@@ -706,23 +706,23 @@ button:hover{
 }
 
 #graf_dir_tot1{
-    background-color: #86ffaf;
+    background-color: #282c34;
 }
 
 #graf_dir_tot2{
-    background-color: #a32727;
+    background-color: #282c34;
 }
 
 #graf_dir_tot3{
-    background-color: #9375ff;
+    background-color: #282c34;
 }
 
 #graf_dir_cai1{
-    background-color: #080946;
+    background-color: #282c34;
 }
 
 #graf_dir_cai2{
-    background-color: #252e00;
+    background-color: #282c34;
 }
 
 
@@ -742,7 +742,11 @@ button:hover{
 .graf_dir{
     width: 40vw;
     height: 45vh;
-    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
 }
 
 .dark{
@@ -756,5 +760,26 @@ button:hover{
     }
 
 
+.div_componentes_computador{
+
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    justify-content: space-around;
+    color: #fff;
+    background-color: #282c34;
+    font-weight: bold;
+    font-size: 15pt;
+    
+}
+
+.graf_esq{
+    border-top: 1px solid #fff;
+}
+
+.graf_cima_esq{
+    border-right: 1px solid #fff;
+}
 
 
