@@ -591,6 +591,17 @@ a{
     background-color: azure;
 }
 
+.conteudoHeader i{
+    font-size: 3vh;
+    transition: 0.2s;
+}
+
+#icone_saida:hover{
+
+    color: rgb(230, 54, 54);
+}
+
+
 .botoes{
     width: 20vw;
     height: 90vh;
@@ -606,9 +617,12 @@ a{
 .botoes button{
     width: 70%;
     height: 10vh;
-    border-radius: 10px;
     border: none;
-    background-color:#191970;	
+    background-color:#191970;
+    border-top: 5px solid #222288;
+    border-left: 5px solid #222288;
+    border-right: 5px solid #258cd1;
+    border-bottom: 5px solid #258cd1;
     color: white;
     cursor: pointer;
     font-weight: bolder;
@@ -616,10 +630,14 @@ a{
 }
 
 button:hover{
-    width: 80%;
-    height: 11vh;
-    background-color:white;	
-    color: #191970;
+    width: 71%;
+    background-color:#258cd1;	
+    color: #fff;
+    background-color:#222288;
+    border-top: 5px solid #258cd1;
+    border-left: 5px solid #258cd1;
+    border-right: 5px solid #191970;
+    border-bottom: 5px solid #191970;
     transition: 0.3s;
 }
 
