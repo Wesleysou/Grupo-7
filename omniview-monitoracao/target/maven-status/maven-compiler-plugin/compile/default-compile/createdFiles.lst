@@ -5,6 +5,7 @@ com\mycompany\omniview\monitoracao\Connection.class
 com\mycompany\omniview\monitoracao\TelaLogin.class
 com\mycompany\omniview\monitoracao\TelaLogin$4.class
 com\mycompany\omniview\monitoracao\TelaOpcao$5.class
+com\mycompany\omniview\monitoracao\AutenticarLogin$1.class
 com\mycompany\omniview\monitoracao\TelaOpcao$3.class
 com\mycompany\omniview\monitoracao\TelaOpcao$4.class
 com\mycompany\omniview\monitoracao\User.class
@@ -13,3 +14,4 @@ com\mycompany\omniview\monitoracao\TelaLogin$1.class
 com\mycompany\omniview\monitoracao\TelaOpcao$1.class
 com\mycompany\omniview\monitoracao\App.class
 com\mycompany\omniview\monitoracao\TelaLogin$2.class
+.netbeans_automatic_build

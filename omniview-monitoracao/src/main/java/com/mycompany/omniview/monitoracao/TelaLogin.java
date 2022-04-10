@@ -4,7 +4,6 @@
  */
 package com.mycompany.omniview.monitoracao;
 
-
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -18,9 +17,6 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
-    
-    
-    
     public TelaLogin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -37,7 +33,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
@@ -54,19 +49,6 @@ public class TelaLogin extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel4.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("https://scontent-gru1-1.xx.fbcdn.net/v/t39.30808-6/277789364_5162254863832197_3946864404372502861_n.jpg?stp=cp0_dst-jpg&_nc_cat=104&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGWKQkd6GEc_5SGTTaElCi2U7ziMEJXtTBTvOIwQle1MCyLR2Ax-kLxjUtRtPQThnniQ0UKuhzkWB6nXN9pchtT&_nc_ohc=-ofB2E-_t9sAX_0l4gj&_nc_ht=scontent-gru1-1.xx&oh=00_AT8le18FcS4Js2jWQDZ5_hWthCCEaMk_wZxAAUEYE-b6hw&oe=624F7939")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
-        jLabel4.setText("jLabel4");
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(81, 118, 181));
@@ -173,9 +155,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(117, 117, 117)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 167, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -195,13 +175,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -240,9 +215,9 @@ public class TelaLogin extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String senha = txtSenha.getText();
         User usuario = new User(01, email, senha);
-        
-        
-       AutenticarLogin.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
+     
+        AutenticarLogin.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
+         
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public void setTxtEmail(JTextField txtEmail) {
@@ -293,7 +268,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

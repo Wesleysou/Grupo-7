@@ -4,17 +4,19 @@
  */
 package com.mycompany.omniview.monitoracao;
 
+import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class TelaOpcao extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaOpcao
-     */
-    public TelaOpcao() {
+    public TelaOpcao(List<User> usuarioId) {
+
         initComponents();
+    }
+
+    public TelaOpcao() {
     }
 
     /**
@@ -236,14 +238,15 @@ public class TelaOpcao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        AutenticarLogin identificarId = new AutenticarLogin();
 
         if (checkCaixa.isSelected()) {
-            AutenticarLogin.RegistrarCaixa(evt, rootPaneCheckingEnabled);
-            
-        } else if (checkTotem.isSelected()){
+            AutenticarLogin.RegistrarCaixa(evt, rootPaneCheckingEnabled, identificarId.getId());
+
+        } else if (checkTotem.isSelected()) {
             AutenticarLogin.RegistrarTotem(evt, rootPaneCheckingEnabled);
         }
-   
+
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void checkTotemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTotemActionPerformed

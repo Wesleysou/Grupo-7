@@ -18,6 +18,7 @@ public class User {
 
     private String email;
     private String senha;
+    private Integer id;
 
     public User() {
     }
@@ -25,13 +26,13 @@ public class User {
     public User(Integer Id, String email, String senha) {
         this.email = email;
         this.senha = senha;
+        this.id = id;
     }
 
     //StringBuilder createStatement = new StringBuilder();
     public String getEmail() {
-        List emailUsuariosBanco = con.queryForList("SELECT EMAIL FROM "
-                + "USUARIOS WHERE ID=1");
-        return emailUsuariosBanco.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+        
+        return email;
     }
 
     public void setEmail(String email) {
@@ -39,13 +40,26 @@ public class User {
     }
 
     public String getSenha() {
-        List senhaUsuariosBanco = con.queryForList("SELECT SENHA FROM "
-                + "USUARIOS  WHERE ID=1");
-        return senhaUsuariosBanco.get(0).toString().replace("{SENHA=", "").replace("}", "");
+  
+        return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "email =" + email + "senha =" + senha;
+    }
+
+    
 }
