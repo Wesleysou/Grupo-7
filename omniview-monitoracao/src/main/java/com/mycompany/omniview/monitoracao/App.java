@@ -4,6 +4,7 @@
  */
 package com.mycompany.omniview.monitoracao;
 
+import com.mycompany.omniview.monitoracao.verificacao.AutenticarLogin;
 import com.github.britooo.looca.api.core.Looca;
 
 import org.springframework.jdbc.core.JdbcTemplate;
