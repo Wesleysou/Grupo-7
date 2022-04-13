@@ -599,6 +599,7 @@ a{
 #icone_saida:hover{
 
     color: rgb(230, 54, 54);
+    cursor: pointer;
 }
 
 
