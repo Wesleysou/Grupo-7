@@ -114,8 +114,6 @@ textarea {
 }
 
 .forms .form {
-  height: 300px;
-  width: 530px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
