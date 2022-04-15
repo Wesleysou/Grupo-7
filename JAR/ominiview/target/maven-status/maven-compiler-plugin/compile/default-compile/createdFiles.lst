@@ -1,13 +1,15 @@
 com\mycompany\ominiview\TelaOpcao$1.class
-App.class
 com\mycompany\ominiview\TelaLogin$1.class
+com\mycompany\ominiview\RecursosComputador.class
 com\mycompany\ominiview\TelaOpcao$5.class
+com\mycompany\ominiview\App.class
 com\mycompany\ominiview\TelaOpcao.class
 com\mycompany\ominiview\Connection.class
 com\mycompany\ominiview\TelaLogin$3.class
 com\mycompany\ominiview\TelaOpcao$4.class
 com\mycompany\ominiview\TelaLogin$2.class
 com\mycompany\ominiview\TelaOpcao$3.class
+com\mycompany\ominiview\Metodos.class
 com\mycompany\ominiview\TelaOpcao$2.class
 com\mycompany\ominiview\TelaLogin$4.class
 com\mycompany\ominiview\TelaLogin.class
