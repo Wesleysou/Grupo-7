@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.omniview.monitoracao;
+package com.mycompany.omniview.monitoracao.loginswing;
 
+import com.mycompany.omniview.monitoracao.verificacao.AutenticarLogin;
+import com.mycompany.omniview.monitoracao.usuario.User;
 import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -233,7 +235,7 @@ public class TelaOpcao extends javax.swing.JFrame {
                         .addGap(81, 81, 81))))
         );
 
-        setSize(new java.awt.Dimension(495, 407));
+        setSize(new java.awt.Dimension(495, 388));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
