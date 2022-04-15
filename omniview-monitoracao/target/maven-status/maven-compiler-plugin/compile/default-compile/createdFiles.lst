@@ -8,7 +8,9 @@ com\mycompany\omniview\monitoracao\loginswing\TelaLogin.class
 com\mycompany\omniview\monitoracao\verificacao\AutenticarLogin.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$2.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao.class
+com\mycompany\omniview\monitoracao\usuario\RecursosComputador.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$4.class
 com\mycompany\omniview\monitoracao\usuario\User.class
 com\mycompany\omniview\monitoracao\App.class
+com\mycompany\omniview\monitoracao\usuario\TesteRecursos.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$1.class

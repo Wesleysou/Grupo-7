@@ -44,7 +44,7 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
         List senhaUsuariosBanco = con.queryForList("SELECT SENHA FROM "
-                + "TB_USUARIO  WHERE ID=1");
+                + "TB_USUARIO WHERE ID=1");
         return senhaUsuariosBanco.get(0).toString().replace("{SENHA=", "").replace("}", "");
     }
 
@@ -57,12 +57,12 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
         System.out.println("Criando tabela e inserindo dados...");
-        con.execute("DROP TABLE IF EXISTS USUARIOS");
-        con.execute("CREATE TABLE USUARIOS (ID INT"
+        con.execute("DROP TABLE IF EXISTS TB_USUARIO");
+        con.execute("CREATE TABLE TB_USUARIO (ID INT"
                 + " PRIMARY KEY AUTO_INCREMENT,"
                 + " EMAIL VARCHAR(45), SENHA  VARCHAR(45)"
                 + ", TIPO CHAR(1));");
-        con.execute("INSERT INTO USUARIOS VALUES"
+        con.execute("INSERT INTO TB_USUARIO VALUES"
                 + "(null, 'teste@email.com', 'teste', null);");
 
     }
