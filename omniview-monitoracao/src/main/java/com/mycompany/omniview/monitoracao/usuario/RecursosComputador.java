@@ -18,7 +18,8 @@ public class RecursosComputador {
     private Integer bitMaquina;
     private String sistemaOperacional;
     private Long disco;
-   
+    private
+
     Looca looca = new Looca();
     
     public void informacoesDoSistema(){
@@ -32,7 +33,10 @@ public class RecursosComputador {
         sistemaOperacional = looca.getSistema().getSistemaOperacional();
         
         //Total de Disco
-        disco = looca.getGrupoDeDiscos().getTamanhoTotal();
+        Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
+        Long discoKiloByte = discoByte / 1024;
+        Long discoMegaByte = discoKiloByte / 1024;
+        disco = discoMegaByte / 1024;
     }
 
     public void informacaomemoria(){
@@ -50,13 +54,14 @@ public class RecursosComputador {
         }
     }
 
+
     @Override
     public String toString() {
-        return "-----Processador-----\n"+ processador
-             + "\n-----Total de bits-----\n" + bitMaquina
-             + "\n-----Sistema Operacional-----\n" + sistemaOperacional
-             + "\n-----Total Disco-----\n" + disco
-             + "\n-----Memória-----\n" + looca.getMemoria();
+        return  String.format("Processador: %s \n" +
+                "Total de bits: %d \n" +
+                "Sistema Operacional: %s \n" +
+                "Total Disco: %dGB \n" +
+                "-------Memória-------",processador, bitMaquina, sistemaOperacional,disco,looca.getMemoria());
     }
     
 }

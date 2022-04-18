@@ -18,7 +18,5 @@ public class TesteRecursos {
         
         recMemoria.informacaomemoria();
         System.out.println(recMemoria);
-
-        
     }
 }
