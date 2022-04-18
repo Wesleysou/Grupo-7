@@ -29,10 +29,10 @@ create table maquina(
 id INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(45),
 sistemaOperacional VARCHAR(45),
-ram VARCHAR(45),
+ram DOUBLE(4,2),
 arquitetura VARCHAR(45),
 processador VARCHAR(50),
-disco VARCHAR(50),
+disco DOUBLE(4,2),
 Fk_EstMaq INT,
 FOREIGN KEY (Fk_EstMaq) REFERENCES estabelecimento (id)
 )AUTO_INCREMENT = 500;
@@ -41,8 +41,8 @@ SELECT * FROM maquina;
 
 create table medicoes(
 id INT PRIMARY KEY AUTO_INCREMENT,
-ram INT,
-disco INT,
+ram DOUBLE(4,2),
+disco DOUBLE(4,2),
 cpuM INT,
 processo INT,
 diaHorario DATETIME,
