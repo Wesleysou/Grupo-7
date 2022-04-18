@@ -14,11 +14,6 @@ public class TesteRecursos {
         RecursosComputador recMemoria = new RecursosComputador();
 
         infoSistema.informacoesDoSistema();
-        System.out.println(infoSistema);
-        
-        recMemoria.informacaomemoria();
-        System.out.println(recMemoria);
-
-        
+        System.out.println("Gravando dados na tabela Maquina");
     }
 }

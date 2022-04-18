@@ -12,7 +12,7 @@ token VARCHAR(100) unique
 
 SELECT * FROM estabelecimento;
 
-create table usuario(
+create table tb_usuario(
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(45),

@@ -5,37 +5,57 @@
 package com.mycompany.omniview.monitoracao.usuario;
 
 import com.github.britooo.looca.api.core.Looca;
+import com.mycompany.omniview.monitoracao.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
  * @author mariana.cazzoto
  */
 public class RecursosComputador {
-    
+
     private String processador;
     private Integer bitMaquina;
     private String sistemaOperacional;
-    private Long disco;
-   
+    private Double disco;
+    private Integer arquiteturaSis;
+    private Double memoriaRam;
+
     Looca looca = new Looca();
-    
-    public void informacoesDoSistema(){
+
+    public void informacoesDoSistema() {
+        Connection config = new Connection();
+        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+        
+        
+        
         //Pega o nome do processador
         processador = looca.getProcessador().getNome();
-        
+
         //Pega quantos bit a maquina tem
         bitMaquina = looca.getSistema().getArquitetura();
-        
+
         //Pega o sistema operacional da maquina
         sistemaOperacional = looca.getSistema().getSistemaOperacional();
-        
+
         //Total de Disco
-        disco = looca.getGrupoDeDiscos().getTamanhoTotal();
+        Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
+        disco = discoByte / 1073741824.0;
+
+        arquiteturaSis = looca.getSistema().getArquitetura();
+        
+        Long memoriaRamByte = looca.getMemoria().getEmUso();
+        memoriaRam = memoriaRamByte/1073741824.0;
+        
+        con.update("INSERT INTO MAQUINA VALUES (null, null, ?,?,?,?,?,null)",
+                sistemaOperacional,memoriaRam,
+                arquiteturaSis,processador,disco);
+
     }
 
-    public void informacaomemoria(){
+    public void informacaomemoria() {
         //Pega as informações da memoria a cada 5 segundos
         while (true) {
 
@@ -52,11 +72,15 @@ public class RecursosComputador {
 
     @Override
     public String toString() {
-        return "-----Processador-----\n"+ processador
-             + "\n-----Total de bits-----\n" + bitMaquina
-             + "\n-----Sistema Operacional-----\n" + sistemaOperacional
-             + "\n-----Total Disco-----\n" + disco
-             + "\n-----Memória-----\n" + looca.getMemoria();
+        return String.format("Processador: %s \n"
+                + "Total de bits: %d \n"
+                + "Sistema Operacional: %s \n"
+                + "Total Disco: %.2fGB \n"
+                + "Arquitetura do sistema: %dx "
+                + "\n"
+                + "-------Memória-------", processador, bitMaquina,
+                sistemaOperacional,
+                disco, arquiteturaSis, looca.getMemoria());
     }
-    
+
 }
