@@ -6,6 +6,7 @@ package com.mycompany.omniview.monitoracao.usuario;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.monitoracao.Connection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,18 +20,20 @@ public class RecursosComputador {
     private String processador;
     private Integer bitMaquina;
     private String sistemaOperacional;
-    private Double disco;
+    private Double discoTotal;
     private Integer arquiteturaSis;
     private Double memoriaRam;
+    private Double memoriaRamTotal;
+    private List processos;
+    private Integer quantidadeDiscos;
+    private Double cpuTotal;
 
     Looca looca = new Looca();
 
-    public void informacoesDoSistema() {
+    public void informacoesDoSistemaAtual() {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        
-        
-        
+
         //Pega o nome do processador
         processador = looca.getProcessador().getNome();
 
@@ -40,18 +43,45 @@ public class RecursosComputador {
         //Pega o sistema operacional da maquina
         sistemaOperacional = looca.getSistema().getSistemaOperacional();
 
+        //Arquitetura do processador
+        arquiteturaSis = looca.getSistema().getArquitetura();
+        //Memoria ram convertida de bytes para Gigas
+        //(RAM EM USO)
+        Long memoriaRamByte = looca.getMemoria().getEmUso();
+        memoriaRam = memoriaRamByte / 1073741824.0;
+
+        quantidadeDiscos = looca.getGrupoDeDiscos().getQuantidadeDeDiscos();
+
+        //Insert na tabela maquina
+        con.update("INSERT INTO MAQUINA VALUES (null, null, ?,?,?,?,?,null)",
+                sistemaOperacional, memoriaRam,
+                arquiteturaSis, processador, quantidadeDiscos);
+
+    }
+
+    public void informacoesDoSistemaTotal() {
+        Connection config = new Connection();
+        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+
+        //(RAM TOTAL
+        Long memoriaRamInsByte = looca.getMemoria().getTotal();
+        memoriaRamTotal = memoriaRamInsByte / 1073741824.0;
+
+        //Pega a quantidade de processos sendo executados no momento
+        processos = looca.getGrupoDeServicos().getServicosInativos();
+
         //Total de Disco
         Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
-        disco = discoByte / 1073741824.0;
+        discoTotal = discoByte / 1073741824.0;
 
-        arquiteturaSis = looca.getSistema().getArquitetura();
-        
-        Long memoriaRamByte = looca.getMemoria().getEmUso();
-        memoriaRam = memoriaRamByte/1073741824.0;
-        
-        con.update("INSERT INTO MAQUINA VALUES (null, null, ?,?,?,?,?,null)",
-                sistemaOperacional,memoriaRam,
-                arquiteturaSis,processador,disco);
+        //CPU
+        Long cpuBytes = looca.getProcessador().getFrequencia();
+        cpuTotal = cpuBytes / 1073741824.0;
+
+        //HORARIO
+        //insert na tabela recursos(tabela estatica onde mostra o 
+        //TOTAL de cada componente)
+        //con.update("INSERT INTO RECURSOS VALUES (null, ?,?,?,?,null,null,null)", memoriaRamTotal, discoTotal, cpuTotal, processos);
 
     }
 
@@ -70,7 +100,7 @@ public class RecursosComputador {
         }
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return String.format("Processador: %s \n"
                 + "Total de bits: %d \n"
@@ -80,7 +110,7 @@ public class RecursosComputador {
                 + "\n"
                 + "-------Memória-------", processador, bitMaquina,
                 sistemaOperacional,
-                disco, arquiteturaSis, looca.getMemoria());
+                 arquiteturaSis, looca.getMemoria());
     }
-
+     */
 }

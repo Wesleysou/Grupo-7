@@ -13,7 +13,10 @@ public class TesteRecursos {
         RecursosComputador infoSistema = new RecursosComputador();
         RecursosComputador recMemoria = new RecursosComputador();
 
-        infoSistema.informacoesDoSistema();
+        infoSistema.informacoesDoSistemaAtual();
         System.out.println("Gravando dados na tabela Maquina");
+        
+        infoSistema.informacoesDoSistemaTotal();
+        System.out.println("Gravando dados na tabela Recursos");
     }
 }
