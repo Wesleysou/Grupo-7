@@ -18,7 +18,7 @@ hostName VARCHAR(45),
 email VARCHAR(45),
 cpf VARCHAR(45),
 senha VARCHAR(45),
-cargo CHAR(1) CHECK(tipo = "S" or tipo = "G"),
+cargo CHAR(1) CHECK(cargo = "S" or cargo = "G"),
 Fk_EstUser INT,
 FOREIGN KEY (Fk_EstUser) REFERENCES estabelecimento(id)
 )AUTO_INCREMENT = 100;
