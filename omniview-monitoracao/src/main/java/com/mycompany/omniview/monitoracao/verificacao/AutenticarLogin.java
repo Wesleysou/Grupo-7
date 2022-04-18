@@ -8,6 +8,7 @@ import com.mycompany.omniview.monitoracao.loginswing.TelaLogin;
 import com.mycompany.omniview.monitoracao.loginswing.TelaOpcao;
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.monitoracao.Connection;
+import com.mycompany.omniview.monitoracao.usuario.TesteRecursos;
 import com.mycompany.omniview.monitoracao.usuario.User;
 
 import java.util.List;
@@ -91,6 +92,7 @@ public class AutenticarLogin {
             teste.setVisible(false);
 
             JOptionPane.showMessageDialog(null, "Autenticado");
+            TesteRecursos.inserirDados();
             
 
         }
