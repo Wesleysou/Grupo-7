@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/defaultstyle.css">
     <link rel="stylesheet" href="./css/cadastroresponsivo.css">
     <link rel="stylesheet" href="./css/cadastrostyle.css">
+    <script src="site.js/funcoes.js"></script>
 
     <title>OmniView | Cadastro</title>
 </head>
@@ -82,14 +83,14 @@
                     <br>
                     CPF:
                     <br>
-                    <input class="form__input" oninput="mascara(this)" type="text" placeholder="CPF">
+                    <input class="form__input" oninput="mascara(this)" type="text" placeholder="CPF" id="id_cpf">
                     <br>
                     Estabelecimento:
                     <br>
                     <select id="id_estabelecimento" class="form__input" type="checkbox" placeholder="Estabelecimento">
                         <option value="">Selecione um estabelecimento...</option>
-                        <option value="">Cm Mikey´s</option>
-                        <option value="">Burguer Queen</option>
+                        <option value="Cm Mikey ´s">Cm Mikey´s</option>
+                        <option value="Burguer Queen">Burguer Queen</option>
                     </select>
                 </div>
                 <div class="cadastro_direita">
@@ -103,19 +104,13 @@
                     <br>
                     <div class="cargo">
                         Cargo:
+                        <select id="id_cargo" class="form__input" type="checkbox" placeholder="Cargo">
+                            <option value="">Selecione seu cargo...</option>
+                            <option value="S">Suporte</option>
+                            <option value="G">Gerente</option>
+                        </select>
                         <br>
                         <br>
-
-                        <label class="span_nome_cargo" id="check_gerente">Gerente <input type="radio" checked="checked"
-                                name="radio">
-                            <span class="checkmark"></span>
-                        </label>
-
-                        <label class="span_nome_cargo" id="check_suporte">Suporte <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                        </label>
-
-
 
                         <button class="btn" onclick="cadastrar()">Cadastrar</button>
 
@@ -169,10 +164,7 @@
 <script>
 
 
-    document.getElementById('produto-1-cnpj').addEventListener('input', function (e) {
-        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,4})(\d{0,2})/);
-        e.target.value = !x[2] ? x[1] : x[1] + '.' + x[2] + '.' + x[3] + '/' + x[4] + (x[5] ? '-' + x[5] : '');
-    });
+   
 
     function mascara(i) {
 
@@ -207,12 +199,16 @@
     })();
 
     function cadastrar() {
+        
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        let checkGerente = document.getElementById('check_gerente');
-        let checkSuporte = document.getElementById('check_suporte');
+        var cpfVar = id_cpf.value;
+        var cargoVar = id_cargo.value;
+        var estabelecimentoVar = id_estabelecimento.value;
+        // let checkGerente = document.getElementById('check_gerente');
+        // let checkSuporte = document.getElementById('check_suporte');
 
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
@@ -231,35 +227,72 @@
                 console.log('confirmacaoSenha está em branco')
             }
 
+         
             return false;
         }
 
-        if (!checkGerente.checked && !checkSuporte.checked) {
-            window.alert("Preencha todos os campos para prosseguir!");
-        }
+        // if (!checkGerente.checked && !checkSuporte.checked) {
+        //     window.alert("Preencha todos os campos para prosseguir!");
+        //     return false;
+        // }
 
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-
             return false;
         }
 
         if (senhaVar != confirmacaoSenhaVar) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
-
             return false;
         }
 
-        if (checkGerente.checked && checkSuporte.checked) {
-            window.alert("Selecione apenas o cargo em que você atua.");
-            return false;
+        // if (checkGerente.checked && checkSuporte.checked) {
+        //     window.alert("Selecione apenas o cargo em que você atua.");
+        //     return false;
+        // }
+        // else if (checkGerente.checked) {
+        //     window.alert("Bem vindo gerente")
+        // }
+        // else if (checkSuporte.checked) {
+        //     window.alert("Bem vindo suporte");
+        // }
+    
+        fetch("https://localhost:3000/usuarios/cadastar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                confirmacaoSenhaServer: confirmacaoSenhaVar,
+                cpfServer: cpfVar,
+                cargoServer: cargoVar,
+                estabelecimentoServer: estabelecimentoVar
+                // gerenteServer: checkGerente,
+                // suporteServer: checkSuporte
+            })
+        }).then(function (resposta) {
+            alert('PASSOU PELO FETCH CADASTRAR');
 
-        }
-        else if (checkGerente.checked) {
-            window.alert("Bem vindo gerente")
-        }
-        else if (checkSuporte.checked) {
-            window.alert("Bem vindo suporte");
-        }
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "login.html";
+                console.log("FOI CARAI")
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            alert(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+
+    
     }
 </script>

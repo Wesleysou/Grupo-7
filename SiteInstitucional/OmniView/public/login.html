@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/loginstyle.css">
     <link rel="stylesheet" href="./css/defaultstyle.css">
     <link rel="stylesheet" href="./css/contatoresponsivo.css">
+    <script src="site.js/login.js"></script>
 
 </head>
 
@@ -136,12 +137,50 @@
             return false;
         }
 
-        if (emailVar == "Leonardo@sptech.com" && senhaVar == "urubu100") {
-            window.location.href = 'gerente_caixa.html'
-        setTimeout(() =>alert(`Bem vindo(a)!!`), 1000 );
-        
-        } else {
-            window.location.href = 'dash-suporte.html'
-        }
+       
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./gerente_caixa.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    
     }
 </script>
