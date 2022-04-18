@@ -1,6 +1,5 @@
-create database Fastfood;
-use Fastfood;
-drop database Fastfood;
+create database Omniview;
+use Omniview;
 
 create table estabelecimento(
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -12,14 +11,14 @@ token VARCHAR(100) unique
 
 SELECT * FROM estabelecimento;
 
-create table tb_usuario(
+create table usuario(
 id INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
+hostName VARCHAR(45),
 email VARCHAR(45),
 cpf VARCHAR(45),
 senha VARCHAR(45),
-comfirmSenha VARCHAR(45),
-tipo CHAR(1) CHECK(tipo = "S" or tipo = "G"),
+cargo CHAR(1) CHECK(tipo = "S" or tipo = "G"),
 Fk_EstUser INT,
 FOREIGN KEY (Fk_EstUser) REFERENCES estabelecimento(id)
 )AUTO_INCREMENT = 100;
@@ -40,14 +39,13 @@ FOREIGN KEY (Fk_EstMaq) REFERENCES estabelecimento (id)
 
 SELECT * FROM maquina;
 
-create table recursos(
-idRe INT PRIMARY KEY AUTO_INCREMENT,
-ramRe INT,
+create table medicoes(
+id INT PRIMARY KEY AUTO_INCREMENT,
+ram INT,
 disco INT,
-cpuRe INT,
+cpuM INT,
 processo INT,
-horarioRE TIME,
-diaRe DATE,
+diaHorario DATETIME,
 Fk_MaqRe INT,
 FOREIGN KEY (Fk_MaqRe) REFERENCES maquina (id)
 )AUTO_INCREMENT = 1000;
