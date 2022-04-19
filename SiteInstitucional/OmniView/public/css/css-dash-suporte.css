@@ -544,7 +544,6 @@ a{
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-weight: 800;
     color: #fff;
 }
 
@@ -572,8 +571,13 @@ a{
     width: 100%;
     height: 30%;
     margin-top: 6px;
+
 }
 
+#nome_user{
+    margin-left: -24px;
+    margin-bottom: 5px;
+}
 .titulo_maquina{
     font-size: larger;
     font-weight: 800;
@@ -592,8 +596,9 @@ a{
 }
 
 .conteudoHeader i{
-    font-size: 3vh;
+    font-size: 4.5vh;
     transition: 0.2s;
+    margin-left: 300px;
 }
 
 #icone_saida:hover{
@@ -620,8 +625,8 @@ a{
     height: 9.5vh;
     border: none;
     background-color:#191970;
-    border-top: 5px solid #222288;
-    border-left: 5px solid #222288;
+    border-top: 5px solid #cccaeb;
+    border-left: 5px solid #cccaeb;
     border-right: 5px solid #258cd1;
     border-bottom: 5px solid #258cd1;
     color: white;
@@ -637,8 +642,8 @@ button:hover{
     background-color:#222288;
     border-top: 5px solid #258cd1;
     border-left: 5px solid #258cd1;
-    border-right: 5px solid #191970;
-    border-bottom: 5px solid #191970;
+    border-right: 5px solid #cdcdeb;
+    border-bottom: 5px solid #cccaeb;
     transition: 0.3s;
 }
 
@@ -823,6 +828,12 @@ button:hover{
     font-weight: bold;
     font-size: 3vh;
     
+}
+
+.div_componentes_computador i{
+    
+    color: #c4e0f3;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .graf_esq{
