@@ -12,13 +12,17 @@ public class TesteRecursos {
 
     public static void inserirDados() {
         RecursosComputador infoSistema = new RecursosComputador();
-        RecursosComputador recMemoria = new RecursosComputador();
+        MedicoesComputador recMemoria = new MedicoesComputador();
 
         infoSistema.informacoesDoSistemaAtual();
         System.out.println("Gravando dados na tabela Maquina");
 
-        infoSistema.informacoesDoSistemaTotal();
+        recMemoria.informacoesDoSistemaTotal();
         System.out.println("Gravando dados na tabela Recursos");
+        
+        
+        System.out.println(infoSistema.toString());
+        
     }
 
 }

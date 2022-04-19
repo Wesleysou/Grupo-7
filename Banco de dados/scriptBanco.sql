@@ -1,4 +1,5 @@
 create database Omniview;
+drop database omniview;
 use Omniview;
 
 create table estabelecimento(
@@ -18,10 +19,14 @@ hostName VARCHAR(45),
 email VARCHAR(45),
 cpf VARCHAR(45),
 senha VARCHAR(45),
-cargo CHAR(1) CHECK(tipo = "S" or tipo = "G"),
+cargo CHAR(1) CHECK(cargo = "S" or cargo = "G"),
 Fk_EstUser INT,
 FOREIGN KEY (Fk_EstUser) REFERENCES estabelecimento(id)
 )AUTO_INCREMENT = 100;
+
+drop table usuario;
+
+insert into usuario values(null, 'pedro', null,'teste@email.com','1111111111','123',null, null);
 
 SELECT * FROM usuario;
 
@@ -29,23 +34,33 @@ create table maquina(
 id INT PRIMARY KEY AUTO_INCREMENT,
 tipo VARCHAR(45),
 sistemaOperacional VARCHAR(45),
-ram VARCHAR(45),
+ramTotal DOUBLE(5,2),
 arquitetura VARCHAR(45),
 processador VARCHAR(50),
-disco VARCHAR(50),
+disco INT,
 Fk_EstMaq INT,
 FOREIGN KEY (Fk_EstMaq) REFERENCES estabelecimento (id)
 )AUTO_INCREMENT = 500;
+
+drop table maquina;
 
 SELECT * FROM maquina;
 
 create table medicoes(
 id INT PRIMARY KEY AUTO_INCREMENT,
-ram INT,
-disco INT,
-cpuM INT,
-processo INT,
-diaHorario DATETIME,
-Fk_MaqRe INT,
+ram DOUBLE(6,2) NULL,
+disco DOUBLE(5,2) not NULL,
+cpuM DOUBLE(5,2) not NULL,
+processos INT not NULL,
+diaHorario DATETIME not NULL,
+Fk_MaqRe INT NULL,
 FOREIGN KEY (Fk_MaqRe) REFERENCES maquina (id)
 )AUTO_INCREMENT = 1000;
+
+drop table medicoes;
+
+
+select * from medicoes;
+
+
+
