@@ -1,29 +1,29 @@
-var mysql = require("mysql2");
-// var sql = require('mssql');
+// var mysql = require("mysql2");
+var sql = require('mssql');
 
-// // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
-// var sqlServerConfig = {
-//     user: "XXXXX",
-//     password: "XXXXX",
-//     database: "XXXXX",
-//     server: "XXXXX",
-//     pool: {
-//         max: 10,
-//         min: 0,
-//         idleTimeoutMillis: 30000
-//     },
-//     options: {
-//         encrypt: true, // for azure
-//     }
-// }
+// CONEXÃO DO SQL SERVER - AZURE (NUVEM)
+var sqlServerConfig = {
+    user: "admin-ominiview",
+    password: "2ads#grupo7",
+    database: "meu_banco",
+    server: "svr-omniview.database.windows.net",
+    pool: {
+        max: 10,
+        min: 0,
+        idleTimeoutMillis: 30000
+    },
+    options: {
+        encrypt: true, // for azure
+    }
+}
 
-// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
-var mySqlConfig = {
-    host: "localhost",
-    user: "root",
-    database: "Fastfood",
-    password: "urubu100",
-};
+// // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
+// var mySqlConfig = {
+//     host: "localhost",
+//     user: "root",
+//     database: "Omniview",
+//     password: "urubu100",
+// };
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js

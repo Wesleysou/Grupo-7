@@ -544,7 +544,6 @@ a{
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-weight: 800;
     color: #fff;
 }
 
@@ -572,8 +571,13 @@ a{
     width: 100%;
     height: 30%;
     margin-top: 6px;
+
 }
 
+#nome_user{
+    margin-left: -24px;
+    margin-bottom: 5px;
+}
 .titulo_maquina{
     font-size: larger;
     font-weight: 800;
@@ -587,12 +591,12 @@ a{
 .conteudoPai{
     display: flex;
     width: 100%;
-    height: 90vh;
+    height: 87vh;
     background-color: azure;
 }
 
 .conteudoHeader i{
-    font-size: 3vh;
+    font-size: 4.5vh;
     transition: 0.2s;
 }
 
@@ -617,11 +621,11 @@ a{
 
 .botoes button{
     width: 70%;
-    height: 10vh;
+    height: 9.5vh;
     border: none;
     background-color:#191970;
-    border-top: 5px solid #222288;
-    border-left: 5px solid #222288;
+    border-top: 5px solid #cccaeb;
+    border-left: 5px solid #cccaeb;
     border-right: 5px solid #258cd1;
     border-bottom: 5px solid #258cd1;
     color: white;
@@ -637,8 +641,8 @@ button:hover{
     background-color:#222288;
     border-top: 5px solid #258cd1;
     border-left: 5px solid #258cd1;
-    border-right: 5px solid #191970;
-    border-bottom: 5px solid #191970;
+    border-right: 5px solid #cdcdeb;
+    border-bottom: 5px solid #cccaeb;
     transition: 0.3s;
 }
 
@@ -657,8 +661,16 @@ button:hover{
 .graf_cima_esq{
     width: 40vw;
     height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.div_graf_interna{
+    width: 90%;
+    height: 90%;
+
+}
 .graf_cima_dir{
     width: 40vw;
     height: 45vh;
@@ -769,6 +781,9 @@ button:hover{
     width: 40vw;
     height: 45vh;
     background-color: #7979cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .graf_dir{
@@ -810,8 +825,14 @@ button:hover{
     color: #fff;
     background-color: #282c34;
     font-weight: bold;
-    font-size: 15pt;
+    font-size: 3vh;
     
+}
+
+.div_componentes_computador i{
+    
+    color: #c4e0f3;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .graf_esq{
