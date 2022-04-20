@@ -63,9 +63,8 @@ function entrar(req, res) {
 function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var confirmacaoSenha = req.body.confirmacaoSenhaServer;
-    var cpf = req.body.cpfServer;
+    var senha = req.body.cpfServer;
+    var cpf = req.body.senhaServer;
     var cargo = req.body.cargoServer;
     var estabelecimento = req.body.estabelecimentoServer;
 
@@ -75,16 +74,9 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (cargo == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (estabelecimento == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (cpf == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-    } else if (confirmacaoSenha == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-
-        usuarioModel.cadastrar(nome, email, senha,cargo,estabelecimento,cpf,confirmacaoSenha)
+    } else {
+        
+        usuarioModel.cadastrar(nome, email, senha, cpf, cargo,estabelecimento)
             .then(
                 function (resultado) {
                     res.json(resultado);

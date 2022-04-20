@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/defaultstyle.css">
     <link rel="stylesheet" href="./css/cadastroresponsivo.css">
     <link rel="stylesheet" href="./css/cadastrostyle.css">
-    <script src="site.js/funcoes.js"></script>
+    <script src="js/funcoes.js"></script>
 
     <title>OmniView | Cadastro</title>
 </head>
@@ -61,78 +61,69 @@
 
 
     <br><br><br><br><br><br><br>
-    <section class="container">
-        <div class="cadastro_banner">
-            <div class="cadastro">
-                <h1>Cadastre aqui a sua empresa</h1>
-    </section>
-    </div>
-
-    <section class="forms">
-
-        <div class="cadastro">
-            <form action="">
-                <div class="cadastro_esquerda">
-                    Nome:
-                    <br>
-                    <input class="form__input" id="nome_input" type="text" placeholder="Nome de usuário">
-                    <br>
-                    E-mail:
-                    <br>
-                    <input class="form__input" id="email_input" type="text" placeholder="Ex:joao@bandtec.com">
-                    <br>
-                    CPF:
-                    <br>
-                    <input class="form__input" oninput="mascara(this)" type="text" placeholder="CPF" id="id_cpf">
-                    <br>
-                    Estabelecimento:
-                    <br>
-                    <select id="id_estabelecimento" class="form__input" type="checkbox" placeholder="Estabelecimento">
-                        <option value="">Selecione um estabelecimento...</option>
-                        <option value="Cm Mikey ´s">Cm Mikey´s</option>
-                        <option value="Burguer Queen">Burguer Queen</option>
-                    </select>
-                </div>
-                <div class="cadastro_direita">
-                    Senha:
-                    <br>
-                    <input class="form__input" id="senha_input" type="password" placeholder="******">
-                    <br>
-                    Confirmação da Senha:
-                    <br>
-                    <input class="form__input" id="confirmacao_senha_input" type="password" placeholder="******">
-                    <br>
-                    <div class="cargo">
+    <div class="banner-login ">
+        <div class="container ">
+            <div class="card medio">
+                <h2>Cadastre aqui a sua empresa</h2><br><br>
+                <div class="formulario">
+                    <div id="form_cadastro">
+                        <div id="cadastro_esquerda">
+                        Nome:
+                        <br>
+                        <input id="nome_input" type="text" placeholder="Ada Lovelace">
+                        <br>
+                        <br>
+                        E-mail:
+                        <br>
+                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                        <br>
+                        <br>
+                        Senha:
+                        <br>
+                        <input id="senha_input" type="password" placeholder="******">
+                        <br>
+                        <br>
+                        Confirmação da Senha:
+                        <br>
+                        <input id="confirmacao_senha_input" type="password" placeholder="******">
+                        <br>
+                        <br>
+                    </div>
+                    <div id="cadastro_direita">
+                        Cpf:
+                        <br>
+                        <input id="cpf_input" type="text" placeholder="******">
+                        <br>
+                        <br>
                         Cargo:
-                        <select id="id_cargo" class="form__input" type="checkbox" placeholder="Cargo">
+                        <select id="cargo_input" type="checkbox" placeholder="Cargo">
                             <option value="">Selecione seu cargo...</option>
                             <option value="S">Suporte</option>
                             <option value="G">Gerente</option>
                         </select>
+                        <br><br>
+                        Estabelecimento:
                         <br>
-                        <br>
-
+                        <select id="estabelecimento_input" type="checkbox" placeholder="Estabelecimento">
+                            <option value="">Selecione um estabelecimento...</option>
+                            <option value="1">Cm Mikey´s</option>
+                            <option value="2">Burguer Queen</option>
+                        </select>
+                        <br><br>
                         <button class="btn" onclick="cadastrar()">Cadastrar</button>
-
-
-
-
+                    </div>
                     </div>
                 </div>
-            </form>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
 
+                <div id="div_erros_login">
+
+                </div>
+            </div>
         </div>
-
-
-
-        </form>
-
-
-        </div>
-
-
-
-    </section>
+    </div>
 
     <section class="container">
 
@@ -199,14 +190,14 @@
     })();
 
     function cadastrar() {
-        
+        aguardar();
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var cpfVar = id_cpf.value;
-        var cargoVar = id_cargo.value;
-        var estabelecimentoVar = id_estabelecimento.value;
+        var cpfVar = cpf_input.value;
+        var cargoVar = cargo_input.value;
+        var estabelecimentoVar = estabelecimento_input.value;
         // let checkGerente = document.getElementById('check_gerente');
         // let checkSuporte = document.getElementById('check_suporte');
 
@@ -227,7 +218,7 @@
                 console.log('confirmacaoSenha está em branco')
             }
 
-         
+            finalizarAguardar();
             return false;
         }
 
@@ -238,11 +229,13 @@
 
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
             return false;
         }
 
         if (senhaVar != confirmacaoSenhaVar) {
             window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            finalizarAguardar();
             return false;
         }
 
@@ -256,43 +249,38 @@
         // else if (checkSuporte.checked) {
         //     window.alert("Bem vindo suporte");
         // }
-    
-        fetch("https://localhost:3000/usuarios/cadastar", {
+        fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                confirmacaoSenhaServer: confirmacaoSenhaVar,
                 cpfServer: cpfVar,
                 cargoServer: cargoVar,
                 estabelecimentoServer: estabelecimentoVar
-                // gerenteServer: checkGerente,
-                // suporteServer: checkSuporte
             })
         }).then(function (resposta) {
-            alert('PASSOU PELO FETCH CADASTRAR');
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
                 window.location = "login.html";
-                console.log("FOI CARAI")
+                limparFormulario();
                 finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
-            alert(`#ERRO: ${resposta}`);
+            console.log(`#ERRO: ${resposta}`);
             finalizarAguardar();
         });
 
         return false;
-
-    
     }
+    
+        
 </script>
