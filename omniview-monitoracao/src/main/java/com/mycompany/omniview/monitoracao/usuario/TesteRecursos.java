@@ -10,19 +10,6 @@ package com.mycompany.omniview.monitoracao.usuario;
  */
 public class TesteRecursos {
 
-    public static void inserirDados() {
-        RecursosComputador infoSistema = new RecursosComputador();
-        MedicoesComputador recMemoria = new MedicoesComputador();
-
-        infoSistema.informacoesDoSistemaAtual();
-        System.out.println("Gravando dados na tabela Maquina");
-
-        recMemoria.informacoesDoSistemaTotal();
-        System.out.println("Gravando dados na tabela Medicoes");
-        
-        
-        System.out.println(infoSistema.toString());
-        
-    }
+  
 
 }
