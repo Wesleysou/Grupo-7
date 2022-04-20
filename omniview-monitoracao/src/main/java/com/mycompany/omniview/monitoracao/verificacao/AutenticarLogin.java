@@ -6,7 +6,6 @@ package com.mycompany.omniview.monitoracao.verificacao;
 
 import com.mycompany.omniview.monitoracao.loginswing.TelaLogin;
 import com.mycompany.omniview.monitoracao.loginswing.TelaOpcao;
-import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.monitoracao.Connection;
 import com.mycompany.omniview.monitoracao.usuario.TesteRecursos;
 import com.mycompany.omniview.monitoracao.usuario.User;
@@ -31,6 +30,9 @@ public class AutenticarLogin {
 
     public AutenticarLogin() {
     }
+    
+    
+    
 
     public String getEmail() {
         Connection config = new Connection();
@@ -83,9 +85,7 @@ public class AutenticarLogin {
 
             JOptionPane.showMessageDialog(null, "Autenticado");
             TesteRecursos.inserirDados();
-
         }
-
     }
 
     public static void RegistrarCaixa(java.awt.event.ActionEvent evt,
@@ -138,4 +138,8 @@ public class AutenticarLogin {
         });
 
     }
+    
+    
+    
+   
 }

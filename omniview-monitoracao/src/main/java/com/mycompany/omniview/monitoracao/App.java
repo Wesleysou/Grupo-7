@@ -4,9 +4,12 @@
  */
 package com.mycompany.omniview.monitoracao;
 
+import com.mycompany.omniview.monitoracao.usuario.User;
 import com.mycompany.omniview.monitoracao.verificacao.AutenticarLogin;
-import com.github.britooo.looca.api.core.Looca;
-
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class App {
@@ -14,13 +17,19 @@ public class App {
     public static void main(String[] args) {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        StringBuilder createStatement = new StringBuilder();
-        Looca looca = new Looca();
+        User usuario1 = new User();
 
         // Usuario usuario1 = new Usuario(01, "teste@email.com", "teste");
         //AutenticarLogin.CriarTabela();
-        
-        
         AutenticarLogin.AbrirLogin();
+
+        try {
+            String Inet = InetAddress.getLocalHost().getHostName();
+            con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE ID = 500", Inet);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
     }
 }

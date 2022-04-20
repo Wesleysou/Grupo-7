@@ -58,7 +58,9 @@ public class RecursosComputador {
    
 
         //Insert na tabela maquina
-        con.update("INSERT INTO MAQUINA VALUES (null, null, ?,?,?,?,?,null)",
+        con.update("INSERT INTO MAQUINA (tipo,sistemaOperacional,"
+                + "ramTotal,arquitetura,processador,disco,Fk_EstMaq)"
+                + "VALUES (null,?,?,?,?,?, 1)",
                 sistemaOperacional, memoriaRamTotal,
                 arquiteturaSis, processador, quantidadeDiscos);
 
@@ -85,7 +87,7 @@ public class RecursosComputador {
                 + "Total de bits: %d \n"
                 + "Sistema Operacional: %s \n"
                 + " \n"
-                + "Arquitetura do sistema: %dx "
+                + "Arquitetura do sistema: x%d "
                 + "\n"
                 + "-------Memória-------"
                 + "\n %.2f", processador, bitMaquina,
