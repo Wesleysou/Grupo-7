@@ -61,13 +61,7 @@ public class AutenticarLogin {
         return this.id;
     }
 
-    public static void CriarTabela() {
-        Connection config = new Connection();
-        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-
-    }
-
-    public static void AutenticarLogin(String email, String senha,
+    public void AutenticarLogin(String email, String senha,
             String emailUsuarioBanco, String senhaUsuarioBanco) {
 
         Connection config = new Connection();
@@ -84,14 +78,17 @@ public class AutenticarLogin {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
                     + "senha incorretos");
         } else {
+            inserirDados();
+
             TelaOpcao tela = new TelaOpcao(usuarioId);
             tela.setVisible(true);
             TelaLogin teste = new TelaLogin();
             teste.setVisible(false);
 
+            this.email = emailUsuarioBanco;
+            System.out.println("Email do banco" + emailUsuarioBanco);
             JOptionPane.showMessageDialog(null, "Autenticado");
-            inserirDados();
-//inserirHostName
+            //inserirHostName
             try {
                 String Inet = InetAddress.getLocalHost().getHostName();
                 con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE  ID = 500", Inet);
@@ -141,15 +138,17 @@ public class AutenticarLogin {
 
     }
 
-    public void inserirMaquinas(String email) {
+    public void inserirMaquinas() {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
-        con.update("INSERT INTO MAQUINA (tipo,sistemaOperacional,"
-                + "ramTotal,arquitetura,processador,disco,Fk_EstMaq)"
-                + "VALUES (null,?,?,?,?,?,?, 1)", email,
-                sistemaOperacional, memoriaRamTotal,
-                arquiteturaSis, processador, quantidadeDiscos);
+        con.update("INSERT INTO MAQUINA(hostName,proprietarioMaq,"
+                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
+                + "processador,disco,Fk_EstMaq) VALUES "
+                + " (null,?,null,?,?,?,?,?,?)", this.email, sistemaOperacional, memoriaRamTotal,
+                arquiteturaSis, processador, quantidadeDiscos, 1);
+
+       
     }
 
     public static void inserirDados() {
@@ -162,11 +161,10 @@ public class AutenticarLogin {
         recMemoria.informacoesDoSistemaTotal();
         System.out.println("Gravando dados na tabela Medicoes");
 
-        // infoSistema.inserirHostName();
-        //System.out.println("Pegando Hostname e inserindo em MAQUINA");
         System.out.println(infoSistema.toString());
 
     }
+
 
     public static void RegistrarCaixa(java.awt.event.ActionEvent evt,
             Boolean checkCaixa, String id) {

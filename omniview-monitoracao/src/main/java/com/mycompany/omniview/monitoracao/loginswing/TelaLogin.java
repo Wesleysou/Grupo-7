@@ -243,8 +243,8 @@ public class TelaLogin extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String senha = txtSenha.getText();
         User usuario = new User(01, email, senha);
-
-        AutenticarLogin.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
+        AutenticarLogin login = new AutenticarLogin();
+        login.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     public void setTxtEmail(JTextField txtEmail) {
