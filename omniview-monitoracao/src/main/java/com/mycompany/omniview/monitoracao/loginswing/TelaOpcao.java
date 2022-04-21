@@ -240,13 +240,17 @@ public class TelaOpcao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        AutenticarLogin identificarId = new AutenticarLogin();
+
+        AutenticarLogin registrar = new AutenticarLogin();
+   
 
         if (checkCaixa.isSelected()) {
-            AutenticarLogin.RegistrarCaixa(evt, rootPaneCheckingEnabled, identificarId.getId());
-
+            String email = "";
+            
+            registrar.RegistrarCaixa(evt,rootPaneCheckingEnabled,email);
         } else if (checkTotem.isSelected()) {
-            AutenticarLogin.RegistrarTotem(evt, rootPaneCheckingEnabled);
+            String email = "";
+            registrar.RegistrarTotem(evt,rootPaneCheckingEnabled,email);
         }
 
     }//GEN-LAST:event_btnEnviarActionPerformed

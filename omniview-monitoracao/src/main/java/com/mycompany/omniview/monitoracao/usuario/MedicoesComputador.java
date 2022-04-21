@@ -23,7 +23,7 @@ public class MedicoesComputador {
     private Double discoTotal;
     Looca looca = new Looca();
 
-    public void informacoesDoSistemaTotal() {
+    public void informacoesDoSistema() {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
