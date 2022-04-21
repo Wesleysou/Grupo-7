@@ -8,7 +8,7 @@ CREATE TABLE usuario (
 	id INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(50),
 	email VARCHAR(50),
-	senha VARCHAR(50),
+	senha VARCHAR(50), 
 );
 
 CREATE TABLE aviso (

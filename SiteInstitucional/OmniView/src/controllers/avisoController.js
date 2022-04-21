@@ -1,4 +1,4 @@
-var avisoModel = require("../models/avisoModel");
+var avisoModel = require("../models/avisoModel"); 
 
 function testar(req, res) {
     console.log("ENTRAMOS NO avisoController");
