@@ -73,14 +73,12 @@
                     <div class="card medio">
                         <div class="formulario">
                             <div>
+                                <br>
                                 E-mail:
                                 <input id="email_input" type="text" placeholder="Login">
                                 <br>
                                 Senha:
                                 <input id="senha_input" type="password" placeholder="******">
-                                <br>
-                                Token:
-                                <input id="token_input" type="text" placeholder="******">
                                 <br>
                                 <button class="btn" onclick="entrar()">Entrar</button>
                             </div>
@@ -173,7 +171,13 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "gerente_caixa.html";
+                        if (emailVar == "leonardo@sptech.com") {
+                            window.location = "gerente_caixa.html";
+                        }else if(emailVar == "huk@sptech.com"){
+                            window.location = "dash-suporte.html";
+                        }else{
+                            window.location = "gerente_caixa.html";
+                        }
                     }, 1000); // apenas para exibir o loading
 
                 });

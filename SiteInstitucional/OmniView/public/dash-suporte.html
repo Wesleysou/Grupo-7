@@ -52,8 +52,8 @@
           </div>
 
           <div class="info">
-            <p id="nome_user">Wesley .M</p>
-            <p>email@email.com</p>
+            <p id="nome_user"></p>
+            <p id="email_user"></p>
           </div>
 
         </div>
@@ -306,7 +306,8 @@
 
 
 <script>
-
+  nome_user.innerHTML = sessionStorage.NOME_USUARIO;
+  email_user.innerHTML = sessionStorage.EMAIL_USUARIO;
   // Configuração do grafico Toten 01 esquerda 
   const labels = [
     '7h',
