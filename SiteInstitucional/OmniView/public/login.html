@@ -71,9 +71,9 @@
             <div class="banner-login">
                 <div class="container">
                     <div class="card medio">
-                        <h2>Olá de volta!</h2>
                         <div class="formulario">
                             <div>
+                                <br>
                                 E-mail:
                                 <input id="email_input" type="text" placeholder="Login">
                                 <br>
@@ -96,33 +96,32 @@
                     </div>
                 </div>
          </div>
+         <img src="./assets/imgs/Login.png " alt="Contato " id="img_contato">
+
     </div>
 
 
 
 
-    <section class="container">
-
-        <footer>
-            <div class="footer-info">
-                <div class="container">
-                    <div class="align-links-footer">
-                        <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
-                        <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
-                        <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
+    <footer>
+        <div class="footer-info">
+            <div class="container">
+                <div class="align-links-footer">
+                    <a href=""><img src="./assets/imgs/logos/logo-fbc.webp"></a>
+                    <a href=""><img src="./assets/imgs/logos/logo-insta.webp"></a>
+                    <a href=""><img src="./assets/imgs/logos/logo-linkd.webp"></a>
 
 
-                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="footer-copyright">
-                <div class="container">
-                    <p>© 2022 by OmniView todos direitos reservados.</p>
-                </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>© 2022 by OmniView todos direitos reservados.</p>
             </div>
-        </footer>
-    </section>
+        </div>
+    </footer>
 </body>
 
 </html>
@@ -172,7 +171,13 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "gerente_caixa.html";
+                        if (emailVar == "leonardo@sptech.com") {
+                            window.location = "gerente_caixa.html";
+                        }else if(emailVar == "huk@sptech.com"){
+                            window.location = "dash-suporte.html";
+                        }else{
+                            window.location = "gerente_caixa.html";
+                        }
                     }, 1000); // apenas para exibir o loading
 
                 });

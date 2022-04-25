@@ -29,4 +29,4 @@ app.listen(PORTA, function () {
     Você está rodando sua aplicação em ${process.env.AMBIENTE_PROCESSO} \n
     \t\tSe "desenvolvimento", banco local (MySQL Workbench). \n
     \t\tSe "producao", banco remoto (SQL Server em nuvem Azure)`);
-});
+}); 
