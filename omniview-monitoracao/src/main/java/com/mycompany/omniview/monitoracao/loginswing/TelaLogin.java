@@ -59,10 +59,17 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel2.setDoubleBuffered(false);
         jPanel2.setEnabled(false);
 
+<<<<<<< HEAD
         txtEmail.setBackground(new java.awt.Color(204, 204, 204));
         txtEmail.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
 
         txtSenha.setBackground(new java.awt.Color(204, 204, 204));
+=======
+        txtEmail.setBackground(new java.awt.Color(86, 92, 93));
+        txtEmail.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
+
+        txtSenha.setBackground(new java.awt.Color(86, 92, 93));
+>>>>>>> 2622641bf19cabf7ea2077f030cf951ff992598c
         txtSenha.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

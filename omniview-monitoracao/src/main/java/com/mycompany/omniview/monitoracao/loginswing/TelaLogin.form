@@ -166,7 +166,11 @@
             <Component class="javax.swing.JTextField" name="txtEmail">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+<<<<<<< HEAD
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
+=======
+                  <Color blue="5d" green="5c" red="56" type="rgb"/>
+>>>>>>> 2622641bf19cabf7ea2077f030cf951ff992598c
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Text" size="11" style="0"/>
@@ -176,7 +180,11 @@
             <Component class="javax.swing.JPasswordField" name="txtSenha">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+<<<<<<< HEAD
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
+=======
+                  <Color blue="5d" green="5c" red="56" type="rgb"/>
+>>>>>>> 2622641bf19cabf7ea2077f030cf951ff992598c
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Text" size="11" style="0"/>
