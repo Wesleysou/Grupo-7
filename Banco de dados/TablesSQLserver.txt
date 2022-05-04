@@ -22,3 +22,6 @@ processador VARCHAR(50),
 disco INT,
 Fk_EstMaq INT,
 FOREIGN KEY (Fk_EstMaq) REFERENCES estabelecimento (id))
+
+
+Pegando fkestUser para comparar na tabela maquina

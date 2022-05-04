@@ -51,7 +51,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jPanelLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="545" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -61,10 +61,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelLogin" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanelLogin" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -154,42 +158,74 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelBemVindo" alignment="0" min="-2" pref="343" max="-2" attributes="0"/>
-                          <Component id="jLabelInserirEmail" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="btnEntrar" min="-2" pref="288" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabelInserirSenha" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Component id="txtSenha" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEmail" alignment="0" min="-2" pref="288" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelEsqueceuSenha" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtEmail" min="-2" pref="288" max="-2" attributes="0"/>
+                                      <Component id="jLabelInserirEmail" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelInserirSenha" min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Component id="txtSenha" alignment="0" min="-2" pref="288" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="jLabelEsqueceuSenha" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="btnEntrar" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="checkCaixa" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
+                                      <Component id="checkTotem" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                              <Component id="jLabelBemVindo" min="-2" pref="343" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelBemVindo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabelInserirEmail" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtEmail" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                       <Component id="jLabelInserirSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtSenha" min="-2" pref="28" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabelEsqueceuSenha" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="checkTotem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkCaixa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="btnEntrar" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -264,6 +300,40 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="BEM VINDO DE VOLTA!"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="66" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Sitka Text" size="18" style="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Preencha o tipo de equipamento que deseja monitorar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkCaixa">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Sitka Text" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Caixa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkCaixaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkTotem">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Sitka Text" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Totem"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkTotemActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

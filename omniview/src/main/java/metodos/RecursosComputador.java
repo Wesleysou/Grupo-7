@@ -6,11 +6,13 @@ package metodos;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.Connection;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 import java.util.List;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 public class RecursosComputador {
 
     private String processador;
@@ -23,7 +25,11 @@ public class RecursosComputador {
     private List processos;
     private Integer quantidadeDisco;
     private Double cpuTotal;
-
+    public String hostName;
+    
+    
+    ConsultaBanco consultaBanco = new ConsultaBanco();
+    AutenticarLogin autenticarLogin = new AutenticarLogin();
     Looca looca = new Looca();
 
     public void informacoesDoSistemaAtual() {
@@ -50,7 +56,19 @@ public class RecursosComputador {
         //Insert na tabela maquina
     }
 
-    public void inserirMaquinas() {
+    public void getHostname() {
+
+        System.out.println("Pegando HostName");
+        try {
+            String Inet = InetAddress.getLocalHost().getHostName();
+            hostName = Inet;
+            System.out.println("Hostname: " + hostName);
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void inserirMaquinas(Integer estUsuario) {
 
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
@@ -58,8 +76,8 @@ public class RecursosComputador {
         con.update("INSERT INTO MAQUINA(hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq) VALUES "
-                + " (null,null,?,?,?,?,?,?)", sistemaOperacional, memoriaRamTotal,
-                arquiteturaSis, processador, quantidadeDisco, 1);
+                + " (?,null,?,?,?,?,?,?)", hostName, sistemaOperacional, memoriaRamTotal,
+                arquiteturaSis, processador, quantidadeDisco, estUsuario);
         System.out.println("inserindo dados" + this.sistemaOperacional);
     }
 }

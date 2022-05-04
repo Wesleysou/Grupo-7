@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javaswing.TelaLogin;
-import javaswing.TelaOpcao;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -18,6 +18,8 @@ public class AutenticarLogin {
     private String email;
     private String senha;
     private String id;
+    public Integer FkEstt;
+    
 
     public AutenticarLogin(String email, String senha) {
         this.email = email;
@@ -79,35 +81,25 @@ public class AutenticarLogin {
         } else {
             this.email = emailUsuarioBanco;
             System.out.println("Email do que retornou do banco:" + emailUsuarioBanco);
-
-            JOptionPane.showMessageDialog(null, "Autenticado");
-            TelaOpcao tela = new TelaOpcao(usuarioId);
-            tela.setVisible(true);
-            TelaLogin teste = new TelaLogin();
-            teste.setVisible(false);
             metodos.RecursosComputador regMaq = new RecursosComputador();
+            metodos.MedicoesComputador medMaq = new MedicoesComputador();
+            metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
+            metodos.AutenticarLogin emailFK = new AutenticarLogin();
+            JOptionPane.showMessageDialog(null, "Autenticado");
+
+            TelaLogin teste = new TelaLogin();
+            cnstBanco.getFKEst(email);
+            System.out.println(cnstBanco.getFKEst(email));
+            //cnstBanco.getFKEst(emailFK.getEmail());
+
             regMaq.informacoesDoSistemaAtual();
-            regMaq.inserirMaquinas();
-            gravarEmail();
+            regMaq.getHostname();
+            regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
+            medMaq.inserirDados();
+            FkEstt = cnstBanco.getFKEst(email);
 
         }
 
-    }
-
-    public void gravarEmail() {
-        Connection config = new Connection();
-        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-
-        try {
-            con.update("UPDATE maquina SET proprietarioMaq = ? WHERE ID = 500",
-                    this.email);
-            String Inet = InetAddress.getLocalHost().getHostName();
-            con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE proprietarioMaq  = ?",
-                    Inet, this.email);
-
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     public void RegistrarCaixa(java.awt.event.ActionEvent evt,

@@ -37,6 +37,9 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelInserirSenha = new javax.swing.JLabel();
         jLabelEsqueceuSenha = new javax.swing.JLabel();
         jLabelBemVindo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        checkCaixa = new javax.swing.JCheckBox();
+        checkTotem = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,41 +116,85 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelBemVindo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelBemVindo.setText("BEM VINDO DE VOLTA!");
 
+        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Preencha o tipo de equipamento que deseja monitorar");
+
+        checkCaixa.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        checkCaixa.setText("Caixa");
+        checkCaixa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkCaixaActionPerformed(evt);
+            }
+        });
+
+        checkTotem.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        checkTotem.setText("Totem");
+        checkTotem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkTotemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelLoginLayout = new javax.swing.GroupLayout(jPanelLogin);
         jPanelLogin.setLayout(jPanelLoginLayout);
         jPanelLoginLayout.setHorizontalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLoginLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+            .addGroup(jPanelLoginLayout.createSequentialGroup()
+                .addGap(174, 174, 174)
                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelInserirEmail)
-                    .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelLoginLayout.createSequentialGroup()
+                        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelEsqueceuSenha)
+                            .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelInserirEmail)
+                                .addComponent(jLabelInserirSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabelInserirSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabelEsqueceuSenha))))
+                            .addComponent(btnEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelLoginLayout.createSequentialGroup()
+                                .addComponent(checkCaixa)
+                                .addGap(144, 144, 144)
+                                .addComponent(checkTotem)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanelLoginLayout.createSequentialGroup()
+                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLoginLayout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanelLoginLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabelBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70))
         );
         jPanelLoginLayout.setVerticalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLoginLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap()
                 .addComponent(jLabelBemVindo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelInserirEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabelInserirSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelEsqueceuSenha)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkTotem)
+                    .addComponent(checkCaixa))
+                .addGap(27, 27, 27)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(90, 90, 90))
         );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/beneficio1.png"))); // NOI18N
@@ -161,7 +208,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -169,10 +216,13 @@ public class TelaLogin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jPanelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -196,7 +246,25 @@ public class TelaLogin extends javax.swing.JFrame {
         User usuario = new User(01, email, senha);
         AutenticarLogin login = new AutenticarLogin();
         login.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
+        AutenticarLogin registra = new AutenticarLogin();
+
+        if (checkCaixa.isSelected()) {
+            registra.RegistrarCaixa(evt, rootPaneCheckingEnabled);
+        } else if (checkTotem.isSelected()) {
+            registra.RegistrarTotem(evt, rootPaneCheckingEnabled);
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void checkCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkCaixaActionPerformed
+        checkCaixa.setSelected(true);
+        checkTotem.setSelected(false);
+    }//GEN-LAST:event_checkCaixaActionPerformed
+
+    private void checkTotemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTotemActionPerformed
+
+        checkTotem.setSelected(true);
+        checkCaixa.setSelected(false);
+    }//GEN-LAST:event_checkTotemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,8 +303,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JCheckBox checkCaixa;
+    private javax.swing.JCheckBox checkTotem;
     private javax.swing.JLabel jIconeOmniview;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelBemVindo;
     private javax.swing.JLabel jLabelEsqueceuSenha;
     private javax.swing.JLabel jLabelInserirEmail;

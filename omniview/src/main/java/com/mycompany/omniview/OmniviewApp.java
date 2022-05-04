@@ -4,17 +4,22 @@
  */
 package com.mycompany.omniview;
 
+import metodos.AutenticarLogin;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 /**
  *
  * @author pedro
  */
 public class OmniviewApp {
+
     public static void main(String[] args) {
-         Connection config = new Connection();
-        
+        Connection config = new Connection();
+
         metodos.AutenticarLogin.AbrirLogin();
-        
-        
+
     }
-    
+
+  
+
 }
