@@ -19,7 +19,6 @@ public class AutenticarLogin {
     private String senha;
     private String id;
     public Integer FkEstt;
-    
 
     public AutenticarLogin(String email, String senha) {
         this.email = email;
@@ -65,6 +64,7 @@ public class AutenticarLogin {
 
     public void AutenticarLogin(String email, String senha,
             String emailUsuarioBanco, String senhaUsuarioBanco) {
+
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
@@ -106,13 +106,14 @@ public class AutenticarLogin {
             Boolean checkCaixa) {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+        metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
         if (checkCaixa = true) {
             JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
-            con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = 500");
+            con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
 
             List teste = con.queryForList("SELECT * FROM "
-                    + "MAQUINA  WHERE ID =500");
+                    + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
 
             System.out.println(teste);
             System.out.println("Caixa cadastrado");
@@ -126,14 +127,15 @@ public class AutenticarLogin {
             Boolean checkTotem) {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+        metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
         System.out.println("email do totem : " + email);
         if (checkTotem = true) {
             JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
-            con.update("UPDATE MAQUINA SET TIPO='T'WHERE ID = 500");
+            con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
 
             List teste = con.queryForList("SELECT * FROM "
-                    + "MAQUINA WHERE ID = 500");
+                    + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
             teste.get(0).toString().replace("{EMAIL=", "").replace("}", "");
             System.out.println(teste);
 

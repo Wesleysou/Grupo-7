@@ -68,7 +68,13 @@ public class RecursosComputador {
         return hostName;
     }
 
-  
+    public String getIDMaquina() {
+        Connection config = new Connection();
+        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+
+         List IdMaqBanco = con.queryForList("select ID from maquina where hostName = ?", hostName);
+         return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
+    }
     
 
     public void inserirMaquinas(Integer estUsuario) {
