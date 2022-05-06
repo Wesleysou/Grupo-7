@@ -16,12 +16,14 @@ public class MedicoesComputador {
     private Integer processos;
     private Double cpuTotal;
     private Double discoTotal;
+
     Looca looca = new Looca();
+    metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
 
     public void informacoesDoSistema() {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        
+
         //Pega a quantidade de processos sendo executados no momento
         processos = looca.getGrupoDeProcessos().getTotalProcessos();
 
@@ -38,24 +40,22 @@ public class MedicoesComputador {
 
         con.update("Insert into medicoes"
                 + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
-                + "values (?, ?, ?, ?,GETDATE(),500)", memoriaRam,discoTotal,
-        cpuTotal,processos);
-        
-    }
+                + "values (?, ?, ?, ?,GETDATE(),?)"
+                , memoriaRam, discoTotal,
+                cpuTotal, processos,cntsBanco.getIDMaquina());
 
-    
-    
+    }
 
     public void informacaomemoria() {
         int delay = 10000;   // delay de 10 seg.
         int interval = 1000;  // intervalo de 10 seg.
-       // Timer timer = new Timer();
-       Timer timer = new Timer();
+        // Timer timer = new Timer();
+        Timer timer = new Timer();
 
         timer.scheduleAtFixedRate(new TimerTask() {
-                public void run() {
+            public void run() {
                 inserirDados();
-                
+
             }
         }, delay, interval);
     }
@@ -66,8 +66,6 @@ public class MedicoesComputador {
 
         recMemoria.informacoesDoSistema();
         System.out.println("Gravando dados na tabela Medicoes");
-
-        
 
     }
 }

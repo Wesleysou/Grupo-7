@@ -4,8 +4,11 @@
  */
 package com.mycompany.omniview;
 
+import java.net.InetAddress;
 import metodos.AutenticarLogin;
+import metodos.ConsultaBanco;
 import metodos.MedicoesComputador;
+import metodos.RecursosComputador;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -18,7 +21,14 @@ public class OmniviewApp {
         Connection config = new Connection();
 
         metodos.AutenticarLogin.AbrirLogin();
+        metodos.RecursosComputador reqMaq = new RecursosComputador();
         metodos.MedicoesComputador medMaq = new MedicoesComputador();
+        metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
+        
+        System.out.println(reqMaq.getHostname());
+        
+        System.out.println(cntsBanco.getIDMaquina());
+       
      
       
     }

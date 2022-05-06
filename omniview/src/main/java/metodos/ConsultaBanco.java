@@ -15,6 +15,10 @@ public class ConsultaBanco {
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
     AutenticarLogin al = new AutenticarLogin();
     
+    
+    
+     metodos.RecursosComputador reqMaq = new RecursosComputador();
+    
 
     //Consulta FKEstUser da tabela Usuario
     public Integer getFKEst(String email) {
@@ -24,5 +28,12 @@ public class ConsultaBanco {
         
     }
     
+    public String getIDMaquina() {
+        Connection config = new Connection();
+        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+
+         List IdMaqBanco = con.queryForList("select ID from maquina where hostName = ?", reqMaq.getHostname());
+         return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
+    }
 
 }

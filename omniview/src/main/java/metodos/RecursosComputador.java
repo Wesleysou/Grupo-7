@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
+
 public class RecursosComputador {
 
     private String processador;
@@ -26,9 +27,7 @@ public class RecursosComputador {
     private Integer quantidadeDisco;
     private Double cpuTotal;
     public String hostName;
-    
-    
-    ConsultaBanco consultaBanco = new ConsultaBanco();
+
     AutenticarLogin autenticarLogin = new AutenticarLogin();
     Looca looca = new Looca();
 
@@ -56,7 +55,7 @@ public class RecursosComputador {
         //Insert na tabela maquina
     }
 
-    public void getHostname() {
+    public String getHostname() {
 
         System.out.println("Pegando HostName");
         try {
@@ -66,7 +65,11 @@ public class RecursosComputador {
         } catch (UnknownHostException ex) {
             Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return hostName;
     }
+
+  
+    
 
     public void inserirMaquinas(Integer estUsuario) {
 
