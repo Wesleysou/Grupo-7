@@ -1,7 +1,7 @@
 create table medicoes(
 id INT PRIMARY KEY IDENTITY (1000,1),
 ram DECIMAL(6,2) NULL,
-disco DECIMAL(5,2) not NULL,
+disco DECIMAL(7,2) not NULL,
 cpuM DECIMAL(5,2) not NULL,
 processos INT not NULL,
 diaHorario DATETIME not NULL,
@@ -25,3 +25,7 @@ FOREIGN KEY (Fk_EstMaq) REFERENCES estabelecimento (id))
 
 
 Pegando fkestUser para comparar na tabela maquina
+
+
+
+            

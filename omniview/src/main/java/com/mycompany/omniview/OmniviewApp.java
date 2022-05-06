@@ -5,6 +5,7 @@
 package com.mycompany.omniview;
 
 import metodos.AutenticarLogin;
+import metodos.MedicoesComputador;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -17,9 +18,9 @@ public class OmniviewApp {
         Connection config = new Connection();
 
         metodos.AutenticarLogin.AbrirLogin();
-
+        metodos.MedicoesComputador medMaq = new MedicoesComputador();
+     
+      
     }
-
-  
 
 }
