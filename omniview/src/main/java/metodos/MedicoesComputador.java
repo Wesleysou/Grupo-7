@@ -65,7 +65,7 @@ public class MedicoesComputador {
         MedicoesComputador recMemoria = new MedicoesComputador();
 
         recMemoria.informacoesDoSistema();
-        System.out.println("Gravando dados na tabela Medicoes");
+        System.out.println("Gravando dados na tabela Medições");
 
     }
 }

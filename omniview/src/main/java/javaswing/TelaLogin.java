@@ -246,12 +246,10 @@ public class TelaLogin extends javax.swing.JFrame {
         User usuario = new User(01, email, senha);
         AutenticarLogin login = new AutenticarLogin();
         login.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
-        AutenticarLogin registra = new AutenticarLogin();
-
         if (checkCaixa.isSelected()) {
-            registra.RegistrarCaixa(evt, rootPaneCheckingEnabled);
+            login.RegistrarCaixa(evt, rootPaneCheckingEnabled);
         } else if (checkTotem.isSelected()) {
-            registra.RegistrarTotem(evt, rootPaneCheckingEnabled);
+            login.RegistrarTotem(evt, rootPaneCheckingEnabled);
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

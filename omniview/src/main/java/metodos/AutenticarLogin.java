@@ -19,6 +19,15 @@ public class AutenticarLogin {
     private String senha;
     private String id;
     public Integer FkEstt;
+    private boolean userAutenticado = false;
+
+    public boolean isUserAutenticado() {
+        return userAutenticado;
+    }
+
+    public void setUserAutenticado(boolean userAutenticado) {
+        this.userAutenticado = userAutenticado;
+    }
 
     public AutenticarLogin(String email, String senha) {
         this.email = email;
@@ -71,21 +80,24 @@ public class AutenticarLogin {
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
                 new BeanPropertyRowMapper<>(User.class), email, senha);
-        List<User> usuarioId = con.query("SELECT ID FROM USUARIO "
-                + "WHERE EMAIL =? and SENHA =?",
-                new BeanPropertyRowMapper<>(User.class), email, senha);
-        if (usuario.isEmpty()) {
 
+        if (usuario.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
                     + "senha incorretos");
+
         } else {
+            setUserAutenticado(true);
             this.email = emailUsuarioBanco;
+
+            JOptionPane.showMessageDialog(null, "Autenticado");
             System.out.println("Email do que retornou do banco:" + emailUsuarioBanco);
+            System.out.println(userAutenticado);
+
+            System.out.println("Depois " + userAutenticado);
             metodos.RecursosComputador regMaq = new RecursosComputador();
             metodos.MedicoesComputador medMaq = new MedicoesComputador();
             metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
             metodos.AutenticarLogin emailFK = new AutenticarLogin();
-            JOptionPane.showMessageDialog(null, "Autenticado");
 
             TelaLogin teste = new TelaLogin();
             cnstBanco.getFKEst(email);
@@ -95,9 +107,10 @@ public class AutenticarLogin {
             regMaq.informacoesDoSistemaAtual();
             regMaq.getHostname();
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-            medMaq.inserirDados();
-            FkEstt = cnstBanco.getFKEst(email);
 
+            medMaq.inserirDados();
+            medMaq.informacaomemoria();
+            FkEstt = cnstBanco.getFKEst(email);
         }
 
     }
@@ -108,18 +121,21 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
-        if (checkCaixa = true) {
-            JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
-            con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
+        if (userAutenticado == true) {
 
-            List teste = con.queryForList("SELECT * FROM "
-                    + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
+            if (checkCaixa == true) {
+                JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
+                con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
+                List updateMaq = con.queryForList("SELECT * FROM "
+                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
+                updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+                System.out.println(updateMaq);
+                System.out.println("Caixa cadastrado no ID: "
+                        + cnstBanco.getIDMaquina());
+            } else {
+                System.out.println("caixa nao cadastrado");
+            }
 
-            System.out.println(teste);
-            System.out.println("Caixa cadastrado");
-
-        } else {
-            System.out.println("caixa nao cadastrado");
         }
     }
 
@@ -129,42 +145,25 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
-        System.out.println("email do totem : " + email);
-        if (checkTotem = true) {
-            JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
-            con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
+        if (userAutenticado == true) {
+            if (checkTotem = true) {
+                JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
+                con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
 
-            List teste = con.queryForList("SELECT * FROM "
-                    + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
-            teste.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-            System.out.println(teste);
+                List updateMaq = con.queryForList("SELECT * FROM "
+                        + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
+                updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+                System.out.println(updateMaq);
 
-            System.out.println("Totem cadastrado ");
+                System.out.println("Totem cadastrado no ID: "
+                        + cnstBanco.getIDMaquina());
 
-        } else {
-            System.out.println("totem nao cadastrado");
+            } else {
+                System.out.println("totem nao cadastrado");
+            }
+
         }
 
     }
 
-//    public void inserirMaquinas() {
-//        Connection config = new Connection();
-//        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-//
-//        RecursosComputador hardwareInfo = new RecursosComputador();
-//        String so = hardwareInfo.getSistemaOperacional();
-//        Double RamTotal = hardwareInfo.getMemoriaRamTotal();
-//        Integer arquitetura = hardwareInfo.getArquiteturaSis();
-//        String processador = hardwareInfo.getProcessador();
-//        Integer QtdDiscos = hardwareInfo.getQuantidadeDiscos();
-//        
-//        con.update("INSERT INTO MAQUINA(hostName,proprietarioMaq,"
-//                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
-//                + "processador,disco,Fk_EstMaq) VALUES "
-//                + " (null,?,null,?,?,?,?,?,?)", this.email,so,RamTotal,arquitetura
-//                , processador,QtdDiscos, 1);
-//                
-//        System.out.println("Gravando informacoes na tabela maquina");
-//        System.out.println(hardwareInfo.toString());
-//    }
 }

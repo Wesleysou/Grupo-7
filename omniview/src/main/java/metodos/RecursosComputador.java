@@ -56,12 +56,11 @@ public class RecursosComputador {
     }
 
     public String getHostname() {
-
-        System.out.println("Pegando HostName");
+        System.out.println("Buscando HostName");
         try {
             String Inet = InetAddress.getLocalHost().getHostName();
             hostName = Inet;
-            System.out.println("Hostname: " + hostName);
+            
         } catch (UnknownHostException ex) {
             Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -72,7 +71,8 @@ public class RecursosComputador {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
-         List IdMaqBanco = con.queryForList("select ID from maquina where hostName = ?", hostName);
+         List IdMaqBanco = con.queryForList("select ID from maquina where "
+                 + "hostName = ?", hostName);
          return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
     }
     
@@ -87,6 +87,6 @@ public class RecursosComputador {
                 + "processador,disco,Fk_EstMaq) VALUES "
                 + " (?,null,?,?,?,?,?,?)", hostName, sistemaOperacional, memoriaRamTotal,
                 arquiteturaSis, processador, quantidadeDisco, estUsuario);
-        System.out.println("inserindo dados" + this.sistemaOperacional);
+        System.out.println("inserindo dados na máquina: " + this.hostName);
     }
 }
