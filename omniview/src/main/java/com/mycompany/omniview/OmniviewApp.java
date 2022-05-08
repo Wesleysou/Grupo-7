@@ -7,13 +7,9 @@ package com.mycompany.omniview;
 public class OmniviewApp {
 
     public static void main(String[] args) {
-        Connection config = new Connection();
 
         metodos.AutenticarLogin.AbrirLogin();
-    
-       
-     
-      
+
     }
 
 }
