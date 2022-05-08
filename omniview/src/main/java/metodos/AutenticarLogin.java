@@ -76,6 +76,11 @@ public class AutenticarLogin {
 
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+        metodos.RecursosComputador regMaq = new RecursosComputador();
+        metodos.MedicoesComputador medMaq = new MedicoesComputador();
+        metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
+        metodos.AutenticarLogin emailFK = new AutenticarLogin();
+        TelaLogin teste = new TelaLogin();
 
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
@@ -88,26 +93,12 @@ public class AutenticarLogin {
         } else {
             setUserAutenticado(true);
             this.email = emailUsuarioBanco;
-
-            JOptionPane.showMessageDialog(null, "Autenticado");
-            System.out.println("Email do que retornou do banco:" + emailUsuarioBanco);
-            System.out.println(userAutenticado);
-
-            System.out.println("Depois " + userAutenticado);
-            metodos.RecursosComputador regMaq = new RecursosComputador();
-            metodos.MedicoesComputador medMaq = new MedicoesComputador();
-            metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
-            metodos.AutenticarLogin emailFK = new AutenticarLogin();
-
-            TelaLogin teste = new TelaLogin();
+            JOptionPane.showMessageDialog(null, "Usuario Autenticado");
             cnstBanco.getFKEst(email);
-            System.out.println(cnstBanco.getFKEst(email));
             //cnstBanco.getFKEst(emailFK.getEmail());
-
             regMaq.informacoesDoSistemaAtual();
             regMaq.getHostname();
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-
             medMaq.inserirDados();
             medMaq.informacaomemoria();
             FkEstt = cnstBanco.getFKEst(email);
@@ -122,7 +113,6 @@ public class AutenticarLogin {
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
         if (userAutenticado == true) {
-
             if (checkCaixa == true) {
                 JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
                 con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
@@ -149,12 +139,10 @@ public class AutenticarLogin {
             if (checkTotem = true) {
                 JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
                 con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
-
                 List updateMaq = con.queryForList("SELECT * FROM "
                         + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
                 updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
                 System.out.println(updateMaq);
-
                 System.out.println("Totem cadastrado no ID: "
                         + cnstBanco.getIDMaquina());
 

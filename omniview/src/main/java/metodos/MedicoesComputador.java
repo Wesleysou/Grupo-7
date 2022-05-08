@@ -15,9 +15,11 @@ public class MedicoesComputador {
     private Double memoriaRam;
     private Integer processos;
     private Double cpuTotal;
-    private Double discoTotal;
+    private Double discoEmUso;
+
 
     Looca looca = new Looca();
+ 
     metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
 
     public void informacoesDoSistema() {
@@ -28,8 +30,8 @@ public class MedicoesComputador {
         processos = looca.getGrupoDeProcessos().getTotalProcessos();
 
         //Total de Disco
-        Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
-        discoTotal = discoByte / 1073741824.0;
+        Long discoByte = looca.getGrupoDeDiscos().getVolumes().get(0).getDisponivel();
+        discoEmUso = discoByte / 1073741824.0;
 
         //CPU
         Long cpuBytes = looca.getProcessador().getFrequencia();
@@ -39,9 +41,9 @@ public class MedicoesComputador {
         memoriaRam = memoriaRamByte / 1073741824.0;
 
         con.update("Insert into medicoes"
-                + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
+                + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                 + "values (?, ?, ?, ?,GETDATE(),?)"
-                , memoriaRam, discoTotal,
+                , memoriaRam, discoEmUso,
                 cpuTotal, processos,cntsBanco.getIDMaquina());
 
     }

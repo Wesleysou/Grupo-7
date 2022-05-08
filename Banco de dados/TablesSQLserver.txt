@@ -1,7 +1,7 @@
 create table medicoes(
 id INT PRIMARY KEY IDENTITY (1000,1),
 ram DECIMAL(6,2) NULL,
-disco DECIMAL(7,2) not NULL,
+usoDoDisco DECIMAL(7,2) not NULL,
 cpuM DECIMAL(5,2) not NULL,
 processos INT not NULL,
 diaHorario DATETIME not NULL,
@@ -9,11 +9,9 @@ Fk_MaqRe INT NULL,
 FOREIGN KEY (Fk_MaqRe) REFERENCES maquina (id)
 );
 
-
 create table maquina(
 id INT PRIMARY KEY IDENTITY(500,1),
 hostName VARCHAR(45),
-proprietarioMaq VARCHAR(45),
 tipo CHAR(1) CHECK(tipo = 'T' or tipo ='C'),
 sistemaOperacional VARCHAR(45),
 ramTotal DECIMAL(5,2),
