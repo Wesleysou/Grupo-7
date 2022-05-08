@@ -385,6 +385,21 @@ nav .botao-entrar:hover {
     background: #cccaeb;
 }
 
+nav .botao-sair {
+    background-color: #324048;
+    color: #FFF;
+    padding: 20px 50px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background-color .5s ease-in-out;
+}
+
+nav .botao-sair:hover {
+    background: #cccaeb;
+    color:#324048 ;
+}
+
 
 /* Menu Mobile
 _________________________________ */

@@ -20,14 +20,9 @@
         <div class="container">
             <nav class="navbar" id="navBar">
                 <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="contatos.html">Contato</a>
-                    <li><a href="" class="li-checked">Cadastre-se</a></li>
-                    <li><a href="login.html"><button class="botao-entrar">Entrar</button></a></li>
+      
+                    <button  class="botao-sair" onclick="sair()">Sair</button>
 
-
-                </ul>
             </nav>
         </div>
     </header>
@@ -47,10 +42,7 @@
                 <label for="menu_lateral" class="botao-fechar">x</label>
 
                 <div class="box-menu">
-                    <a href="" class="li-checked">Cadastre-se</a>
-                    <a href="index.html">Home</a>
-                    <a href="login.html">Login</a>
-                    <a href="contatos.html">Contato</a>
+                    <a href="loginEmpresa.html">Sair</button></a>
                 </div>
             </div>
         </nav>
@@ -64,7 +56,7 @@
     <div class="banner-login ">
         <div class="container ">
             <div class="card medio">
-                <h2>Cadastre aqui a sua empresa</h2><br><br>
+                <h2>Cadastre aqui a seu funcionario</h2><br><br>
                 <div class="formulario">
                     <div id="form_cadastro">
                         <div id="cadastro_esquerda">
@@ -264,7 +256,6 @@
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
@@ -278,5 +269,8 @@
         return false;
     }
     
+    function sair(){
+        window.location.href = './loginEmpresa.html'
+    }
         
 </script>
