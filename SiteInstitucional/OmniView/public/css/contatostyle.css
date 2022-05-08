@@ -155,7 +155,9 @@ details .faq{
     width: 100%;
     display: grid;
     grid-column: auto;
-    justify-content: flex-start;
     flex-direction: column;
-    margin-left: 10%;
+}
+
+summary{
+    cursor: pointer;
 }
