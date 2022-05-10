@@ -42,11 +42,43 @@ public class RecursosComputador {
         //(RAM EM USO)
         Long memoriaRamByte = looca.getMemoria().getTotal().longValue();
         memoriaRamTotal = memoriaRamByte / 1073741824.0;
-        
+
         Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
         discoTotal = discoByte / 1073741824.0;
 
         //Insert na tabela maquina
+    }
+
+    public String getNomeProcessador() {
+
+        processador = looca.getProcessador().getNome();
+        return processador;
+    }
+
+    public Integer getArquitetureMaquina() {
+
+        bitMaquina = looca.getSistema().getArquitetura();
+        return bitMaquina;
+    }
+
+    public String getSistemaOperacional() {
+
+        sistemaOperacional = looca.getSistema().getSistemaOperacional();
+        return sistemaOperacional;
+    }
+
+    public Double getMemoriaRamTotal() {
+
+        Long memoriaRamByte = looca.getMemoria().getTotal().longValue();
+        memoriaRamTotal = memoriaRamByte / 1073741824.0;
+        return memoriaRamTotal;
+    }
+
+    public Double getDiscoMaquina() {
+
+        Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
+        discoTotal = discoByte / 1073741824.0;
+        return discoTotal;
     }
 
     public String getHostname() {
