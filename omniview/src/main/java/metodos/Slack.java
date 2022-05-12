@@ -29,11 +29,11 @@ public class Slack {
                     json.put("text",String.format(" %s - 75 da memoria consumida", hostName));
                     IntegracaoSlack.sendMessage(json);
                 }
-                if (ramEmUso >= alertaDeRamGrave){
+                else if (ramEmUso >= alertaDeRamGrave){
                     json.put("text",String.format(" %s - 90 da memoria consumida", hostName));
                     IntegracaoSlack.sendMessage(json);
                 }
-                if(Objects.equals(ramEmUso, alertaConsumoTotalRam)){
+                else if(Objects.equals(ramEmUso, alertaConsumoTotalRam)){
                     json.put("text",String.format(" %s - 100 da memoria consumuida ", hostName));
                     IntegracaoSlack.sendMessage(json);
                 } 
@@ -59,11 +59,11 @@ public class Slack {
                     json.put("text",String.format(" %s - 75 de disco consumuido", hostName));
                     IntegracaoSlack.sendMessage(json);
                 }
-                if (discoEmUso >= alertaDeDiscoGrave){
+                else if (discoEmUso >= alertaDeDiscoGrave){
                     json.put("text",String.format(" %s - 90 de disco consumuido", hostName));
                     IntegracaoSlack.sendMessage(json);
                 }
-                if(Objects.equals(discoEmUso, alertaConsumoTotalDisco)){
+                else if(Objects.equals(discoEmUso, alertaConsumoTotalDisco)){
                     json.put("text",String.format(" %s - 100 de disco consumuido", hostName));
                     IntegracaoSlack.sendMessage(json);
                 }
