@@ -19,7 +19,7 @@ public class MedicoesComputador {
 
 
     Looca looca = new Looca();
-    Slack slack = new Slack();
+    AlertasSlack slack = new AlertasSlack();
     RecursosComputador rec = new RecursosComputador();
     metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
 
@@ -36,8 +36,8 @@ public class MedicoesComputador {
         slack.alertaDisco(discoEmUso, rec.getHostname());
 
         //CPU
-        Double cpuEmUso = looca.getProcessador().getUso();
-        
+        cpuEmUso = looca.getProcessador().getUso();
+        slack.alertaCpu(cpuEmUso, rec.getHostname());
 
         Long memoriaRamByte = looca.getMemoria().getEmUso();
         memoriaRam = memoriaRamByte / 1073741824.0;
@@ -91,11 +91,11 @@ public class MedicoesComputador {
         this.processos = processos;
     }
 
-    public Double getCpuTotal() {
+    public Double getCpuEmUso() {
         return cpuEmUso;
     }
 
-    public void setCpuTotal(Double cpuEmUso) {
+    public void setCpuEmUso(Double cpuEmUso) {
         this.cpuEmUso = cpuEmUso;
     }
 
@@ -115,6 +115,22 @@ public class MedicoesComputador {
         this.looca = looca;
     }
 
+    public AlertasSlack getSlack() {
+        return slack;
+    }
+
+    public void setSlack(AlertasSlack slack) {
+        this.slack = slack;
+    }
+
+    public RecursosComputador getRec() {
+        return rec;
+    }
+
+    public void setRec(RecursosComputador rec) {
+        this.rec = rec;
+    }
+
     public ConsultaBanco getCntsBanco() {
         return cntsBanco;
     }
@@ -122,7 +138,5 @@ public class MedicoesComputador {
     public void setCntsBanco(ConsultaBanco cntsBanco) {
         this.cntsBanco = cntsBanco;
     }
-
-    
-    
+  
 }
