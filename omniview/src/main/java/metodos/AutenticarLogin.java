@@ -96,6 +96,7 @@ public class AutenticarLogin {
             regMaq.getHostname();
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
             medMaq.inserirDados();
+            
             medMaq.informacaomemoria();
             FkEstt = cnstBanco.getFKEst(email);
         }

@@ -14,7 +14,7 @@ public class MedicoesComputador {
 
     private Double memoriaRam;
     private Integer processos;
-    private Double cpuTotal;
+    private Double cpuEmUso;
     private Double discoEmUso;
 
 
@@ -36,8 +36,8 @@ public class MedicoesComputador {
         slack.alertaDisco(discoEmUso, rec.getHostname());
 
         //CPU
-        Long cpuBytes = looca.getProcessador().getFrequencia();
-        cpuTotal = cpuBytes / 1073741824.0;
+        Double cpuEmUso = looca.getProcessador().getUso();
+        
 
         Long memoriaRamByte = looca.getMemoria().getEmUso();
         memoriaRam = memoriaRamByte / 1073741824.0;
@@ -47,7 +47,7 @@ public class MedicoesComputador {
                 + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                 + "values (?, ?, ?, ?,GETDATE(),?)"
                 , memoriaRam, discoEmUso,
-                cpuTotal, processos,cntsBanco.getIDMaquina());
+                cpuEmUso, processos,cntsBanco.getIDMaquina());
         
     }
 
@@ -92,11 +92,11 @@ public class MedicoesComputador {
     }
 
     public Double getCpuTotal() {
-        return cpuTotal;
+        return cpuEmUso;
     }
 
-    public void setCpuTotal(Double cpuTotal) {
-        this.cpuTotal = cpuTotal;
+    public void setCpuTotal(Double cpuEmUso) {
+        this.cpuEmUso = cpuEmUso;
     }
 
     public Double getDiscoEmUso() {
@@ -122,6 +122,7 @@ public class MedicoesComputador {
     public void setCntsBanco(ConsultaBanco cntsBanco) {
         this.cntsBanco = cntsBanco;
     }
+
     
     
 }

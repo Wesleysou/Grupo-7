@@ -19,22 +19,22 @@ public class Slack {
         Long ramTotal = looca.getMemoria().getTotal();
         memoriaRam = ramTotal / 1073741824.0;
         
-        Double alertaDeRam = (75.0 / 100.0) * memoriaRam;
+        Double alertaDeRam = (35.0 / 100.0) * memoriaRam;
         Double alertaDeRamGrave = (90.0 / 100.0) * memoriaRam;
         Double alertaConsumoTotalRam = (100.0 / 100.0) * memoriaRam;
         
         do {
             try {
                 if (ramEmUso >= alertaDeRam) {
-                    json.put("text",String.format(" %s - 75 da memoria consumida", hostName));
+                    json.put("text",String.format(" %s - 35 por cento da memoria consumida, memoria atual: %.2f", hostName,ramEmUso));
                     IntegracaoSlack.sendMessage(json);
                 }
                 else if (ramEmUso >= alertaDeRamGrave){
-                    json.put("text",String.format(" %s - 90 da memoria consumida", hostName));
+                    json.put("text",String.format(" %s - 90% da memoria consumida", hostName));
                     IntegracaoSlack.sendMessage(json);
                 }
                 else if(Objects.equals(ramEmUso, alertaConsumoTotalRam)){
-                    json.put("text",String.format(" %s - 100 da memoria consumuida ", hostName));
+                    json.put("text",String.format(" %s - 100% da memoria consumuida ", hostName));
                     IntegracaoSlack.sendMessage(json);
                 } 
             } catch (Exception e) {

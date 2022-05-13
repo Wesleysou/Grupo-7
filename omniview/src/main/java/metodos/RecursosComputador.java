@@ -23,7 +23,7 @@ public class RecursosComputador {
     private Double memoriaRamTotal;
     private List processos;
     private Double discoTotal;
-    private Double cpuTotal;
+
     public String hostName;
 
     AutenticarLogin autenticarLogin = new AutenticarLogin();
