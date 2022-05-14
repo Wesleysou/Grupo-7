@@ -92,12 +92,10 @@ public class AutenticarLogin {
             JOptionPane.showMessageDialog(null, "Usuario Autenticado");
             cnstBanco.getFKEst(email);
             //cnstBanco.getFKEst(emailFK.getEmail());
-            regMaq.informacoesDoSistemaAtual();
-            regMaq.getHostname();
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-            medMaq.inserirDados();
-            
-            medMaq.informacaomemoria();
+            regMaq.getHostname();
+            medMaq.inserirMedicao();
+
             FkEstt = cnstBanco.getFKEst(email);
         }
 
