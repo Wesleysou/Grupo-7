@@ -27,6 +27,15 @@ _________________________________ */
 
 
 }
+@media only screen and (max-width: 930px) {
+    .banner-login .container{
+        height: 461px;
+        width: 630px;
+
+    }
+
+
+}
 
 @media only screen and (max-width: 830px) {
     .forms{
@@ -55,7 +64,36 @@ _________________________________ */
 
     
  }
+
+ @media only screen and (max-width: 673px) {
+    .banner-login .container{
+        height: 370px;
+        width: 480px;
+    }
+}
+
 @media only screen and (max-width: 630px) {
   
 
+}
+
+@media only screen and (max-width: 500px) {
+    .banner-login .container{
+        height: 270px;
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .banner-login .container{
+        height: 170px;
+        width: 280px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .banner-login .container{
+        height: 70px;
+        width: 180px;
+    }
 }

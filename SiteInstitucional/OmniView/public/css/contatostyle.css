@@ -160,4 +160,11 @@ details .faq{
 
 summary{
     cursor: pointer;
+    width: 98%;
+    margin-left: 3px;
+}
+
+p{
+    font-size: 13px;
+    
 }

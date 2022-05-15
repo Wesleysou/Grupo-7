@@ -38,7 +38,7 @@ _________________________________ */
         height: auto;
     }
     .time{
-        height: 80vh!important;
+        height: 94vh!important;
     }
 
     .time p {
@@ -126,18 +126,18 @@ _________________________________ */
 
     }
     .face3{
-        width: 600px;
-        height: 135px;
+        width: 340px;
+        height: 110px;
         margin-top: 320px;
     
     }
     .face{
-        width: 600px;
-        height: 135px;
+        width: 340px;
+        height: 110px;
     }
     .face2{
-        width: 600px;
-        height: 135px;
+        width: 340px;
+        height: 110px;
         margin-top: 160px;
     }
    
@@ -147,6 +147,10 @@ _________________________________ */
         margin-top: 5vh;
         margin-bottom: 5vh;
         flex-direction: column;
+    }
+
+    .align-introducao h1 a{
+        font-size: 45px;
     }
 }
 
@@ -189,5 +193,41 @@ _________________________________ */
     }
     .text{
         display: none;
+    }
+}
+
+@media only screen and (max-width: 672px) {
+    .align-introducao p{
+        font-size: 20px;
+    }
+
+    .align-introducao h1{
+        font-size: 35px;
+    }
+
+    .align-introducao h1 a{
+        font-size: 35px;
+    }
+
+    summary{
+        font-size: 15px;
+    }
+
+    p{
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .align-introducao p{
+        font-size: 15px;
+    }
+
+    .align-introducao h1{
+        font-size: 30px;
+    }
+
+    .align-introducao h1 a{
+        font-size: 30px;
     }
 }
