@@ -89,12 +89,13 @@ public class AutenticarLogin {
 
         } else {
             setUserAutenticado(true);
+            regMaq.getHostname();
             this.email = emailUsuarioBanco;
             JOptionPane.showMessageDialog(null, "Usuario Autenticado");
             cnstBanco.getFKEst(email);
             //cnstBanco.getFKEst(emailFK.getEmail());
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-            regMaq.getHostname();
+            
             medMaq.inserirMedicao();
             slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
             slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
