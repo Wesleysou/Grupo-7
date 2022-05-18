@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="./assets/imgs/logos/omniview-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/indexresponsivo.css">
     <link rel="stylesheet" href="./css/dashboardgerente.css">
-    <link rel="stylesheet" href="./css/indexstyle.css">
 </head>
 <body>
 
@@ -18,9 +17,7 @@
             <nav class="navbar" id="navBar">
                 <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
                 <ul>
-                    <li><a href="" class="li-checked">Caixas</a></li>
-                    <li><a href="gerente_totem.html">Totem</a>
-                    <li><a href="reiniciar_equipamento.html">Equipamentos</a>
+                    <li><a href="" class="li-checked">Seus graficos</a></li>
                     <li><a href="sair.html"><button class="botao-entrar">Sair</button></a></li>
 
 
@@ -44,33 +41,64 @@
                 <label for="menu_lateral" class="botao-fechar">x</label>
                 
                 <div class="box-menu">
-                    <a href="" class="li-checked">Cadastre-se</a>
-                    <a href="index.html">Home</a>
-                    <a href="login.html">Login</a>
-                    <a href="contatos.html">Contato</a>
+                  <a href="" class="li-checked">Caixas</a>
+                  <a href="gerente_totem.html">Totem</a>
+                  <a href="reiniciar_equipamento.html">Equipamentos</a>
+                  <a href="sair.html"><button class="botao-entrar">Sair</button></a>
                 </div>
             </div>
         </nav>
     </div>
     <br><br><br><br><br><br><br>
-
-
-    <section class="clientes">
-      <div class="container">
-          <div class="topics">
+             <div class="social">
+                 <div class="cards">
+                <div class="flip" id="card" title="SEM PROBLEMAS">
+                    <div class="face" id="front">
+                        <div class="alinhar_componentes"><h5>TOTEM 1</h5>
+                            <button class="button_reiniciar">Reiniciar aplicação</button>
+                            <div class="alerta" id="totem1"></div>
+                    </div></div>
+                </div>
+               <div class="flip" id="card2" title="PERIGO">
+                    <div class="face" id="front2">
+                        <div class="alinhar_componentes"><h5>TOTEM 2</h5>
+                            <button class="button_reiniciar">Reiniciar aplicação</button>
+                            <div class="alerta" id="totem1"></div>
+                    </div></div>
+                </div>
+                <div class="flip" id="card3" title="SEM PROBLEMAS">
+                    <div class="face" id="front3">
+                        <div class="alinhar_componentes"><h5>TOTEM 3</h5>
+                            <button class="button_reiniciar">Reiniciar aplicação</button>
+                            <div class="alerta" id="totem1"></div>
+                    </div></div>
+                </div>
+                <div class="flip" id="card4" title="SEM PROBLEMAS">
+                    <div class="face" id="front4">
+                        <div class="alinhar_componentes"><h5>TOTEM 4</h5>
+                            <button class="button_reiniciar">Reiniciar aplicação</button>
+                            <div class="alerta" id="totem1"></div>
+                    </div></div>
+                </div>
+                <div class="flip" id="card5" title="CUIDADO">
+                    <div class="face" id="front5">
+                        <div class="alinhar_componentes"><h5>TOTEM 5</h5>
+                            <button class="button_reiniciar">Reiniciar aplicação</button>
+                            <div class="alerta" id="totem1"></div>
+                    </div>
+                </div>
+            </div>  
+            </div>
+            <div class="social_dash">
               <div class="div_dash">
                 <h2>Horário de funcionamento dos caixas</h2>
                 <canvas id="myChart" style="height: 90%;width: 100%;"></canvas>
               </div>
                  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-          </div>
+          </div></div>
 
-        <section class="container">
 
-          
-        
-        </section>
-        <footer>
+        <!-- <footer>
             <div class="footer-info">
                 <div class="container">
                     <div class="align-links-footer">
@@ -88,7 +116,7 @@
                     <p>© 2022 by OmniView todos direitos reservados.</p>
                 </div>
             </div>
-        </footer>
+        </footer> -->
 
             
         
@@ -146,4 +174,6 @@
       document.getElementById('myChart'),
       config
     );
+
+  
   </script>

@@ -1,28 +1,28 @@
 package metodos;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import org.json.JSONObject;
+import com.slack.api.Slack;
+import com.slack.api.methods.MethodsClient;
+import com.slack.api.methods.request.chat.ChatPostMessageRequest;
+import com.slack.api.methods.response.chat.ChatPostMessageResponse;
 
 public class IntegracaoSlack {
-    private static HttpClient client = HttpClient.newHttpClient();
-    private static final String URL = "https://hooks.slack.com/services/"
-            + "T03DRFXCUFN/B03EYTH0937/HV1nAS2sdnwc7doM9EdjGo96";
-    
-    public static void sendMessage(JSONObject content) throws IOException, InterruptedException {
-        HttpRequest request = HttpRequest.newBuilder(
-                URI.create(URL))
-                .header("accept", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(content.toString()))
+    public static void getEnviaAlertas(String tipoAlerta,String corAlerta,String hostName,String tipoMedicao, Double ramEmUso) throws Exception {
+
+        String msgAlerta = String.format("%s %s\n"
+                + "Máquina: %s\n"
+                + "%s Disponivel: %.2f GB",
+                tipoAlerta,corAlerta,hostName,tipoMedicao,ramEmUso);
+
+        Slack slack = Slack.getInstance();
+        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-400eERHbXNHhCdm2iOQdaZup");
+
+        ChatPostMessageRequest request = ChatPostMessageRequest.builder()
+                .channel("#geral") // Use a channel ID `C1234567` is preferrable
+                .text(msgAlerta)
                 .build();
-        
-        HttpResponse<String> response = client.send(request, 
-                HttpResponse.BodyHandlers.ofString());
-        
-        System.out.println(String.format("Status: %s", response.statusCode()));
-        System.out.println(String.format("Response: %s", response.body()));
+        ChatPostMessageResponse response = methods.chatPostMessage(request);
+
+        System.out.println(response);
+        System.out.println(response.getError());
     }
 }

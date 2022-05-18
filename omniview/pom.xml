@@ -99,6 +99,13 @@
             <artifactId>json</artifactId>
             <version>20220320</version>
         </dependency> 
+        
+        <dependency>
+            <groupId>com.slack.api</groupId>
+            <artifactId>slack-api-client</artifactId>
+            <version>1.22.0</version>
+            <type>jar</type>
+        </dependency>
 
     </dependencies>
     <name>omniview-monitoracao</name>

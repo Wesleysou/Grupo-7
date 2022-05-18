@@ -76,6 +76,7 @@ public class AutenticarLogin {
         metodos.MedicoesComputador medMaq = new MedicoesComputador();
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
         metodos.AutenticarLogin emailFK = new AutenticarLogin();
+        metodos.AlertasSlack slack = new AlertasSlack();
         TelaLogin teste = new TelaLogin();
 
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
@@ -92,12 +93,11 @@ public class AutenticarLogin {
             JOptionPane.showMessageDialog(null, "Usuario Autenticado");
             cnstBanco.getFKEst(email);
             //cnstBanco.getFKEst(emailFK.getEmail());
-            regMaq.informacoesDoSistemaAtual();
-            regMaq.getHostname();
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-            medMaq.inserirDados();
-            
-            medMaq.informacaomemoria();
+            regMaq.getHostname();
+            medMaq.inserirMedicao();
+            slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
+            slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
         }
 

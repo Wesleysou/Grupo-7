@@ -19,63 +19,45 @@ public class RecursosComputador {
     private Integer bitMaquina;
     private String sistemaOperacional;
     private Integer arquiteturaSis;
-    private Double memoriaRam;
     private Double memoriaRamTotal;
-    private List processos;
     private Double discoTotal;
-
     public String hostName;
+
+    public RecursosComputador() {
+    }
 
     AutenticarLogin autenticarLogin = new AutenticarLogin();
     Looca looca = new Looca();
+    Connection config = new Connection();
+    JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
-    public void informacoesDoSistemaAtual() {
-        //Pega o nome do processador
-        processador = looca.getProcessador().getNome();
-        //Pega quantos bit a maquina tem
-        bitMaquina = looca.getSistema().getArquitetura();
-        //Pega o sistema operacional da maquina
-        sistemaOperacional = looca.getSistema().getSistemaOperacional();
-        //Arquitetura do processador
-        arquiteturaSis = looca.getSistema().getArquitetura();
-        //Memoria ram convertida de bytes para Gigas
-        //(RAM EM USO)
-        Long memoriaRamByte = looca.getMemoria().getTotal().longValue();
-        memoriaRamTotal = memoriaRamByte / 1073741824.0;
-
-        Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
-        discoTotal = discoByte / 1073741824.0;
-
-        //Insert na tabela maquina
-    }
-
-    public String getNomeProcessador() {
-
+    public String getProcessador() {
         processador = looca.getProcessador().getNome();
         return processador;
     }
 
-    public Integer getArquitetureMaquina() {
-
+    public Integer getBitMaquina() {
         bitMaquina = looca.getSistema().getArquitetura();
         return bitMaquina;
     }
 
     public String getSistemaOperacional() {
-
         sistemaOperacional = looca.getSistema().getSistemaOperacional();
         return sistemaOperacional;
     }
 
-    public Double getMemoriaRamTotal() {
+    public Integer getArquiteturaSis() {
+        arquiteturaSis = looca.getSistema().getArquitetura();
+        return arquiteturaSis;
+    }
 
+    public Double getMemoriaRamTotal() {
         Long memoriaRamByte = looca.getMemoria().getTotal().longValue();
         memoriaRamTotal = memoriaRamByte / 1073741824.0;
         return memoriaRamTotal;
     }
 
-    public Double getDiscoMaquina() {
-
+    public Double getDiscoTotal() {
         Long discoByte = looca.getGrupoDeDiscos().getTamanhoTotal();
         discoTotal = discoByte / 1073741824.0;
         return discoTotal;
@@ -93,8 +75,6 @@ public class RecursosComputador {
     }
 
     public String getIDMaquina() {
-        Connection config = new Connection();
-        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
         List IdMaqBanco = con.queryForList("select ID from maquina where "
                 + "hostName = ?", hostName);
@@ -102,15 +82,15 @@ public class RecursosComputador {
     }
 
     public void inserirMaquinas(Integer estUsuario) {
-
-        Connection config = new Connection();
-        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-
         con.update("INSERT INTO MAQUINA(hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq) VALUES "
-                + " (?,null,?,?,?,?,?,?)", hostName, sistemaOperacional, memoriaRamTotal,
-                arquiteturaSis, processador, discoTotal, estUsuario);
+                + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
+                getMemoriaRamTotal(),
+                getArquiteturaSis(),
+                getProcessador(),
+                getDiscoTotal(), estUsuario);
         System.out.println("inserindo dados na máquina: " + this.hostName);
     }
+
 }

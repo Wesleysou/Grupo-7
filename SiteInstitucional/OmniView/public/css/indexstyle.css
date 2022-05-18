@@ -332,10 +332,10 @@ _________________________________ */
     justify-content: center;
     align-items: center;
     position: absolute;
-    border-radius: 10px;
+    font-weight: bold;
     color: whitesmoke;
     cursor: pointer;
-    font-weight: bold;
+    border-radius: 10px;
 }
 .face2{
     width: 15vw;

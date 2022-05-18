@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/css-dash-suporte.css">
   <link rel="shortcut icon" href="./assets/imgs/logos/omniview-logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="./css/indexresponsivo.css">
+  <link rel="stylesheet" href="./css/dash-suporteResponsivo.css">
   <link rel="stylesheet" href="./css/dashboardgerente.css">
   <title>Suporte</title>
   <script src="js/dash-suporte.js"></script>
@@ -15,30 +15,6 @@
 </head>
 
 <body>
-  <div class="lateral-m">
-    <nav>
-      <div class="nav">
-        <input type="checkbox" id="menu_lateral" class="input-menu ">
-
-        <label for="menu_lateral">
-          <div class="menu">
-
-            <span class="hamburguer"></span>
-          </div>
-        </label>
-
-        <label for="menu_lateral" class="botao-fechar">x</label>
-
-        <div class="box-menu">
-          <a href="" class="li-checked">Cadastre-se</a>
-          <a href="index.html">Home</a>
-          <a href="login.html">Login</a>
-          <a href="contatos.html">Contato</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-  <br><br><br>
   <div id="container">
 
     <div class="headerPai">
@@ -46,23 +22,47 @@
       <div class="header">
 
         <div class="conteudoHeader">
-
-          <div class="imgSup">
-            <img src="assets/imgs/logos/do-utilizador.png" alt="">
-          </div>
-
+          
           <div class="info">
             <p id="nome_user"></p>
             <p id="email_user"></p>
           </div>
-
+          
+          <h1 id="id_nome_maquina" class="titulo_maquina">Totem 01</h1>
         </div>
-        <h1 id="id_nome_maquina" class="titulo_maquina">Totem 01</h1>
+        <header id="header">
+          <div class="container">
+              <nav class="navbar" id="navBar">
+                  <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
+                  <ul>
+                      <li><a href="" class="li-checked">Seus gráficos</a></li>
+                      <li><a href="loginEmpresa.html">Sair</a></li>
+                  </ul>
+              </nav>
+          </div>
+      </header>
+      <div class="lateral-m">
+        <nav>
+            <div class="nav">
+                <input type="checkbox" id="menu_lateral" class="input-menu ">
 
-        <div class="conteudoHeader">
-          <a href="sair_suporte.html"><i id="icone_saida" class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
+                <label for="menu_lateral">
+                    <div class="menu">
 
+                        <span class="hamburguer"></span>
+                    </div>
+                </label>
+
+                <label for="menu_lateral" class="botao-fechar">x</label>
+
+                <div class="box-menu">
+                    <a href="loginEmpresa.html">Sair</button></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+        
       </div>
 
     </div>
@@ -125,53 +125,45 @@
             </div>
           </div>
 
+
           <div class="graf_cima_dir" id="graf_cima_dir_tot1">
             <div class="div_componentes_computador">
-
-              <p><b><i class="title_info_equip">Utilizado:</i></b></p>
-              <p>Memória Ram:13%</p>
-              <p>Disco: 30%</p>
-              <p>Processador: 50%</p>
+                  <h6>ARMAZENAMENTO</h6>
+              <canvas id="tot1_cima_direita" style="height: 90%;width: 90%;"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             </div>
           </div>
+
           <div class="graf_cima_dir " id="graf_cima_dir_tot2" style="display: none;">
             <div class="div_componentes_computador">
-
-              <p><b><i class="title_info_equip">Utilizado:</i></b></p>
-              <p>Memória Ram: 50%</p>
-              <p>Disco: 40%</p>
-              <p>Processador: 20%</p>
+              <h6>ARMAZENAMENTO</h6>
+              <canvas id="tot2_cima_direita" style="height: 90%;width: 90%;"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             </div>
           </div>
           <div class="graf_cima_dir" id="graf_cima_dir_tot3" style="display: none;">
             <div class="div_componentes_computador">
-
-              <p><b><i class="title_info_equip">Utilizado:</i></b></p>
-              <p>Memória Ram: 15%</p>
-              <p>Disco: 90%</p>
-              <p>Processador: 90%</p>
+              <h6>ARMAZENAMENTO</h6>
+              <canvas id="tot3_cima_direita" style="height: 90%;width: 90%;"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             </div>
           </div>
           <div class="graf_cima_dir" id="graf_cima_dir_cai1" style="display: none;">
             <div class="div_componentes_computador">
-
-              <p><b><i class="title_info_equip">Utilizado:</i></b></p>
-              <p>Memória Ram: 50%</p>
-              <p>Disco: 30%</p>
-              <p>Processador: 100%</p>
+              <h6>ARMAZENAMENTO</h6>
+              <canvas id="cai1_cima_direita" style="height: 90%;width: 90%;"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             </div>
           </div>
           <div class="graf_cima_dir" id="graf_cima_dir_cai2" style="display: none;">
             <div class="div_componentes_computador">
-
-              <p><b><i class="title_info_equip">Utilizado:</i></b></p>
-              <p>Memória Ram: 25%</p>
-              <p>Disco: 27%</p>
-              <p>Processador: 39%</p>
+              <h6>ARMAZENAMENTO</h6>
+              <canvas id="cai2_cima_direita" style="height: 90%;width: 90%;"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             </div>
           </div>
@@ -184,6 +176,7 @@
           <div class="graf_esq" id="graf_esq_tot1">
 
             <div class="div_graf_interna">
+              <h6>MEMÓRIA RAM</h6>
               <canvas id="tot1_baixo_esquerda" style="height: 90%;width: 90%;"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </div>
@@ -192,6 +185,7 @@
           <div class="graf_esq" id="graf_esq_tot2" style="display: none;">
 
             <div class="div_graf_interna">
+              <h6>MEMÓRIA RAM</h6>
               <canvas id="tot2_baixo_esquerda" style="height: 90%;width: 90%;"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </div>
@@ -201,6 +195,7 @@
           <div class="graf_esq" id="graf_esq_tot3" style="display: none;">
 
             <div class="div_graf_interna">
+              <h6>MEMÓRIA RAM</h6>
               <canvas id="tot3_baixo_esquerda" style="height: 90%;width: 90%;"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </div>
@@ -208,6 +203,7 @@
           <div class="graf_esq" id="graf_esq_cai1" style="display: none;">
 
             <div class="div_graf_interna">
+              <h6>MEMÓRIA RAM</h6>
               <canvas id="cai1_baixo_esquerda" style="height: 90%;width: 90%;"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </div>
@@ -215,6 +211,7 @@
           <div class="graf_esq" id="graf_esq_cai2" style="display: none;">
 
             <div class="div_graf_interna">
+              <h6>MEMÓRIA RAM</h6>
               <canvas id="cai2_baixo_esquerda" style="height: 90%;width: 90%;"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             </div>
@@ -310,32 +307,27 @@
   email_user.innerHTML = sessionStorage.EMAIL_USUARIO;
   // Configuração do grafico Toten 01 esquerda 
   const labels = [
-    '7h',
-    '9h',
-    '11h',
-    '13h',
-    '15h',
-    '17h',
-    '19h',
-    '21h',
-    '23h',
-    '24h',
+    'USADOS',
+    'TOTAL',
   ];
 
   const data = {
     labels: labels,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
-      data: [46, 48, 48, 52, 53, 50, 53, 51, 49, 50],
+      backgroundColor: ['blue','white'],
+      data: [46, 100],
     }]
   }
 
   const config = {
-    type: 'line',
+    type: 'doughnut',
     data: data,
-    options: {}
+    options: {
+    
+    rotation: 270, // start angle in degrees
+    circumference: 180, // sweep angle in degrees
+    }
   };
 
   const myChart = new Chart(
@@ -347,32 +339,27 @@
 
   // Configuração do grafico Toten 02 esquerda 
   const labels_tot2 = [
-    '7h',
-    '9h',
-    '11h',
-    '13h',
-    '15h',
-    '17h',
-    '19h',
-    '21h',
-    '23h',
-    '24h',
+    'USADOS',
+    'TOTAL',
   ];
 
   const data_tot2 = {
     labels: labels_tot2,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
-      data: [44, 48, 49, 52, 51, 50, 53, 54, 49, 50],
+      backgroundColor: ['red','white'],
+      data: [46, 100],
     }]
   }
 
   const config_tot2 = {
-    type: 'line',
+    type: 'doughnut',
     data: data_tot2,
-    options: {}
+    options: {
+    
+    rotation: 270, // start angle in degrees
+    circumference: 180, // sweep angle in degrees
+    }
   };
 
   const myChart_tot2 = new Chart(
@@ -384,32 +371,27 @@
 
   // Configuração do grafico Toten 3 esquerda 
   const labels_tot3 = [
-    '7h',
-    '9h',
-    '11h',
-    '13h',
-    '15h',
-    '17h',
-    '19h',
-    '21h',
-    '23h',
-    '24h',
+    'USADOS',
+    'TOTAL',
   ];
 
   const data_tot3 = {
     labels: labels_tot3,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
-      data: [45, 48, 48, 54, 53, 50, 53, 51, 49, 50],
+      backgroundColor: ['orange','white'],
+      data: [46, 100],
     }]
   }
 
   const config_tot3 = {
-    type: 'line',
+    type: 'doughnut',
     data: data_tot3,
-    options: {}
+    options: {
+    
+    rotation: 270, // start angle in degrees
+    circumference: 180, // sweep angle in degrees
+    }
   };
 
   const myChart_tot3 = new Chart(
@@ -420,32 +402,27 @@
 
   // Configuração do grafico Caixa 1 esquerda 
   const labels_cai1 = [
-    '7h',
-    '9h',
-    '11h',
-    '13h',
-    '15h',
-    '17h',
-    '19h',
-    '21h',
-    '23h',
-    '24h',
+  'USADOS',
+    'TOTAL',
   ];
 
   const data_cai1 = {
     labels: labels_cai1,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
-      data: [59, 58, 56, 60, 61, 63, 61, 61, 60, 60],
+      backgroundColor: ['greenyellow','white'],
+      data: [46, 100],
     }]
   }
 
   const config_cai1 = {
-    type: 'line',
+    type: 'doughnut',
     data: data_cai1,
-    options: {}
+    options: {
+    
+    rotation: 270, // start angle in degrees
+    circumference: 180, // sweep angle in degrees
+    }
   };
 
   const myChart_cai1 = new Chart(
@@ -456,32 +433,27 @@
 
   // Configuração do grafico Toten 1 esquerda CPU 
   const labels_cai2 = [
-    '7h',
-    '9h',
-    '11h',
-    '13h',
-    '15h',
-    '17h',
-    '19h',
-    '21h',
-    '23h',
-    '24h',
+  'USADOS',
+    'TOTAL',
   ];
 
   const data_cai2 = {
     labels: labels_cai2,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
-      data: [56, 58, 55, 60, 61, 60, 61, 61, 62, 60],
+      backgroundColor: ['yellow','white'],
+      data: [46, 100],
     }]
   }
 
   const config_cai2 = {
-    type: 'line',
+    type: 'doughnut',
     data: data_cai2,
-    options: {}
+    options: {
+    
+    rotation: 270, // start angle in degrees
+    circumference: 180, // sweep angle in degrees
+    }
   };
 
   const myChart_cai2 = new Chart(
@@ -508,8 +480,8 @@
     labels: labels_tot1_cima,
     datasets: [{
       label: 'CPU(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
+      backgroundColor: 'blue',
+      borderColor: ['blue','white'],
       data: [56, 58, 55, 60, 61, 60, 61, 61, 62, 60],
     }]
   }
@@ -544,9 +516,9 @@
     labels: labels_tot2_cima,
     datasets: [{
       label: 'CPU(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
-      data: [20, 58, 25, 60, 61, 10, 61, 61, 72, 10],
+      backgroundColor: 'red',
+      borderColor: ['red','white'],
+      data: [20, 58, 25, 60, 61, 10, 61, 61, 22, 10],
     }]
   }
 
@@ -580,8 +552,8 @@
     labels: labels_tot3_cima,
     datasets: [{
       label: 'CPU(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
+      backgroundColor: 'orange',
+      borderColor: ['orange','white'],
       data: [16, 18, 15, 60, 11, 60, 61, 61, 62, 100],
     }]
   }
@@ -616,8 +588,8 @@
     labels: labels_cai1_cima,
     datasets: [{
       label: 'CPU(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
+      backgroundColor: 'greenyellow',
+      borderColor: ['greenyellow','white'],
       data: [56, 58, 45, 60, 61, 20, 61, 31, 62, 20],
     }]
   }
@@ -652,8 +624,8 @@
     labels: labels_cai2_cima,
     datasets: [{
       label: 'CPU(%)',
-      backgroundColor: '#fff',
-      borderColor: '#c4e0f3',
+      backgroundColor: 'yellow',
+      borderColor: ['yellow','white'],
       data: [36, 58, 55, 40, 81, 30, 61, 31, 62, 80],
     }]
   }
@@ -667,6 +639,150 @@
   const myChart_cai2_cima = new Chart(
     document.getElementById('cai2_cima_esquerda'),
     config_cai2_cima
+  );
+  //-----------------------------------------------------------
+
+  // Configuração do grafico totem 1 direita cima 
+  const labels_tot1_direito = [
+    'USADOS',
+    'TOTAL',
+  ];
+
+  const data_tot1_direito = {
+    labels: labels_tot1_direito,
+    datasets: [{
+      label: 'ARMAZENAMENTO',
+      backgroundColor: ['blue','white'],
+      borderColor: '#c4e0f3',
+      data: [36, 518],
+    }]
+  }
+
+  const config_tot1_direito = {
+    type: 'pie',
+    data: data_tot1_direito,
+    options: {}
+  };
+
+  const myChart_tot1_direito = new Chart(
+    document.getElementById('tot1_cima_direita'),
+    config_tot1_direito
+  );
+
+   //-----------------------------------------------------------
+
+  // Configuração do grafico totem 2 direita cima 
+  const labels_tot2_direito = [
+  'USADOS',
+    'TOTAL',
+  ];
+
+  const data_tot2_direito = {
+    labels: labels_tot2_direito,
+    datasets: [{
+      label: 'ARMAZENAMENTO',
+      backgroundColor: ['red','white'],
+      borderColor: '#c4e0f3',
+      data: [36, 258],
+    }]
+  }
+
+  const config_tot2_direito = {
+    type: 'pie',
+    data: data_tot2_direito,
+    options: {}
+  };
+
+  const myChart_tot2_direito = new Chart(
+    document.getElementById('tot2_cima_direita'),
+    config_tot2_direito
+  );
+
+   //-----------------------------------------------------------
+
+  // Configuração do grafico totem 3 direita cima 
+  const labels_tot3_direito = [
+  'USADOS',
+    'TOTAL',
+  ];
+
+  const data_tot3_direito = {
+    labels: labels_tot3_direito,
+    datasets: [{
+      label: 'ARMAZENAMENTO',
+      backgroundColor: ['orange','white'],
+      borderColor: '#c4e0f3',
+      data: [361, 58],
+    }]
+  }
+
+  const config_tot3_direito = {
+    type: 'pie',
+    data: data_tot3_direito,
+    options: {}
+  };
+
+  const myChart_tot3_direito = new Chart(
+    document.getElementById('tot3_cima_direita'),
+    config_tot3_direito
+  );
+
+   //-----------------------------------------------------------
+
+  // Configuração do grafico caixa 1 direita cima 
+  const labels_cai1_direito = [
+  'USADOS',
+    'TOTAL',
+  ];
+
+  const data_cai1_direito = {
+    labels: labels_cai1_direito,
+    datasets: [{
+      label: 'ARMAZENAMENTO',
+      backgroundColor: ['greenyellow','white'],
+      borderColor: '#c4e0f3',
+      data: [36, 158],
+    }]
+  }
+
+  const config_cai1_direito = {
+    type: 'pie',
+    data: data_cai1_direito,
+    options: {}
+  };
+
+  const myChart_cai1_direito = new Chart(
+    document.getElementById('cai1_cima_direita'),
+    config_cai1_direito
+  );
+
+   //-----------------------------------------------------------
+
+  // Configuração do grafico caixa 2 direita cima 
+  const labels_cai2_direito = [
+    'USADOS',
+    'TOTAL',
+  ];
+
+  const data_cai2_direito = {
+    labels: labels_cai2_direito,
+    datasets: [{
+      label: 'ARMAZENAMENTO',
+      backgroundColor: ['yellow','white'],
+      borderColor: '#c4e0f3',
+      data: [136, 58],
+    }]
+  }
+
+  const config_cai2_direito = {
+    type: 'pie',
+    data: data_cai2_direito,
+    options: {}
+  };
+
+  const myChart_cai2_direito = new Chart(
+    document.getElementById('cai2_cima_direita'),
+    config_cai2_direito
   );
 
 </script>
