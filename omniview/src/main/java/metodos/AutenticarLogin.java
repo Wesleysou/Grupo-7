@@ -77,6 +77,7 @@ public class AutenticarLogin {
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
         metodos.AutenticarLogin emailFK = new AutenticarLogin();
         metodos.AlertasSlack slack = new AlertasSlack();
+        metodos.Log log = new Log();
         TelaLogin teste = new TelaLogin();
 
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
@@ -100,6 +101,8 @@ public class AutenticarLogin {
             slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
             slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
+            log.gerarLog();
+            
         }
 
     }
