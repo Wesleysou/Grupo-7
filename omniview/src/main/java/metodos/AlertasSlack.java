@@ -33,6 +33,7 @@ public class AlertasSlack {
                 } else if (ramEmUso >= alertaDeRamGrave ) {
                     tipoAlerta = "Alerta de Ram - 50% de Ram utilizada";
                     IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
+                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
                 } 
             } catch (Exception e) {
                 System.out.println("erro");
