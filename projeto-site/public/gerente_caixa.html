@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +10,10 @@
     <link rel="shortcut icon" href="./assets/imgs/logos/omniview-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/indexresponsivo.css">
     <link rel="stylesheet" href="./css/dashboardgerente.css">
+    <script src="js/functionDataBase.js"></script>
 </head>
-<body>
+
+<body onload="getMemoriaRamEmUso(), chageTheAlertColor()">
 
     <header id="header">
         <div class="container">
@@ -25,7 +28,7 @@
             </nav>
         </div>
     </header>
-    
+
     <div class="lateral-m">
         <nav>
             <div class="nav">
@@ -39,66 +42,76 @@
                 </label>
 
                 <label for="menu_lateral" class="botao-fechar">x</label>
-                
+
                 <div class="box-menu">
-                  <a href="" class="li-checked">Caixas</a>
-                  <a href="gerente_totem.html">Totem</a>
-                  <a href="reiniciar_equipamento.html">Equipamentos</a>
-                  <a href="sair.html"><button class="botao-entrar">Sair</button></a>
+                    <a href="" class="li-checked">Caixas</a>
+                    <a href="gerente_totem.html">Totem</a>
+                    <a href="reiniciar_equipamento.html">Equipamentos</a>
+                    <a href="sair.html"><button class="botao-entrar">Sair</button></a>
                 </div>
             </div>
         </nav>
     </div>
     <br><br><br><br><br><br><br>
-             <div class="social">
-                 <div class="cards">
-                <div class="flip" id="card" title="SEM PROBLEMAS">
-                    <div class="face" id="front">
-                        <div class="alinhar_componentes"><h5>TOTEM 1</h5>
-                            <button class="button_reiniciar">Reiniciar aplicação</button>
-                            <div class="alerta" id="totem1"></div>
-                    </div></div>
-                </div>
-               <div class="flip" id="card2" title="PERIGO">
-                    <div class="face" id="front2">
-                        <div class="alinhar_componentes"><h5>TOTEM 2</h5>
-                            <button class="button_reiniciar">Reiniciar aplicação</button>
-                            <div class="alerta" id="totem1"></div>
-                    </div></div>
-                </div>
-                <div class="flip" id="card3" title="SEM PROBLEMAS">
-                    <div class="face" id="front3">
-                        <div class="alinhar_componentes"><h5>TOTEM 3</h5>
-                            <button class="button_reiniciar">Reiniciar aplicação</button>
-                            <div class="alerta" id="totem1"></div>
-                    </div></div>
-                </div>
-                <div class="flip" id="card4" title="SEM PROBLEMAS">
-                    <div class="face" id="front4">
-                        <div class="alinhar_componentes"><h5>TOTEM 4</h5>
-                            <button class="button_reiniciar">Reiniciar aplicação</button>
-                            <div class="alerta" id="totem1"></div>
-                    </div></div>
-                </div>
-                <div class="flip" id="card5" title="CUIDADO">
-                    <div class="face" id="front5">
-                        <div class="alinhar_componentes"><h5>TOTEM 5</h5>
-                            <button class="button_reiniciar">Reiniciar aplicação</button>
-                            <div class="alerta" id="totem1"></div>
+    <div class="social">
+        <div class="cards">
+            <div class="flip" id="card" title="SEM PROBLEMAS">
+                <div class="face" id="front">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 1</h5>
+                        <button class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem"><span id="numberr"></span></div>
                     </div>
                 </div>
-            </div>  
             </div>
-            <div class="social_dash">
-              <div class="div_dash">
+            <div class="flip" id="card2" title="PERIGO">
+                <div class="face" id="front2">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 2</h5>
+                        <button class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip" id="card3" title="SEM PROBLEMAS">
+                <div class="face" id="front3">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 3</h5>
+                        <button class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip" id="card4" title="SEM PROBLEMAS">
+                <div class="face" id="front4">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 4</h5>
+                        <button class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip" id="card5" title="CUIDADO">
+                <div class="face" id="front5">
+                    <div class="alinhar_componentes">
+                        <h5>TOTEM 5</h5>
+                        <button class="button_reiniciar">Reiniciar aplicação</button>
+                        <div class="alerta" id="totem1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social_dash">
+            <div class="div_dash">
                 <h2>Horário de funcionamento dos caixas</h2>
                 <canvas id="myChart" style="height: 90%;width: 100%;"></canvas>
-              </div>
-                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-          </div></div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </div>
+    </div>
 
 
-        <!-- <footer>
+    <!-- <footer>
             <div class="footer-info">
                 <div class="container">
                     <div class="align-links-footer">
@@ -118,62 +131,74 @@
             </div>
         </footer> -->
 
-            
-        
-  
+
+
+
 
 </body>
+
 </html>
 <script>
-    const labels = [
-      'Segunda',
-      'Terça',
-      'Quarta',
-      'Quinta',
-      'Sexta',
-      'Sábado',
-      'Domingo',
-    ];
-  
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'Caixa 1',
-        backgroundColor: '#6A5ACD',
-        borderColor: '#6A5ACD',
-        data: [10, 8, 8, 6, 4, 8, 11],
-      },
-      {
-        label: 'Caixa 2',
-        backgroundColor: '#00008B',
-        borderColor: '#00008B',
-        data: [10, 0, 10, 7, 11, 12, 9],
-      },
-      {
-        label: 'Caixa 3',
-        backgroundColor: '#4169E1',
-        borderColor: '#4169E1',
-        data: [9, 8, 9, 9, 11, 10, 9],
-      },
-      {
-        label: 'Caixa 4',
-        backgroundColor: '#00BFFF',
-        borderColor: '#00BFFF',
-        data: [10, 8, 10, 9, 11, 10, 9],
-      }]
+    
+    var alerta;
+
+    function chageTheAlertColor() {
+
+        if (sessionStorage.RAMEMUSO > 6) {
+            totem.style.backgroundColor = 'red';
+        }
+
     }
-  
+
+    const labels = [
+        'Segunda',
+        'Terça',
+        'Quarta',
+        'Quinta',
+        'Sexta',
+        'Sábado',
+        'Domingo',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Caixa 1',
+            backgroundColor: '#6A5ACD',
+            borderColor: '#6A5ACD',
+            data: [10, 8, 8, 6, 4, 8, 11],
+        },
+        {
+            label: 'Caixa 2',
+            backgroundColor: '#00008B',
+            borderColor: '#00008B',
+            data: [10, 0, 10, 7, 11, 12, 9],
+        },
+        {
+            label: 'Caixa 3',
+            backgroundColor: '#4169E1',
+            borderColor: '#4169E1',
+            data: [9, 8, 9, 9, 11, 10, 9],
+        },
+        {
+            label: 'Caixa 4',
+            backgroundColor: '#00BFFF',
+            borderColor: '#00BFFF',
+            data: [10, 8, 10, 9, 11, 10, 9],
+        }]
+    }
+
     const config = {
-      type: 'line',
-      data: data,
-      options: {}
+        type: 'line',
+        data: data,
+        options: {}
     };
-  </script>
-  <script>
+</script>
+<script>
     const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
+        document.getElementById('myChart'),
+        config
     );
 
-  
-  </script>
+
+</script>

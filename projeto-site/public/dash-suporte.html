@@ -12,9 +12,12 @@
   <title>Suporte</title>
   <script src="js/dash-suporte.js"></script>
   <script src="https://kit.fontawesome.com/cc2f784b0a.js" crossorigin="anonymous"></script>
+  <script src="js/functionDataBase.js"></script>
 </head>
 
-<body>
+
+<body
+  onload="getMemoriaRamTotal(), getMemoriaTotal(), getSistemaOp(), getMemoriaEmUso(), getProcessador(), getMemoriaRamEmUso(), getArquitetura(), getCpu(), ArryCPU()">
   <div id="container">
 
     <div class="headerPai">
@@ -22,47 +25,47 @@
       <div class="header">
 
         <div class="conteudoHeader">
-          
+
           <div class="info">
             <p id="nome_user"></p>
             <p id="email_user"></p>
           </div>
-          
+
           <h1 id="id_nome_maquina" class="titulo_maquina">Totem 01</h1>
         </div>
         <header id="header">
           <div class="container">
-              <nav class="navbar" id="navBar">
-                  <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
-                  <ul>
-                      <li><a href="" class="li-checked">Seus gráficos</a></li>
-                      <li><a href="loginEmpresa.html">Sair</a></li>
-                  </ul>
-              </nav>
+            <nav class="navbar" id="navBar">
+              <img id="logoNavbar" src="./assets/imgs/logos/omniview-logo.png">
+              <ul>
+                <li><a href="" class="li-checked">Seus gráficos</a></li>
+                <li><a href="loginEmpresa.html">Sair</a></li>
+              </ul>
+            </nav>
           </div>
-      </header>
-      <div class="lateral-m">
-        <nav>
+        </header>
+        <div class="lateral-m">
+          <nav>
             <div class="nav">
-                <input type="checkbox" id="menu_lateral" class="input-menu ">
+              <input type="checkbox" id="menu_lateral" class="input-menu ">
 
-                <label for="menu_lateral">
-                    <div class="menu">
+              <label for="menu_lateral">
+                <div class="menu">
 
-                        <span class="hamburguer"></span>
-                    </div>
-                </label>
-
-                <label for="menu_lateral" class="botao-fechar">x</label>
-
-                <div class="box-menu">
-                    <a href="loginEmpresa.html">Sair</button></a>
+                  <span class="hamburguer"></span>
                 </div>
-            </div>
-        </nav>
-    </div>
+              </label>
 
-        
+              <label for="menu_lateral" class="botao-fechar">x</label>
+
+              <div class="box-menu">
+                <a href="loginEmpresa.html">Sair</button></a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+
       </div>
 
     </div>
@@ -128,7 +131,7 @@
 
           <div class="graf_cima_dir" id="graf_cima_dir_tot1">
             <div class="div_componentes_computador">
-                  <h6>ARMAZENAMENTO</h6>
+              <h6>ARMAZENAMENTO</h6>
               <canvas id="tot1_cima_direita" style="height: 90%;width: 90%;"></canvas>
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -223,11 +226,14 @@
             <div class="div_componentes_computador">
 
               <p><b><i class="title_info_equip">Informações do seu equipamento</i></b></p>
-              <span style="display: flex; width: 100%;"><p>Sistema Operacional:</p> <p> Ubuntu</p></span>
-              <p>Memória Ram: 32GB</p>
-              <p>Disco: 1T</p>
-              <p>Processador: INTEL CORE I5-10400</p>
-              <p>Tipo do sistema: 64bit</p>
+              <span style="display: flex; width: 100%;">
+                <p>Sistema Operacional:</p>
+                <p id="somaquina"></p>
+              </span>
+              <p>Memória Ram: <span id="ramHtml"></span>GB</p>
+              <p>Disco: <span id="discoTotal"></span>T</p>
+              <p>Processador: <span id="processadorHtml"></span></p>
+              <p>Tipo do sistema: <span id="arqmaquina"></span> bit</p>
 
             </div>
 
@@ -303,8 +309,43 @@
 
 
 <script>
+  arqmaquina.innerHTML = Number(sessionStorage.ARQUITETURA);
+  processadorHtml.innerHTML = sessionStorage.PROCESSADOR;
+  ramHtml.innerHTML = sessionStorage.RAMTOTAL;
+  somaquina.innerHTML = sessionStorage.SISTEMAOP;
+  discoTotal.innerHTML = sessionStorage.MEMORIATOTAL;
   nome_user.innerHTML = sessionStorage.NOME_USUARIO;
   email_user.innerHTML = sessionStorage.EMAIL_USUARIO;
+
+
+  //----------------
+
+  var cont = 0;
+  var Indice1 = 0;
+
+  let Listaii = [sessionStorage.CPU];
+  Listaii.push(sessionStorage.CPU);
+
+
+  function ArryCPU() {
+    for (let index = 0; index <= 12; index++) {
+
+      if (cont == 0) {
+
+        cont++;
+        Indice1 = sessionStorage.CPU;
+
+      } else if (cont == 1) {
+
+        cont++;
+        Indice2 = sessionStorage.CPU;
+      }
+
+    }
+
+    console.log(Indice1);
+  }
+
   // Configuração do grafico Toten 01 esquerda 
   const labels = [
     'USADOS',
@@ -315,8 +356,8 @@
     labels: labels,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: ['blue','white'],
-      data: [46, 100],
+      backgroundColor: ['blue', 'white'],
+      data: [Number(sessionStorage.RAMEMUSO), Number(sessionStorage.RAMTOTAL)],
     }]
   }
 
@@ -324,9 +365,9 @@
     type: 'doughnut',
     data: data,
     options: {
-    
-    rotation: 270, // start angle in degrees
-    circumference: 180, // sweep angle in degrees
+
+      rotation: 270, // start angle in degrees
+      circumference: 180, // sweep angle in degrees
     }
   };
 
@@ -347,7 +388,7 @@
     labels: labels_tot2,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: ['red','white'],
+      backgroundColor: ['red', 'white'],
       data: [46, 100],
     }]
   }
@@ -356,9 +397,9 @@
     type: 'doughnut',
     data: data_tot2,
     options: {
-    
-    rotation: 270, // start angle in degrees
-    circumference: 180, // sweep angle in degrees
+
+      rotation: 270, // start angle in degrees
+      circumference: 180, // sweep angle in degrees
     }
   };
 
@@ -379,7 +420,7 @@
     labels: labels_tot3,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: ['orange','white'],
+      backgroundColor: ['orange', 'white'],
       data: [46, 100],
     }]
   }
@@ -388,9 +429,9 @@
     type: 'doughnut',
     data: data_tot3,
     options: {
-    
-    rotation: 270, // start angle in degrees
-    circumference: 180, // sweep angle in degrees
+
+      rotation: 270, // start angle in degrees
+      circumference: 180, // sweep angle in degrees
     }
   };
 
@@ -402,7 +443,7 @@
 
   // Configuração do grafico Caixa 1 esquerda 
   const labels_cai1 = [
-  'USADOS',
+    'USADOS',
     'TOTAL',
   ];
 
@@ -410,7 +451,7 @@
     labels: labels_cai1,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: ['greenyellow','white'],
+      backgroundColor: ['greenyellow', 'white'],
       data: [46, 100],
     }]
   }
@@ -419,9 +460,9 @@
     type: 'doughnut',
     data: data_cai1,
     options: {
-    
-    rotation: 270, // start angle in degrees
-    circumference: 180, // sweep angle in degrees
+
+      rotation: 270, // start angle in degrees
+      circumference: 180, // sweep angle in degrees
     }
   };
 
@@ -433,7 +474,7 @@
 
   // Configuração do grafico Toten 1 esquerda CPU 
   const labels_cai2 = [
-  'USADOS',
+    'USADOS',
     'TOTAL',
   ];
 
@@ -441,7 +482,7 @@
     labels: labels_cai2,
     datasets: [{
       label: 'RAM(%)',
-      backgroundColor: ['yellow','white'],
+      backgroundColor: ['yellow', 'white'],
       data: [46, 100],
     }]
   }
@@ -450,9 +491,9 @@
     type: 'doughnut',
     data: data_cai2,
     options: {
-    
-    rotation: 270, // start angle in degrees
-    circumference: 180, // sweep angle in degrees
+
+      rotation: 270, // start angle in degrees
+      circumference: 180, // sweep angle in degrees
     }
   };
 
@@ -464,14 +505,28 @@
 
   // Configuração do grafico toten esquerda cima  
   const labels_tot1_cima = [
+    '1h',
+    '2h',
+    '3h',
+    '4h',
+    '5h',
+    '6h',
     '7h',
+    '8h',
     '9h',
+    '10h',
     '11h',
+    '12h',
     '13h',
+    '14h',
     '15h',
+    '16h',
     '17h',
+    '18h',
     '19h',
+    '20h',
     '21h',
+    '22h',
     '23h',
     '24h',
   ];
@@ -481,8 +536,8 @@
     datasets: [{
       label: 'CPU(%)',
       backgroundColor: 'blue',
-      borderColor: ['blue','white'],
-      data: [56, 58, 55, 60, 61, 60, 61, 61, 62, 60],
+      borderColor: ['blue', 'white'],
+      data: [Listaii[0], 32, 55, 60, 61, 60, 61, 61, 62, 60],
     }]
   }
 
@@ -517,7 +572,7 @@
     datasets: [{
       label: 'CPU(%)',
       backgroundColor: 'red',
-      borderColor: ['red','white'],
+      borderColor: ['red', 'white'],
       data: [20, 58, 25, 60, 61, 10, 61, 61, 22, 10],
     }]
   }
@@ -553,7 +608,7 @@
     datasets: [{
       label: 'CPU(%)',
       backgroundColor: 'orange',
-      borderColor: ['orange','white'],
+      borderColor: ['orange', 'white'],
       data: [16, 18, 15, 60, 11, 60, 61, 61, 62, 100],
     }]
   }
@@ -589,7 +644,7 @@
     datasets: [{
       label: 'CPU(%)',
       backgroundColor: 'greenyellow',
-      borderColor: ['greenyellow','white'],
+      borderColor: ['greenyellow', 'white'],
       data: [56, 58, 45, 60, 61, 20, 61, 31, 62, 20],
     }]
   }
@@ -625,7 +680,7 @@
     datasets: [{
       label: 'CPU(%)',
       backgroundColor: 'yellow',
-      borderColor: ['yellow','white'],
+      borderColor: ['yellow', 'white'],
       data: [36, 58, 55, 40, 81, 30, 61, 31, 62, 80],
     }]
   }
@@ -652,9 +707,9 @@
     labels: labels_tot1_direito,
     datasets: [{
       label: 'ARMAZENAMENTO',
-      backgroundColor: ['blue','white'],
+      backgroundColor: ['blue', 'white'],
       borderColor: '#c4e0f3',
-      data: [36, 518],
+      data: [Number(sessionStorage.MEMORIAEMUSO), Number(sessionStorage.MEMORIATOTAL)],
     }]
   }
 
@@ -669,11 +724,11 @@
     config_tot1_direito
   );
 
-   //-----------------------------------------------------------
+  //-----------------------------------------------------------
 
   // Configuração do grafico totem 2 direita cima 
   const labels_tot2_direito = [
-  'USADOS',
+    'USADOS',
     'TOTAL',
   ];
 
@@ -681,7 +736,7 @@
     labels: labels_tot2_direito,
     datasets: [{
       label: 'ARMAZENAMENTO',
-      backgroundColor: ['red','white'],
+      backgroundColor: ['red', 'white'],
       borderColor: '#c4e0f3',
       data: [36, 258],
     }]
@@ -698,11 +753,11 @@
     config_tot2_direito
   );
 
-   //-----------------------------------------------------------
+  //-----------------------------------------------------------
 
   // Configuração do grafico totem 3 direita cima 
   const labels_tot3_direito = [
-  'USADOS',
+    'USADOS',
     'TOTAL',
   ];
 
@@ -710,7 +765,7 @@
     labels: labels_tot3_direito,
     datasets: [{
       label: 'ARMAZENAMENTO',
-      backgroundColor: ['orange','white'],
+      backgroundColor: ['orange', 'white'],
       borderColor: '#c4e0f3',
       data: [361, 58],
     }]
@@ -727,11 +782,11 @@
     config_tot3_direito
   );
 
-   //-----------------------------------------------------------
+  //-----------------------------------------------------------
 
   // Configuração do grafico caixa 1 direita cima 
   const labels_cai1_direito = [
-  'USADOS',
+    'USADOS',
     'TOTAL',
   ];
 
@@ -739,7 +794,7 @@
     labels: labels_cai1_direito,
     datasets: [{
       label: 'ARMAZENAMENTO',
-      backgroundColor: ['greenyellow','white'],
+      backgroundColor: ['greenyellow', 'white'],
       borderColor: '#c4e0f3',
       data: [36, 158],
     }]
@@ -756,7 +811,7 @@
     config_cai1_direito
   );
 
-   //-----------------------------------------------------------
+  //-----------------------------------------------------------
 
   // Configuração do grafico caixa 2 direita cima 
   const labels_cai2_direito = [
@@ -768,7 +823,7 @@
     labels: labels_cai2_direito,
     datasets: [{
       label: 'ARMAZENAMENTO',
-      backgroundColor: ['yellow','white'],
+      backgroundColor: ['yellow', 'white'],
       borderColor: '#c4e0f3',
       data: [136, 58],
     }]
