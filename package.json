@@ -1,9 +1,10 @@
 {
-    "name": "Omniview-monitoracao",
+    "name": "omniview-monitoracao-raiz",
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "start": "node ./SiteInsitucional/app.js",
-        "postinstall": "cd SiteInstitucional && npm install"
+        "start": "node ./projeto-site/app.js",
+        "postinstall":
+         "cd projeto-site && npm install"
     }
 }
