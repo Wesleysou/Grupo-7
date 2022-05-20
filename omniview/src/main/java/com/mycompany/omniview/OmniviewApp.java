@@ -8,7 +8,8 @@ public class OmniviewApp {
         
         metodos.AutenticarLogin.AbrirLogin();
         IntegracaoSlack fk = new IntegracaoSlack();
-        System.out.println(fk.verificarEmpresa());
+        System.out.println(fk.consultaEmpresa());
+       fk.enviaAlerta(fk.consultaEmpresa());
         
     }
 
