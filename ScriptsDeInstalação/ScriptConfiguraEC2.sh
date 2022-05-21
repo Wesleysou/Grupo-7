@@ -5,7 +5,7 @@ if [ $? = 0 ]
 then echo "Descompactador ZIP já instalado"
 else echo "Descompactador não encontrado "
 while true; do
-    read -p "Deseja Instalar esse programa? " yn
+    read -p "Deseja Instalar esse programa? Digite yes ou no " yn
     case $yn in
         [Yy]* ) sudo apt install zip; echo "Instalando o ZIP"; break;;
         [Nn]* ) exit;;
