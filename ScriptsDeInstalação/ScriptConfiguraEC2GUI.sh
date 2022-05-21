@@ -38,5 +38,7 @@ cd Desktop
 
 git clone https://github.com/PedroTresmondi/Omniview.JAR.git
 
-cd Omniview.JAR/omniview/target
+cd Omniview.JAR/
+cd omniview/
+cd target/
 java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies
