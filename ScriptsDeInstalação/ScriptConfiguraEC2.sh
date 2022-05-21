@@ -41,10 +41,3 @@ sudo docker build -t omniviewBD_img:1.0.
 echo "executandoocontainer com mysql"
 sudo docker run -d -p 3306:3306 --name omniviewBD -e "MYSQL DATABASE-bd-omniview" -e "MYSQL_ROOT PASSWORD-root"omniview_img:1.0
 
-echo "Clonando JAR do git"
-
-
-git clone https://github.com/PedroTresmondi/Omniview.JAR.git
-
-cd /omniview/target
-java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies
