@@ -42,7 +42,7 @@ public class IntegracaoSlack {
                 tipoAlerta, corAlerta, hostName, tipoMedicao, ramEmUso);
 
         Slack slack = Slack.getInstance();
-        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-629WCz0SeqqFFZ953Vf9xhVi");
+        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-00ypImlApanfRbWy18DXR2jC");
 
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel("#cm-mikeys") // Use a channel ID `C1234567` is preferrable
@@ -62,7 +62,7 @@ public class IntegracaoSlack {
                 tipoAlerta, corAlerta, hostName, tipoMedicao, ramEmUso);
 
         Slack slack = Slack.getInstance();
-        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-629WCz0SeqqFFZ953Vf9xhVi");
+        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-00ypImlApanfRbWy18DXR2jC");
 
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel("#burgerqueen") // Use a channel ID `C1234567` is preferrable
