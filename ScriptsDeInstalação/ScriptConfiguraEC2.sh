@@ -6,13 +6,15 @@ if [ $? = 0 ]
 then echo "Já possui zip instalado"
 else echo "Instalando zip"
 sudo apt install zip
+
 echo "adicionando o caminho sdk ao curl"
-curl -s"https://get.sdkman.io"|bash
+curl -s "https://get.sdkman.io" | bash
 fi
 echo "reiniciando o terminal"
 
 source "/home/$usuario/.sdkman/bin/sdkman-init.sh"
 echo "Checando se Java ja esta instalado"
+
 which java
 if [ $? = 0 ]
 then echo "Já possui java instalado"
@@ -23,7 +25,7 @@ echo "versão do instalada: "
 java -version
 echo "atualizando os pacotes"
 sudo apt update && sudo apt upgrade.
-echo "procurandoodocker"
+echo "procurando o docker"
 which docker
 if [ $? = 0 ]
 then echo "Já possui docker instalado"
@@ -38,6 +40,12 @@ echo "baixando a imagem do mysql"
 sudo docker pull mysql:8.0.16
 echo "criando uma imagem customizada do mysql com o banco de dados"
 sudo docker build -t omniviewBD_img:1.0.
-echo "executandoocontainer com mysql"
-sudo docker run -d -p 3306:3306 --name omniviewBD -e "MYSQL DATABASE-bd-omniview" -e "MYSQL_ROOT PASSWORD-root"omniview_img:1.0
+echo "executando o container com mysql"
+sudo docker run -d -p 3306:3306 --name omniviewBD -e "MYSQL_DATABASE=bd-omniview" -e "MYSQL_ROOT_PASSWORD=root" omniview_img:1.0
+echo "executando o container com mysql"
 
+sudo exec -it omniviewBD bash
+
+echo"mostrando o status do container"
+sudo docker stats omniviewBD
+echo"instalação completa"
