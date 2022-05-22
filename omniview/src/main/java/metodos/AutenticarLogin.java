@@ -98,8 +98,6 @@ public class AutenticarLogin {
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
             
             medMaq.inserirMedicao();
-            slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
-            slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
             log.gerarLog();
             

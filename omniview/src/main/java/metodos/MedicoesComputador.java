@@ -16,6 +16,9 @@ public class MedicoesComputador {
     private Integer qtdProcessos;
     private Double cpuEmUso;
     private Double discoEmUso;
+    
+    metodos.AlertasSlack slack = new AlertasSlack();
+    metodos.RecursosComputador regMaq = new RecursosComputador();
 
     public MedicoesComputador() {
     }
@@ -59,15 +62,18 @@ public class MedicoesComputador {
         int interval = 7000;
 
         timer1.scheduleAtFixedRate(new TimerTask() {
-            
+
             @Override
             public void run() {
                 con.update("Insert into medicoes"
                         + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,GETDATE(),?)",
-                         getMemoriaRam(), getDiscoDisponivel(),
+                        getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes");
+
+                slack.alertaRam(memoriaRam, regMaq.getMemoriaRamTotal(), regMaq.getHostname());
+                slack.alertaDisco(getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             }
         }, delay, interval);
     }
