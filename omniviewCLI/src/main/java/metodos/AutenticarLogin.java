@@ -109,6 +109,7 @@ public class AutenticarLogin {
                 cnstBanco.getFKEst(email);
                 //cnstBanco.getFKEst(emailFK.getEmail());
                 regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
+                regMaq.inserirMaquinasSQL(cnstBanco.getFKEst(email));
                 medMaq.inserirMedicao();
                 FkEstt = cnstBanco.getFKEst(email);
                 log.gerarLog();

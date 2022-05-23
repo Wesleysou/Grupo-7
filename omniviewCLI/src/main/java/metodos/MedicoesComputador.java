@@ -72,7 +72,14 @@ public class MedicoesComputador {
                         + "values (?, ?, ?, ?,GETDATE(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
-                System.out.println("Inserindo dados na tabela medicoes");
+                System.out.println("Inserindo dados na tabela medicoes SQLServer");
+                
+                con.update("Insert into medicoes"
+                        + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
+                        + "values (?, ?, ?, ?,Now(),?)",
+                        getMemoriaRam(), getDiscoDisponivel(),
+                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
+                System.out.println("Inserindo dados na tabela medicoes SQL");
 
                 slack.alertaRam(memoriaRam, regMaq.getMemoriaRamTotal(), regMaq.getHostname());
                 slack.alertaDisco(getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());

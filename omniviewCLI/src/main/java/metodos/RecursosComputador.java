@@ -93,4 +93,16 @@ public class RecursosComputador {
         System.out.println("inserindo dados na máquina: " + this.hostName);
     }
 
+    public void inserirMaquinasSQL(Integer estUsuario) {
+        con.update("INSERT INTO MAQUINA(hostName,"
+                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
+                + "processador,disco,Fk_EstMaq) VALUES "
+                + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
+                getMemoriaRamTotal(),
+                getArquiteturaSis(),
+                getProcessador(),
+                getDiscoTotal(), estUsuario);
+        System.out.println("inserindo dados na máquina pelo SQL: " + this.hostName);
+    }
+
 }
