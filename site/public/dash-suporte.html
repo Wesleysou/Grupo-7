@@ -309,6 +309,11 @@
 
 
 <script>
+  
+  var ramUsoAgora;
+  var memoriaUsoAgora;
+  var ramLivre;
+  
   arqmaquina.innerHTML = Number(sessionStorage.ARQUITETURA);
   processadorHtml.innerHTML = sessionStorage.PROCESSADOR;
   ramHtml.innerHTML = sessionStorage.RAMTOTAL;
@@ -317,16 +322,23 @@
   nome_user.innerHTML = sessionStorage.NOME_USUARIO;
   email_user.innerHTML = sessionStorage.EMAIL_USUARIO;
 
-  var ramMaquina 
 
-  function getram(){
-    var ramMaquina = [sessionStorage.RAMEMUSO];
-    
-}
+
+  function getTudoAgora(){
+  ramUsoAgora = sessionStorage.RAMEMUSO;
+  memoriaUsoAgora = sessionStorage.MEMORIAEMUSO;
+  
+
+  myChart.data.datasets[0].data[0] = ramUsoAgora;
+  myChart_tot1_direito.data.datasets[0].data[0] = memoriaUsoAgora;
+
+  myChart_tot1_direito.update();
+  myChart.update();
+  }
 
 setInterval(() =>{
-    getram();
-}, 2000)
+    getTudoAgora();
+}, 1000)
 
 
   //----------------
@@ -368,7 +380,7 @@ setInterval(() =>{
     datasets: [{
       label: 'RAM(%)',
       backgroundColor: ['blue', 'white'],
-      data: [Number((sessionStorage.RAMEMUSO)), Number(sessionStorage.RAMTOTAL)],
+      data: [Number(ramUsoAgora), Number(sessionStorage.RAMTOTAL)],
     }]
   }
 
@@ -720,7 +732,7 @@ setInterval(() =>{
       label: 'ARMAZENAMENTO',
       backgroundColor: ['blue', 'white'],
       borderColor: '#c4e0f3',
-      data: [Number(sessionStorage.MEMORIAEMUSO), Number(sessionStorage.MEMORIATOTAL)],
+      data: [Number(memoriaUsoAgora), Number(sessionStorage.MEMORIATOTAL)],
     }]
   }
 
