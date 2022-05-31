@@ -87,7 +87,7 @@
                         <br>
                         <input id="cnpj_input" oninput="mascara(this)" type="text" placeholder="******" class="style_imput">
                         <br>
-                        <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                        <button class="btn" onclick="cadastrarEmpresa()">Cadastrar</button>
                     </div>
                     </div>
                 </div>
@@ -166,16 +166,15 @@
         });
     })();
 
-    function cadastrar() {
+    function cadastrarEmpresa() {
         aguardar();
         
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var cpfVar = cpf_input.value;
-        var cargoVar = cargo_input.value;
-        var estabelecimentoVar = estabelecimento_input.value;
+        var enderecoVar = endereco_input.value;
+        var cnpjVar = cnpj_input.value;
         // let checkGerente = document.getElementById('check_gerente');
         // let checkSuporte = document.getElementById('check_suporte');
 
@@ -195,16 +194,16 @@
             if (confirmacaoSenhaVar == "") {
                 console.log('confirmacaoSenha está em branco')
             }
+            if (enderecoVar == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+            if (cnpjVar == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
 
             finalizarAguardar();
             return false;
         }
-
-        // if (!checkGerente.checked && !checkSuporte.checked) {
-        //     window.alert("Preencha todos os campos para prosseguir!");
-        //     return false;
-        // }
-
         if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
             finalizarAguardar();
@@ -216,20 +215,7 @@
             finalizarAguardar();
             return false;
         }
-
-        
-
-        // if (checkGerente.checked && checkSuporte.checked) {
-        //     window.alert("Selecione apenas o cargo em que você atua.");
-        //     return false;
-        // }
-        // else if (checkGerente.checked) {
-        //     window.alert("Bem vindo gerente")
-        // }
-        // else if (checkSuporte.checked) {
-        //     window.alert("Bem vindo suporte");
-        // }
-        fetch("/usuarios/cadastrar", {
+        fetch("/usuarios/cadastrarEmpresa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -238,9 +224,8 @@
                 nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar,
-                cpfServer: cpfVar,
-                cargoServer: cargoVar,
-                estabelecimentoServer: estabelecimentoVar
+                enderecoServer: enderecoVar,
+                cnpjServer: cnpjVar
             })
         }).then(function (resposta) {
 
@@ -259,10 +244,6 @@
         });
 
         return false;
-    }
-    
-    function sair(){
-        window.location.href = './loginEmpresa.html'
     }
         
 </script>

@@ -54,18 +54,18 @@
     </div>
     <br><br><br><br><br><br><br>
     <div class="social">
-        <div class="cards">
-            <div class="flip" id="card" title="SEM PROBLEMAS">
-                <div class="face" id="front">
+        <div id="listarTotemId" class="cards">
+            <!-- <div class="flip" >
+                <div class="face">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 1</h5>
                         <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
                         <div class="alerta" id="totem"><span id="numberr"></span></div>
                     </div>
                 </div>
-            </div>
-            <div class="flip" id="card2" title="PERIGO">
-                <div class="face" id="front2">
+            </div> -->
+            <!-- <div class="flip">
+                <div class="face">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 2</h5>
                         <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
@@ -73,8 +73,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flip" id="card3" title="SEM PROBLEMAS">
-                <div class="face" id="front3">
+            <div class="flip">
+                <div class="face">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 3</h5>
                         <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
@@ -82,8 +82,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flip" id="card4" title="SEM PROBLEMAS">
-                <div class="face" id="front4">
+            <div class="flip">
+                <div class="face">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 4</h5>
                         <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
@@ -91,22 +91,22 @@
                     </div>
                 </div>
             </div>
-            <div class="flip" id="card5" title="CUIDADO">
-                <div class="face" id="front5">
+            <div class="flip">
+                <div class="face">
                     <div class="alinhar_componentes">
                         <h5>TOTEM 5</h5>
                         <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
                         <div class="alerta" id="totem5"><span id="numberr5"></span></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="social_dash">
             <div class="div_dash">
-                <h2>Horário de funcionamento dos caixas</h2>
+                <!-- <h2>Horário de funcionamento dos caixas</h2>
                 <canvas id="myChart" style="height: 90%;width: 100%;"></canvas>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
         </div>
     </div>
 
@@ -167,10 +167,10 @@ function getram(){
         var valorUsado = ramMaquina;
         var calculoPorcentagem = ((valorUsado * 100)/valorCheio).toFixed(0);
 
-    console.log("AQUIII TOTEM 2:" + ramTotalTot2)
-    console.log("AQUIII TOTEM 3:" + ramTotalTot3)
-    console.log("AQUIII TOTEM 4:" + ramTotalTot4)
-    console.log("AQUIII TOTEM 5:" + ramTotalTot5)
+    // console.log("AQUIII TOTEM 2:" + ramTotalTot2)
+    // console.log("AQUIII TOTEM 3:" + ramTotalTot3)
+    // console.log("AQUIII TOTEM 4:" + ramTotalTot4)
+    // console.log("AQUIII TOTEM 5:" + ramTotalTot5)
 
         var valorCheio = ramTotalTot2;
         var valorUsado = ramMaquina2;
@@ -308,10 +308,10 @@ function getram(){
 
     // }
 
-setInterval(() =>{
-    getram();
-    //chageTheAlertColor();
-}, 8000)
+//  setInterval(() =>{
+//      getram();
+//      chageTheAlertColor();
+//  }, 8000)
 
     const labels = [
         'Segunda',
@@ -378,7 +378,7 @@ fetch("/usuarios/reiniciarmaq", {
   })
 }).then(function (resposta) {
 
-  console.log("resposta: ", resposta);
+//   console.log("resposta: ", resposta);
 
   if (resposta.ok) {
     window.alert("maquina reiniciada com sucesso");
@@ -388,12 +388,66 @@ fetch("/usuarios/reiniciarmaq", {
     throw ("Houve um erro ao tentar realizar o cadastro!");
   }
 }).catch(function (resposta) {
-  console.log(`#ERRO: ${resposta}`);
+//   console.log(`#ERRO: ${resposta}`);
 
 });
 
 
 }
 
+// ===========================ADC TOTENS================================================
+
+function listarTotem() {
+  fetch("/usuarios/listarTotem", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(async function (resposta) {
+    const containerTotem = document.querySelector(".cards");
+    const totens = await resposta.json();
+    for (let i = 0; i < totens.length; i++) {
+      console.log(totens[i]);
+
+      listarTotemId.innerHTML +=  `<div class="flip" >
+    <div class="face">
+        <div class="alinhar_componentes">
+            <h5>TOTEM ${tote}</h5>
+            <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
+            <div class="alerta" id="totem"><span id="numberr"></span></div>
+        </div>
+    </div>
+</div>`
+     
+    //   let flip = document.createElement("div");
+    //   let face = document.createElement("div");
+    //   let alinhar_componentes= document.createElement("div");
+    //   let texto= document.createElement("span");
+    //   let botao= document.createElement("button");
+    //   let alerta= document.createElement("div");
+
+      
+      
+    //   flip.setAttribute("class", "flip");
+    //   face.setAttribute("class", "face");
+    //   alinhar_componentes.setAttribute("class", "alinhar_componentes");
+    //   botao.setAttribute("class", "button_reiniciar");
+    //   alerta.setAttribute("class", "alerta");
+      
+    //   texto.innerHTML = `<h5>TOTEM</h5> ${totens[i].idTotem}`;
+    //   botao.innerHTML = "Reiniciar aplicação";
+      
+    //   botao.onclick = reiniciarmaq();
+      
+      
+    //   flip.append(face, alinhar_componentes, texto, botao, alerta);
+            
+    //   containerTotem.appendChild(content);
+    }
+  });
+}
+
+window.addEventListener("load", listarTotem);
 
 </script>
+

@@ -370,15 +370,15 @@ function getCpu() {
 
 };
 
-setInterval(() =>{
-    getMemoriaRamEmUso();
-    getMemoriaEmUso();
-    getMemoriaRamEmUsoTot2();
-    getMemoriaRamEmUsoTot3();
-    getMemoriaRamEmUsoTot4();
-    getMemoriaRamEmUsoTot5();
-    getMemoriaRamTotalTot2();
-    getMemoriaRamTotalTot3();
-    getMemoriaRamTotalTot4();
-    getMemoriaRamTotalTot5();
-}, 1500)
+// setInterval(() =>{
+//     getMemoriaRamEmUso();
+//     getMemoriaEmUso();
+//     getMemoriaRamEmUsoTot2();
+//     getMemoriaRamEmUsoTot3();
+//     getMemoriaRamEmUsoTot4();
+//     getMemoriaRamEmUsoTot5();
+//     getMemoriaRamTotalTot2();
+//     getMemoriaRamTotalTot3();
+//     getMemoriaRamTotalTot4();
+//     getMemoriaRamTotalTot5();
+// }, 15000)

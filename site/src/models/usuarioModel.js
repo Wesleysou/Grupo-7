@@ -30,6 +30,15 @@ function cadastrar(nome, email, cpf, senha, cargo, estabelecimento) {
     return database.executar(instrucao);
 }
 
+function cadastrarEmpresa(nomeEmp, emailEmp, senhaEmp, enderecoEmp, cnpjEmp) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarEmpresa():", nomeEmp, emailEmp, senhaEmp, enderecoEmp, cnpjEmp);
+    var instrucao = `
+        INSERT INTO estabelecimento VALUES ('${nomeEmp}', '${cnpjEmp}', '${enderecoEmp}',3894829849, '${senhaEmp}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 // =================================== MEMORIA TOTAL MAQUINA 1 =====================================
 function getMemoriaRamTotal() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotal()");
@@ -40,7 +49,7 @@ function getMemoriaRamTotal() {
     return database.executar(instrucao);
 }
 
-// ================================== MEMORIA TOTAL MAQUINA 2 ==================================
+// ================================== MEMORIA TOTAL MAQUINA 2 ========================================
 function getMemoriaRamTotalTot2() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotalTot2()");
     var instrucao = `
@@ -50,7 +59,7 @@ function getMemoriaRamTotalTot2() {
     return database.executar(instrucao);
 }
 
-// ================================== MEMORIA TOTAL MAQUINA 3 ==================================
+// ================================== MEMORIA TOTAL MAQUINA 3 =========================================
 function getMemoriaRamTotalTot3() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotalTot3()");
     var instrucao = `
@@ -60,7 +69,7 @@ function getMemoriaRamTotalTot3() {
     return database.executar(instrucao);
 }
 
-// ================================== MEMORIA TOTAL MAQUINA 4 ==================================
+// ================================== MEMORIA TOTAL MAQUINA 4 =========================================
 function getMemoriaRamTotalTot4() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotalTot4()");
     var instrucao = `
@@ -70,7 +79,7 @@ function getMemoriaRamTotalTot4() {
     return database.executar(instrucao);
 }
 
-// ================================== MEMORIA TOTAL MAQUINA 5 ==================================
+// ================================== MEMORIA TOTAL MAQUINA 5 =========================================
 function getMemoriaRamTotalTot5() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotalTot5()");
     var instrucao = `
@@ -100,7 +109,7 @@ function getMemoriaRamEmUsoTot2() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-// ==============================================================================================
+// ===================================================================================================
 
 // -------------------------------------------- RAM TOTEM 3 -------------------------------------
 function getMemoriaRamEmUsoTot3() {
@@ -215,9 +224,39 @@ function reiniciarmaq(
     return database.executar(instrucao);
   }
 
+// ===========================ADC TOTENS================================================
+
+
+  var database = require("../database/config");
+
+
+function atualizarTotem(idTotem, sistema, fabricante, ipTotem) {
+    console.log("MODEL: ", idTotem);
+    console.log("MODEL: ", sistema);
+    console.log("MODEL: ", fabricante);
+    console.log("MODEL: ", ipTotem);
+    var instrucao = `
+          UPDATE totem SET sistema = '${sistema}', 
+          fabricante = '${fabricante}', 
+          ipTotem = '${ipTotem}'
+          WHERE idTotem = ${idTotem}
+      `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+  }
+
+  function deletarTotem(idTotem) {
+    var instrucao = `
+          DELETE FROM totem WHERE idTotem = 52;
+      `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+  }
+
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarEmpresa,
     listar,
     reiniciarmaq,
     getMemoriaRamTotal,
@@ -236,4 +275,6 @@ module.exports = {
     getMemoriaRamTotalTot3,
     getMemoriaRamTotalTot4,
     getMemoriaRamTotalTot5,
+    atualizarTotem,
+    deletarTotem
 };
