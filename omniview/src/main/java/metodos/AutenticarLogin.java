@@ -2,6 +2,7 @@ package metodos;
 
 import com.mycompany.omniview.Connection;
 import java.util.List;
+import javaswing.MedicaoSwing;
 import javaswing.TelaLogin;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -78,7 +79,7 @@ public class AutenticarLogin {
         metodos.AutenticarLogin emailFK = new AutenticarLogin();
         metodos.AlertasSlack slack = new AlertasSlack();
         metodos.Log log = new Log();
-        TelaLogin teste = new TelaLogin();
+  
 
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
@@ -94,6 +95,9 @@ public class AutenticarLogin {
             this.email = emailUsuarioBanco;
             JOptionPane.showMessageDialog(null, "Usuario Autenticado");
             cnstBanco.getFKEst(email);
+            
+            
+           
             //cnstBanco.getFKEst(emailFK.getEmail());
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
             
