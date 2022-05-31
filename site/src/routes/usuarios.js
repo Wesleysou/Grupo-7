@@ -97,6 +97,10 @@ router.post("/reiniciarmaq", function (req, res) {
        usuarioController.reiniciarmaq(req, res);
      });
 
+router.post("/reiniciarmaq", function (req, res) {
+       usuarioController.reiniciarmaq(req, res);
+     });
+
 // ===========================ADC TOTENS================================================
 
 

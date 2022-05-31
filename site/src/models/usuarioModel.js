@@ -213,16 +213,14 @@ function reiniciarmaq(
     reiniciarMaq
   ) {
     var instrucao = `
-    update [dbo].[maquina] set reiniciar = ${reiniciarMaq} where id = 
-(
-    SELECT TOP 1 id
-    FROM [dbo].[maquina]
-	ORDER BY id DESC
+    update [dbo].[maquina] set reiniciar = ${reiniciarMaq} where id = 597
 );
       `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+    console.log('MANDOU 1 PRA MAQUINA')
   }
+
 
 // ===========================ADC TOTENS================================================
 
@@ -253,6 +251,15 @@ function atualizarTotem(idTotem, sistema, fabricante, ipTotem) {
     return database.executar(instrucao);
   }
 
+  function listarTotem() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarTotem()");
+    var instrucao = `
+        SELECT * FROM maquina;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -276,5 +283,6 @@ module.exports = {
     getMemoriaRamTotalTot4,
     getMemoriaRamTotalTot5,
     atualizarTotem,
-    deletarTotem
+    deletarTotem,
+    listarTotem
 };

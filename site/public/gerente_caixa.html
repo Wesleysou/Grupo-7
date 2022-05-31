@@ -13,7 +13,7 @@
     <script src="js/functionDataBase.js"></script>
 </head>
 
-<body onload="getMemoriaRamEmUso(), chageTheAlertColor()">
+<body onload="getMemoriaRamEmUso()">
 
     <header id="header">
         <div class="container">
@@ -313,56 +313,9 @@ function getram(){
 //      chageTheAlertColor();
 //  }, 8000)
 
-    const labels = [
-        'Segunda',
-        'Terça',
-        'Quarta',
-        'Quinta',
-        'Sexta',
-        'Sábado',
-        'Domingo',
-    ];
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Caixa 1',
-            backgroundColor: '#6A5ACD',
-            borderColor: '#6A5ACD',
-            data: [10, 8, 8, 6, 4, 8, 11],
-        },
-        {
-            label: 'Caixa 2',
-            backgroundColor: '#00008B',
-            borderColor: '#00008B',
-            data: [10, 0, 10, 7, 11, 12, 9],
-        },
-        {
-            label: 'Caixa 3',
-            backgroundColor: '#4169E1',
-            borderColor: '#4169E1',
-            data: [9, 8, 9, 9, 11, 10, 9],
-        },
-        {
-            label: 'Caixa 4',
-            backgroundColor: '#00BFFF',
-            borderColor: '#00BFFF',
-            data: [10, 8, 10, 9, 11, 10, 9],
-        }]
-    }
-
-    const config = {
-        type: 'line',
-        data: data,
-        options: {}
-    };
 </script>
 <script>
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
 
     function reiniciarmaq() {
 
@@ -412,7 +365,7 @@ function listarTotem() {
       listarTotemId.innerHTML +=  `<div class="flip" >
     <div class="face">
         <div class="alinhar_componentes">
-            <h5>TOTEM ${tote}</h5>
+            <h5>TOTEM ${totens[i].id}</h5>
             <button onclick="reiniciarmaq()" class="button_reiniciar">Reiniciar aplicação</button>
             <div class="alerta" id="totem"><span id="numberr"></span></div>
         </div>

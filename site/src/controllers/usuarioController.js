@@ -451,6 +451,23 @@ function reiniciarmaq(req, res) {
 
 // ===========================ADC TOTENS================================================
 
+function listarTotem(req, res) {
+    usuarioModel.listarTotem()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 //   var totemModel = require("../models/totemModel");
 
 // function atualizarTotem(req, res) {
@@ -515,6 +532,7 @@ module.exports = {
     getMemoriaRamTotalTot3,
     getMemoriaRamTotalTot4,
     getMemoriaRamTotalTot5,
+    listarTotem,
     
     // atualizarTotem,
     // removerTotem
