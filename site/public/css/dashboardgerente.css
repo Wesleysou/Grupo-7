@@ -32,15 +32,15 @@ h2{
 }
 
 .cards{
-    display: flex;
-    height: 10rem;
+    display: grid;
+    height: 70rem;
     width: 80%;
     padding: 1rem 0;
     margin: auto;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    background-color: #3cb0fd;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    grid-template-columns: auto auto auto auto auto;
 }
 
 .social_dash{
@@ -107,6 +107,7 @@ h2{
     transition: all .5s;
     background-color: #cfd6e4;
     transform: rotateY(180deg);
+    margin-top:1rem;
 }
 
 .alerta{

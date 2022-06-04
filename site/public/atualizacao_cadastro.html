@@ -14,71 +14,69 @@
     <title>OmniView | Cadastro</title>
 
     <style>
-        .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
 
-.switch input {display:none;}
+        .divConteudo{
+            width: 400px;
+    height: 50px;
+    margin-bottom: 10px;
+    justify-content: center;
+    flex-direction: column;
+            }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 100px;
-}
+        .divNome{
+            width: 17rem;
+            height: 3rem;
+        display: flex;
+        flex-direction: column;
+        float: left;
+        align-items: flex-start;
+        justify-content: flex-end;
+        justify-items: flex-start;
+        }
 
-.btnDesativar{
+        .divBotao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        }
 
-    margin-left: 10px;
-}
+        .conteudoNome{
+            display: flex;
+            width: auto;
+            height: auto;
+            float: left;
+        }
 
-.btnDesativar, .btnAtivar{
+        .conteudoNome{
+            display: flex;
+            width: auto;
+            height: auto;
+            float: right;
+        }
 
-    font-size: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: #2196F3;
-    border: none;
-    color: #fff;
-    font-weight: 500;
-    border-radius: 5px;
-}
+        .botaostyle{
+            background-color: #324048;
+            color: white;
+    margin-top: 0.5vh;
+    border: 0px;
+    padding: 2px;
+    width: 50%;
+    border-radius: 20px;
+        }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 100px;
-}
+        .botaostyle:hover{
+            background-color: #273137;
+            color:whitesmoke
+        }
 
-input:checked + .slider {
-  background-color: #2196F3;
-}
+        .nomeStyle{
+            font-weight: bolder;
+        }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+        .emailStyle{
+            font-style: italic;
+        }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
     </style>
 </head>
 
@@ -125,64 +123,14 @@ input:checked + .slider:before {
     <br><br><br><br><br><br><br>
     <div class="banner-login ">
         <div class="container ">
+
+
             <div class="card medio">
                 <h2>Status do funcionario</h2><br><br>
-                <div class="formulario">
-                    <div id="form_cadastro">
-                        <div class="column_usuario">
-
-                        <div class="alinhar_usuario">
-                            <div class="users"> <p id="nome_user">Gustavo Lura</p>
-                                                <p id="email_user">gustavo.lsilva@bandtec.com</p></div>
-                            <span class="end_label">
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                            <!-- <label class="switch">
-                            <input id="on1" type="checkbox">
-                            <div class="slider"></div>
-                            </label>--> <button class="btnAtivar">On</button> <button class="btnDesativar">Off</button> </span> 
-
-                        </div><div class="alinhar_usuario">
-                            <div class="users"> <p id="nome_user">Roberto Justos</p>
-                                                <p id="email_user">roberto.jfeitosa@bandtec.com</p></div>
-                            <span class="end_label">
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                            <label class="switch">
-                            <input id="on2" type="checkbox">
-                            <div class="slider"></div>
-                            </label></span>
-
-                        </div><div class="alinhar_usuario">
-                            <div class="users"> <p id="nome_user">Gabriel Barbosa</p>
-                                                <p id="email_user">gabigol.flamengo@bandtec.com</p></div>
-                            <span class="end_label">
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                            <label class="switch">
-                            <input id="on3" type="checkbox">
-                            <div class="slider"></div>
-                            </label></span>
-
-                        </div><div class="alinhar_usuario">
-                            <div class="users"> <p id="nome_user">Neymar Santos</p>
-                                                <p id="email_user">neymar.junior@bandtec.com</p></div>
-                            <span class="end_label">
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                            <label class="switch">
-                            <input id="on4" type="checkbox">
-                            <div class="slider"></div>
-                            </label></span>
-
-                        </div></div>
-                </div>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login">
-
+       
                 </div>
             </div>
         </div>
-    </div>
 
 
 </body>
@@ -190,193 +138,95 @@ input:checked + .slider:before {
 </html>
 
 <script>
-    nome_user.innerHTML = sessionStorage.NOME_USUARIO;
-    email_user.innerHTML = sessionStorage.EMAIL_USUARIO;
 
-    function mascara(i) {
-
-        var v = i.value;
-
-        if (isNaN(v[v.length - 1])) { // impede entrar outro caractere que não seja número
-            i.value = v.substring(0, v.length - 1);
-            return;
-        }
-
-        i.setAttribute("maxlength", "14");
-        if (v.length == 3 || v.length == 7) i.value += ".";
-        if (v.length == 11) i.value += "-";
-
-    }
-
-
-    (function () {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 100) {
-                header.classList.add('header-active');
-                navBar.classList.add('navbar-active');
-                navBar.classList.remove('navbar');
-                logoNavbar.src = "./assets/imgs/logos/omniview-logo.png";
-            } else {
-                header.classList.remove('header-active');
-                navBar.classList.remove('navbar-active');
-                navBar.classList.add('navbar');
-                logoNavbar.src = "./assets/imgs/logos/logotipo.png";
-            }
-        });
-    })();
-
-    function cadastrar() {
-        aguardar();
-        var nomeVar = nome_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
-        var cpfVar = cpf_input.value;
-        var cargoVar = cargo_input.value;
-        var estabelecimentoVar = estabelecimento_input.value;
-        // let checkGerente = document.getElementById('check_gerente');
-        // let checkSuporte = document.getElementById('check_suporte');
-
-
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
-            window.alert("Preencha todos os campos para prosseguir!");
-            if (nomeVar == "") {
-                console.log('nome está em branco')
-            }
-            if (emailVar == "") {
-                console.log('email está em branco')
-            }
-            if (senhaVar == "") {
-                console.log('senha está em branco')
-            }
-            if (confirmacaoSenhaVar == "") {
-                console.log('confirmacaoSenha está em branco')
-            }
-
-            finalizarAguardar();
-            return false;
-        }
-
-        // if (!checkGerente.checked && !checkSuporte.checked) {
-        //     window.alert("Preencha todos os campos para prosseguir!");
-        //     return false;
-        // }
-
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            finalizarAguardar();
-            return false;
-        }
-
-        if (senhaVar != confirmacaoSenhaVar) {
-            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
-            finalizarAguardar();
-            return false;
-        }
-
-        
-
-        // if (checkGerente.checked && checkSuporte.checked) {
-        //     window.alert("Selecione apenas o cargo em que você atua.");
-        //     return false;
-        // }
-        // else if (checkGerente.checked) {
-        //     window.alert("Bem vindo gerente")
-        // }
-        // else if (checkSuporte.checked) {
-        //     window.alert("Bem vindo suporte");
-        // }
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                cpfServer: cpfVar,
-                cargoServer: cargoVar,
-                estabelecimentoServer: estabelecimentoVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Cadastro realizado com sucesso!");
-                limparFormulario();
-                finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
-
-        return false;
-    }
+    var statusDoUsuario 
     
-    function sair(){
-        window.location.href = './loginEmpresa.html'
+    function listarUsuario() {
+        fetch("/usuarios/getUsuario", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(async function (resposta) {
+            // onde eu vou renderizar as coisas
+            const container = document.querySelector(".card");
+            const usuarios = await resposta.json();
+            for (let i = 0; i < usuarios.length; i++) {
+                console.log(usuarios[i]);
+                let conteudoNome = document.createElement("span")
+                let conteudoEmail = document.createElement("span")
+                let botaoOff = document.createElement("button")
+                let botaoOn = document.createElement("button")
+                let divConteudo = document.createElement("div")
+                let divNome = document.createElement("div")
+                let divBotao = document.createElement("div")
+
+                // setando o valor da variavel
+                conteudoNome.innerHTML = usuarios[i].nome
+                conteudoEmail.innerHTML = usuarios[i].email
+                botaoOff.innerHTML = "OFF"
+                botaoOn.innerHTML = "ON"
+
+                // colocando variavel no card
+                container.append(divConteudo)
+
+                // div conteudo englobando  divNome e email
+                divConteudo.append(divNome)
+                divConteudo.append(divBotao)
+
+                // div pegando o nome e o email
+                divNome.append(conteudoNome)
+                divNome.append(conteudoEmail)
+
+                // botoes
+                divBotao.append(botaoOff)
+                divBotao.append(botaoOn)
+
+                // nome da class
+                divConteudo.setAttribute("class", "divConteudo")
+                divNome.setAttribute("class", "divNome")
+                divBotao.setAttribute("class", "divBotao")
+                botaoOff.setAttribute("class", "botaostyle")
+                botaoOn.setAttribute("class", "botaostyle")
+                botaoOff.setAttribute("id", "IdBotaoOff")
+                botaoOn.setAttribute("id", "IdBotaoOn")
+                conteudoNome.setAttribute("class","nomeStyle")
+                conteudoEmail.setAttribute("class","emailStyle")
+
+                botaoOn.onclick = function ativarUsuario(){
+                    statusDoUsuario = 1;
+                    fetch("/usuarios/" + usuarios[i].id, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            statusUserServer: statusDoUsuario, 
+                        }),
+                    }).then((res) => console.log(res));
+
+                    document.location.reload(true);
+                    window.alert("Alteração realizada com sucesso")
+                }
+
+                botaoOff.onclick = function desativarUsuario(){
+                    statusDoUsuario = 0;
+                    fetch("/usuarios/" + usuarios[i].id, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            statusUserServer: statusDoUsuario, 
+                        }),
+                    }).then((res) => console.log(res));
+
+                    document.location.reload(true);
+                    window.alert("Alteração realizada com sucesso")
+                }
+            }
+        })
     }
 
-    //----------------------------------- SCRIPT ATIVO/INATIVO
-// ========================= teste 1 ==============
-    var statusColaborado = "A";
-
-    $(document).ready(function(){
-	$('#on1').on('change',function(){
-    	if(this.checked){
-    		console.log('ATIVO');
-            statusColaborado = "A";
-    	}
-        else{
-          console.log('DESATIVO');
-          statusColaborado = "D";
-
-        }
-    });
-});
-
-// ============================================================
-$(document).ready(function(){
-	$('#on2').on('change',function(){
-    	if(this.checked){
-    		console.log('ATIVO');
-    	}
-        else{
-          console.log('DESATIVO');
-
-        }
-    });
-});
-
-
-$(document).ready(function(){
-	$('#on3').on('change',function(){
-    	if(this.checked){
-    		console.log('ATIVO');
-    	}
-        else{
-          console.log('DESATIVO');
-
-        }
-    });
-});
-
-$(document).ready(function(){
-	$('#on4').on('change',function(){
-    	if(this.checked){
-    		console.log('ATIVO');
-    	}
-        else{
-          console.log('DESATIVO');
-
-        }
-    });
-});
-        
+window.addEventListener("load", listarUsuario);
 </script>

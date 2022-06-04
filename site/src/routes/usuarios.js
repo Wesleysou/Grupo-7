@@ -32,7 +32,7 @@ router.get("/getMemoriaRamEmUso", function (req,res){
        usuarioController.getMemoriaRamEmUso(req, res)
 });
 
-router.get("/getMemoriaRamEmUsoTot2", function (req,res){
+router.post("/getMemoriaRamEmUsoTot2", function (req,res){
        usuarioController.getMemoriaRamEmUsoTot2(req, res)
 });
 
@@ -48,7 +48,7 @@ router.get("/getMemoriaRamEmUsoTot5", function (req,res){
        usuarioController.getMemoriaRamEmUsoTot5(req, res)
 });
 
-router.get("/getMemoriaEmUso", function (req,res){
+router.post("/getMemoriaEmUso", function (req,res){
        usuarioController.getMemoriaEmUso(req, res)
 });
 
@@ -68,7 +68,7 @@ router.get("/getArquitetura", function (req,res){
        usuarioController.getArquitetura(req, res)
 });
 
-router.get("/getCpu", function (req,res){
+router.post("/getCpu", function (req,res){
        usuarioController.getCpu(req, res)
 });
 
@@ -88,18 +88,28 @@ router.get("/getMemoriaRamTotalTot5", function (req,res){
        usuarioController.getMemoriaRamTotalTot5(req, res)
 });
 
+router.get("/getUsuario", function (req,res){
+       usuarioController.listarUsuario(req, res)
+});
+
+router.get("/getBotao", function (req,res){
+       usuarioController.listarBotoes(req, res)
+});
+
 //
 router.put("/atualizar/:idUsuario", function (req, res) {
        avisoController.atualizar(req, res);
    });
 
-router.post("/reiniciarmaq", function (req, res) {
+router.post("/:idMaq", function (req, res) {
        usuarioController.reiniciarmaq(req, res);
      });
 
-router.post("/reiniciarmaq", function (req, res) {
-       usuarioController.reiniciarmaq(req, res);
-     });
+router.put("/:idUsuario", function (req, res) {
+       console.log("CHEGOU AQiiii"); 
+       usuarioController.atualizarUsuario(req, res);
+});
+
 
 // ===========================ADC TOTENS================================================
 

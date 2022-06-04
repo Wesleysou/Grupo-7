@@ -228,26 +228,15 @@ function getMemoriaRamTotalTot5(req, res) {
 // ====================================================================================================
 
 // ---------- Memoria Ram em uso ---------------
-function getMemoriaRamEmUso(req, res) {
-    usuarioModel.getMemoriaRamEmUso()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
+
 //------------------------------------------ RAM USO TOTEM 2 ----------------------------------------
 
 function getMemoriaRamEmUsoTot2(req, res) {
-    usuarioModel.getMemoriaRamEmUsoTot2()
+    var id = req.body.idMaqServer;
+
+    console.log("TOMEEEEEEEEEE"+ id)
+
+    usuarioModel.getMemoriaRamEmUsoTot2(id)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -342,7 +331,10 @@ function getMemoriaTotal(req, res) {
 
 // Memoria Total em uso
 function getMemoriaEmUso(req, res) {
-    usuarioModel.getMemoriaEmUso()
+
+    id = req.body.idMaqServer
+
+    usuarioModel.getMemoriaEmUso(id)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -351,8 +343,8 @@ function getMemoriaEmUso(req, res) {
             }
         }).catch(
             function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                //console.log(erro);
+               // console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             }
         );
@@ -413,7 +405,10 @@ function getArquitetura(req, res) {
 }
 // cpu
 function getCpu(req, res) {
-    usuarioModel.getCpu()
+
+    id = req.body.idMaqServer
+
+    usuarioModel.getCpu(id)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -430,11 +425,12 @@ function getCpu(req, res) {
 }
 
 function reiniciarmaq(req, res) {
+    var id = req.params.idMaqServer;
     var reiniciarMaq = req.body.reiniciarMaqServer;
-  
+    
   
       usuarioModel
-        .reiniciarmaq(reiniciarMaq)
+        .reiniciarmaq(reiniciarMaq, id)
         .then(function (resultado) {
           res.json(resultado);
         })
@@ -447,6 +443,34 @@ function reiniciarmaq(req, res) {
           res.status(500).json(erro.sqlMessage);
         });
     
+  }
+
+  function listarUsuario(req, res) {
+    usuarioModel
+      .getUsuario()
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+        res.status(10).json(erro.sqlMessage);
+  
+      });
+  }
+
+  function listarBotoes(req, res) {
+    usuarioModel
+      .getBotao()
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+        res.status(10).json(erro.sqlMessage);
+  
+      });
   }
 
 // ===========================ADC TOTENS================================================
@@ -508,6 +532,50 @@ function listarTotem(req, res) {
 //           res.status(500).json(erro.sqlMessage);
 //         });
 //     }
+
+
+function atualizarUsuario(req, res) {
+    var id = req.params.idUsuario;
+    var statusUser = req.body.statusUserServer;
+
+    console.log("CONTROLLER: ", id);
+    console.log("CONTROLLER: ", statusUser);
+
+      usuarioModel
+        .updateUsuario(id, statusUser)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao atualizar usuario! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(10).json(erro.sqlMessage);
+        });
+    }
+
+    function getMemoriaRamEmUso(req, res) {
+
+        var id = req.body.idMaquinaServer;
+
+        usuarioModel.getMemoriaRamEmUso(id)
+            .then(function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+  
     
 module.exports = {
     entrar,
@@ -516,8 +584,8 @@ module.exports = {
     cadastrarEmpresa,
     testar,
     reiniciarmaq,
-    getMemoriaRamTotal,
-    getMemoriaRamEmUso,
+    //getMemoriaRamTotal,
+    //getMemoriaRamEmUso,
     getMemoriaEmUso,
     getMemoriaTotal,
     getSistemaOp,
@@ -525,15 +593,17 @@ module.exports = {
     getArquitetura,
     getCpu,
     getMemoriaRamEmUsoTot2,
-    getMemoriaRamEmUsoTot3,
-    getMemoriaRamEmUsoTot4,
-    getMemoriaRamEmUsoTot5,
-    getMemoriaRamTotalTot2,
-    getMemoriaRamTotalTot3,
-    getMemoriaRamTotalTot4,
-    getMemoriaRamTotalTot5,
+    //getMemoriaRamEmUsoTot3,
+    //getMemoriaRamEmUsoTot4,
+    //getMemoriaRamEmUsoTot5,
+    //getMemoriaRamTotalTot2,
+    //getMemoriaRamTotalTot3,
+    //getMemoriaRamTotalTot4,
+    //getMemoriaRamTotalTot5,
     listarTotem,
-    
+    listarUsuario,
+    listarBotoes,
+    atualizarUsuario,
     // atualizarTotem,
     // removerTotem
 }

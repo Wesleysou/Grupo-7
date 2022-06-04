@@ -1,8 +1,5 @@
 var database = require("../database/config")
 
-var idMaquinaBanco;
-
-
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
@@ -26,7 +23,7 @@ function cadastrar(nome, email, cpf, senha, cargo, estabelecimento) {
     var instrucao = `
         INSERT INTO usuario VALUES ('${nome}', '${email}', '${cpf}', '${senha}', '${cargo}','${estabelecimento}');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+
     return database.executar(instrucao);
 }
 
@@ -53,7 +50,7 @@ function getMemoriaRamTotal() {
 function getMemoriaRamTotalTot2() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamTotalTot2()");
     var instrucao = `
-    select ramTotal as RamTotalbd from [dbo].[maquina] where id = 506; `
+    select ramTotal as RamTotalbd from [dbo].[maquina] where id = 604; `
     ;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -90,23 +87,23 @@ function getMemoriaRamTotalTot5() {
 }
 
 // -------------------------------------------- RAM TOTEM 1 -------------------------------------
-function getMemoriaRamEmUso() {
+function getMemoriaRamEmUso(id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamEmUso()");
     var instrucao = `
-    select top 1 ram as RamEmUsobd from [dbo].[medicoes] where Fk_MaqRe = 506 order by diaHorario desc; `
+    select top 1 ram as RamEmUsobd from [dbo].[medicoes] where Fk_MaqRe = ${id} order by diaHorario desc; `
     ;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("MEMORIA RAMMM EM USOOO" + instrucao);
     return database.executar(instrucao);
 }
 // ==================================================================================================
 
 // -------------------------------------------- RAM TOTEM 2 -------------------------------------
-function getMemoriaRamEmUsoTot2() {
+function getMemoriaRamEmUsoTot2(id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaRamEmUsoTot2()");
     var instrucao = `
-    select top 1 ram as RamEmUsobd from [dbo].[medicoes] where Fk_MaqRe = 506 order by diaHorario desc; `
+    select top 1 ram as RamEmUsobd from [dbo].[medicoes] where Fk_MaqRe = ${id} order by diaHorario desc; `
     ;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("RAM AQUIII" + instrucao);
     return database.executar(instrucao);
 }
 // ===================================================================================================
@@ -153,12 +150,12 @@ function getMemoriaTotal() {
     return database.executar(instrucao);
 }
 
-function getMemoriaEmUso() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaEmUso()");
+function getMemoriaEmUso(id) {
+    //console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getMemoriaEmUso()");
     var instrucao = `
-    select top 1 usoDoDisco as Memoriaemusobd from [dbo].[medicoes] where Fk_MaqRe = 506 order by diaHorario desc;`
+    select top 1 usoDoDisco as Memoriaemusobd from [dbo].[medicoes] where Fk_MaqRe = ${id} order by diaHorario desc;`
     ;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+    //console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
@@ -190,14 +187,46 @@ function getArquitetura() {
     return database.executar(instrucao);
 }
 
-function getCpu() {
+function getCpu(id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function getCpu()");
     var instrucao = `
-    select top 1 cpuM as Cpubd from [dbo].[medicoes] where Fk_MaqRe = 506 `
+    select top 1 cpuM as Cpubd from [dbo].[medicoes] where Fk_MaqRe = ${id} order by diaHorario desc`
     ;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
+function getUsuario() {
+    console.log("to aqui");
+    var instrucao = `
+    select * from usuario;`
+    ;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function getBotao() {
+    console.log("to aqui");
+    var instrucao = `
+    select * from maquina;`
+    ;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function updateUsuario(id, statusUser) {
+    console.log("MODEL: ", id);
+    console.log("MODEL: ", statusUser);
+    var instrucao = `
+          UPDATE usuario SET status_user = ${statusUser}
+          WHERE id = ${id}
+      `; 
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+  }
+  
+  //update [dbo].[usuario] set status_user = 1 where id = 111;
+
 
 // ---------------------------- Desativar funcionario -----------------------------------------
 function altearStatusColaborador(novaDescricao, idAviso) {
@@ -210,10 +239,10 @@ function altearStatusColaborador(novaDescricao, idAviso) {
 }
 
 function reiniciarmaq(
-    reiniciarMaq
+    reiniciarMaq, idMaq
   ) {
     var instrucao = `
-    update [dbo].[maquina] set reiniciar = ${reiniciarMaq} where id = 597
+    update [dbo].[maquina] set reiniciar = ${reiniciarMaq} where id = ${idMaq}
 );
       `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -284,5 +313,8 @@ module.exports = {
     getMemoriaRamTotalTot5,
     atualizarTotem,
     deletarTotem,
-    listarTotem
+    listarTotem,
+    getUsuario,
+    getBotao,
+    updateUsuario
 };

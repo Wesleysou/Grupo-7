@@ -412,7 +412,8 @@ a{
     background-color: #cfd6e4;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    overflow-y: scroll;
     align-items: center;
     background-color: 	#cfd6e4;
     border-right: white 1px solid;
@@ -430,6 +431,7 @@ a{
     color: white;
     cursor: pointer;
     font-weight: bolder;
+    margin-top: 1rem;
 
 }
 

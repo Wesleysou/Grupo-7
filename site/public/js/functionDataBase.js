@@ -117,44 +117,44 @@ function getMemoriaRamTotalTot5() {
 
 //------------------------------------ RAM EM USO TOTEM 1---------------------------------------- 
 
-function getMemoriaRamEmUso() {
-    fetch("/usuarios/getMemoriaRamEmUso").then(function (resposta) {
-        console.log("ESTOU NO THEN DO getMemoriaRamEmUso()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+// function getMemoriaRamEmUso() {
+//     fetch("/usuarios/getMemoriaRamEmUso").then(function (resposta) {
+//         console.log("ESTOU NO THEN DO getMemoriaRamEmUso()!")
+//         if (resposta.ok) {
+//             resposta.json().then(function (resposta) {
+//                 console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                ramEmuso = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                console.log(ramEmuso.RamEmUsobd);
-                sessionStorage.RAMEMUSO = ramEmuso.RamEmUsobd;
+//                 ramEmuso = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+//                 console.log(ramEmuso.RamEmUsobd);
+//                 sessionStorage.RAMEMUSO = ramEmuso.RamEmUsobd;
 
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-};
+//             });
+//         } else {
+//             console.log("Dados recebidos: ", JSON.stringify(resposta));
+//         }
+//     }).catch(function (erro) {
+//         console.log(erro);
+//     })
+//     return false;
+// };
 
 //------------------------------------------------------------------------------
 
 // ------------------------------------- RAM EM USO TITEM 2------------------------------------------
 function getMemoriaRamEmUsoTot2() {
     fetch("/usuarios/getMemoriaRamEmUsoTot2").then(function (resposta) {
-        console.log("ESTOU NO THEN DO getMemoriaRamEmUsoTot2()!")
+        //console.log("ESTOU NO THEN DO getMemoriaRamEmUsoTot2()!")
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+                //console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
                 ramEmuso = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                console.log(ramEmuso.RamEmUsobd);
+                //console.log(ramEmuso.RamEmUsobd);
                 sessionStorage.RAMEMUSOTOT2 = ramEmuso.RamEmUsobd;
 
             });
         } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            //console.log("Dados recebidos: ", JSON.stringify(resposta));
         }
     }).catch(function (erro) {
         console.log(erro);
@@ -258,26 +258,7 @@ function getMemoriaTotal() {
 }
 
 // Memoria  
-function getMemoriaEmUso() {
-    fetch("/usuarios/getMemoriaEmUso").then(function (resposta) {
-        console.log("ESTOU NO THEN DO getMemoriaEmUso()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
 
-                memoriaemuso = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                console.log(memoriaemuso.Memoriaemusobd);
-                sessionStorage.MEMORIAEMUSO = memoriaemuso.Memoriaemusobd;
-
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-};
 
 
 // Sistema Op  
@@ -346,29 +327,6 @@ function getArquitetura() {
     return false;
 };
 
-// Cpu 
-function getCpu() {
-    fetch("/usuarios/getCpu").then(function (resposta) {
-        console.log("ESTOU NO THEN DO getCpu()!")
-        if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
-
-                cpu = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
-                console.log(cpu.Cpubd);
-                sessionStorage.CPU = cpu.Cpubd;
-
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resposta));
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-
-
-};
 
 // setInterval(() =>{
 //     getMemoriaRamEmUso();
@@ -381,4 +339,4 @@ function getCpu() {
 //     getMemoriaRamTotalTot3();
 //     getMemoriaRamTotalTot4();
 //     getMemoriaRamTotalTot5();
-// }, 15000)
+// }, 1000)

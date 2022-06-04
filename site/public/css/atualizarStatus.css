@@ -32,7 +32,7 @@ _________________________________ */
 body{
     padding: 0;
     margin: 0; 
-    overflow-x: hidden;
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
 }
@@ -61,8 +61,8 @@ body{
 }
 
 .banner-login .card {
-  height: 50vh;
-  width: 40vw;
+  height: 25rem;
+  width: auto;
   flex-flow: column nowrap;
   background: #2f4c671f;
   box-shadow: 0 0 20px #00000065;

@@ -110,9 +110,14 @@ form button:hover {
     overflow-y: auto;
 }
 
-.forms_faq form {
-    height: 300px;
-    width: 530px;
+.faq{
+    font-size: 28px;
+
+}
+
+.forms_faq {
+  
+    width: 90vw;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -159,7 +164,9 @@ details .faq{
 }
 
 summary{
+    font-size: 30px;
     cursor: pointer;
+    font-weight: bolder;
     width: 98%;
     margin-left: 3px;
 }
