@@ -18,6 +18,15 @@ function entrar(email, senha) {
     return database.executar(instrucao);
 }
 
+function entrarEmpresa(nome, senha) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrarEmpresa: ", nome, senha)
+    var instrucao = `
+        SELECT * FROM estabelecimento WHERE nome = '${nome}' AND senha = '${senha}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function cadastrar(nome, email, cpf, senha, cargo, estabelecimento) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, cpf, senha, cargo, estabelecimento);
     var instrucao = `
@@ -288,6 +297,7 @@ function atualizarTotem(idTotem, sistema, fabricante, ipTotem) {
 
 module.exports = {
     entrar,
+    entrarEmpresa,
     cadastrar,
     cadastrarEmpresa,
     listar,

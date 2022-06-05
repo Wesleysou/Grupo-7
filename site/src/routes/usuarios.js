@@ -24,6 +24,10 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/autenticarEmpresa", function (req, res) {
+       usuarioController.entrarEmpresa(req, res);
+   });
+
 router.get("/getMemoriaRamTotal", function (req,res){
        usuarioController.getMemoriaRamTotal(req, res)
 });
