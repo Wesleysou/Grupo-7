@@ -124,77 +124,116 @@
 
 </html>
 <script>
+    // function entrar() {
+
+    //     var emailVar = email_input.value;
+    //     var senhaVar = senha_input.value;
+
+    //     console.log("FORM LOGIN: ", emailVar);
+    //     console.log("FORM SENHA: ", senhaVar);
+
+    //     // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    //     if (emailVar == "" || senhaVar == "") {
+    //         window.alert("Preencha todos os campos para prosseguir!");
+    //         finalizarAguardar();
+    //         return false;
+    //     }
+
+    //     if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+    //         window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+    //         finalizarAguardar();
+    //         return false;
+    //     }
+
+    //     fetch("/usuarios/autenticar", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             emailServer: emailVar,
+    //             senhaServer: senhaVar
+    //         })
+    //     }).then(function (resposta) {
+    //         console.log("ESTOU NO THEN DO entrar()!")
+
+    //         if (resposta.ok) {
+    //             console.log(resposta);
+
+    //             resposta.json().then(json => {
+    //                 console.log(json);
+    //                 console.log(JSON.stringify(json));
+
+    //                 sessionStorage.EMAIL_USUARIO = json.email;
+    //                 sessionStorage.NOME_USUARIO = json.nome;
+    //                 sessionStorage.ID_USUARIO = json.id;
+
+    //                 setTimeout(function () {
+    //                     if (emailVar == "gustavo@sptech.com") {
+    //                         window.location = "gerente_caixa.html";
+    //                     } else if (emailVar == "wesley@sptech.com") {
+    //                         window.location = "dash-suporte.html";
+    //                     } else {
+    //                         window.location = "gerente_caixa.html";
+    //                     }
+    //                 }, 1000); // apenas para exibir o loading
+
+    //             });
+
+    //         } else {
+    //             alert('Email e/ou senha incorreto(s)')
+    //             console.log("Houve um erro ao tentar realizar o login!");
+
+    //             resposta.text().then(texto => {
+    //                 console.error(texto);
+    //                 finalizarAguardar(texto);
+    //             });
+    //         }
+
+    //     }).catch(function (erro) {
+    //         console.log(erro);
+    //     })
+
+    //     return false;
+    // }
+
+    var naoValidado = false
     function entrar() {
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (emailVar == "" || senhaVar == "") {
-            window.alert("Preencha todos os campos para prosseguir!");
-            finalizarAguardar();
-            return false;
-        }
-
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            finalizarAguardar();
-            return false;
-        }
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
+        fetch("/usuarios/listarUsuario", {
+            method: "GET",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
-                    setTimeout(function () {
-                        if (emailVar == "gustavo@sptech.com") {
-                            window.location = "gerente_caixa.html";
-                        } else if (emailVar == "wesley@sptech.com") {
-                            window.location = "dash-suporte.html";
-                        } else {
-                            window.location = "gerente_caixa.html";
-                        }
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-                alert('Email e/ou senha incorreto(s)')
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
+        }).then(async function (resposta) {
+            // onde eu vou renderizar as coisas
+            //const container = document.querySelector(".card");
+            const usuarios = await resposta.json();
+            for (let i = 0; i < usuarios.length; i++) {
+              
+                if (email_input.value == usuarios[i].email && senha_input.value == usuarios[i].senha && usuarios[i].cargo == "S") {
+                    if(usuarios[i].status_user == 1){
+                    window.location = "dash-suporte.html";
+                    }else{
+                        alert("Esse usuario está desativado")
+                    }
+                }else if (email_input.value == usuarios[i].email && senha_input.value == usuarios[i].senha && usuarios[i].cargo == "G" ){
+                    if(usuarios[i].status_user == 1){
+                        window.location = "gerente_caixa.html";
+                    }else{
+                        alert("Esse usuario está desativado")
+                    }
+                }else{
+                    naoValidado == true
+                }
             }
 
-        }).catch(function (erro) {
-            console.log(erro);
+            if (naoValidado == true) {
+                alert("Senha ou(e) E-mail incorreto")
+                
+            }
         })
 
-        return false;
     }
 
 

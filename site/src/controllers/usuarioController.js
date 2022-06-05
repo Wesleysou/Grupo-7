@@ -101,7 +101,6 @@ function cadastrar(req, res) {
     var senha = req.body.cpfServer;
     var cpf = req.body.senhaServer;
     var cargo = req.body.cargoServer;
-    var estabelecimento = req.body.estabelecimentoServer;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -111,7 +110,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
-        usuarioModel.cadastrar(nome, email, senha, cpf, cargo,estabelecimento)
+        usuarioModel.cadastrar(nome, email, senha, cpf, cargo)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -494,6 +493,20 @@ function reiniciarmaq(req, res) {
       });
   }
 
+  function listarUsuarioLogin(req, res) {
+    usuarioModel
+      .listarUsuario()
+      .then(function (resultado) {
+        res.json(resultado);
+      })
+      .catch(function (erro) {
+        console.log(erro);
+        console.log("\nHouve um erro ao pegar os usuarios", erro.sqlMessage);
+        res.status(10).json(erro.sqlMessage);
+  
+      });
+  }
+
   function listarBotoes(req, res) {
     usuarioModel
       .getBotao()
@@ -611,6 +624,26 @@ function reiniciarMaquina(req, res) {
         });
     }
 
+function removerMaquina(req, res) {
+    var id = req.body.idMaquinaServer;
+
+    console.log("CONTROLLER: ", id);
+    
+      usuarioModel
+        .removerMaquina(id)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao atualizar usuario! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(10).json(erro.sqlMessage);
+        });
+    }
+
     function getMemoriaRamEmUso(req, res) {
 
         var id = req.body.idMaquinaServer;
@@ -648,6 +681,7 @@ module.exports = {
     getProcessador,
     getArquitetura,
     getCpu,
+    listarUsuarioLogin,
     getMemoriaRamEmUsoTot2,
     //getMemoriaRamEmUsoTot3,
     //getMemoriaRamEmUsoTot4,
@@ -660,6 +694,7 @@ module.exports = {
     listarUsuario,
     listarBotoes,
     atualizarUsuario,
+    removerMaquina,
     reiniciarMaquina,
     // atualizarTotem,
     // removerTotem

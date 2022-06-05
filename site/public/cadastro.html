@@ -179,12 +179,11 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
         var cpfVar = cpf_input.value;
         var cargoVar = cargo_input.value;
-        var estabelecimentoVar = estabelecimento_input.value;
         // let checkGerente = document.getElementById('check_gerente');
         // let checkSuporte = document.getElementById('check_suporte');
 
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cpfVar == "" || cargoVar == "") {
 
             window.alert("Preencha todos os campos para prosseguir!");
             if (nomeVar == "") {
@@ -244,7 +243,6 @@
                 senhaServer: senhaVar,
                 cpfServer: cpfVar,
                 cargoServer: cargoVar,
-                estabelecimentoServer: estabelecimentoVar
             })
         }).then(function (resposta) {
 

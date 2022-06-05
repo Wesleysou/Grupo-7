@@ -27,10 +27,10 @@ function entrarEmpresa(nome, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome, email, cpf, senha, cargo, estabelecimento) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, cpf, senha, cargo, estabelecimento);
+function cadastrar(nome, email, cpf, senha, cargo) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, cpf, senha, cargo);
     var instrucao = `
-        INSERT INTO usuario VALUES ('${nome}', '${email}', '${cpf}', '${senha}', '${cargo}','${estabelecimento}');
+        INSERT INTO usuario VALUES ('${nome}', '${email}', '${cpf}', '${senha}', '${cargo}', 1, 0);
     `;
 
     return database.executar(instrucao);
@@ -255,6 +255,26 @@ function reiniciarMaquina(idMaq) {
     return database.executar(instrucao);
   }
 
+function removerMaquina(id) {
+
+    var instrucao = `
+    delete from [dbo].[medicoes] where Fk_MaqRe = ${id}; `;
+
+    var instrucaoDois = `delete from [dbo].[maquina] where id = ${id};`
+    
+    return database.executar(instrucao), database.executarInstrucaoDois(instrucaoDois);
+  }
+
+
+
+function listarUsuario(id) {
+    var instrucao = `
+    select * from usuario;`
+    ;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+  }
+
 
 // ===========================ADC TOTENS================================================
 
@@ -323,6 +343,8 @@ module.exports = {
     listarTotem,
     getUsuario,
     getBotao,
+    listarUsuario,
+    removerMaquina,
     reiniciarMaquina,
     updateUsuario
 };

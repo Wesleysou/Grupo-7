@@ -293,7 +293,7 @@
                 let titulo = document.createElement("h5")
                 let button_reiniciar = document.createElement("button")
                 let button_remover = document.createElement("button")
-                let alerta = document.createElement("div")
+                let trocar_maquina = document.createElement("button")
                 let number = document.createElement("span")
 
                 //       listarTotemId.innerHTML +=  `<div class="flip" >
@@ -311,8 +311,7 @@
                 alinhar_componentes.append(titulo)
                 alinhar_componentes.append(button_reiniciar)
                 alinhar_componentes.append(button_remover)
-                alinhar_componentes.append(alerta)
-                alerta.append(number)
+                alinhar_componentes.append(trocar_maquina)
 
                 titulo.innerHTML = "TOTEM " + usuarios[i].id
                 button_reiniciar.innerHTML = "Reiniciar maquina"
@@ -325,7 +324,7 @@
                 alinhar_componentes.setAttribute("class", "alinhar_componentes");
                 button_reiniciar.setAttribute("class", "button_reiniciar");
                 button_remover.setAttribute("class", "button_remover");
-                alerta.setAttribute("class", "alerta");
+                trocar_maquina.setAttribute("class", "trocar_maquina");
                 number.setAttribute("class", "number");
 
                 button_reiniciar.onclick = function reiniciarMaquina(){
@@ -342,6 +341,22 @@
 
                     document.location.reload(true);
                     window.alert("Alteração realizada com sucesso")
+                }
+
+                button_remover.onclick = function removerMaquina(){
+
+                    fetch("/usuarios/removerMaquina", {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            idMaquinaServer: usuarios[i].id, 
+                        }),
+                    }).then((res) => console.log(res));
+
+                    document.location.reload(true);
+                    window.alert("Maquina DELETADA com sucesso")
                 }
 
             }

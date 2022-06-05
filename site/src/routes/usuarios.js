@@ -119,6 +119,16 @@ router.post("/reiniciarMaquina", function (req, res) {
        usuarioController.reiniciarMaquina(req, res);
 });
 
+router.get("/listarUsuario", function (req, res) {
+       console.log("CHEGOU AQiiii"); 
+       usuarioController.listarUsuarioLogin(req, res);
+});
+
+router.delete("/removerMaquina", function (req, res) {
+       console.log("CHEGOU AQiiii"); 
+       usuarioController.removerMaquina(req, res);
+});
+
 
 // ===========================ADC TOTENS================================================
 
