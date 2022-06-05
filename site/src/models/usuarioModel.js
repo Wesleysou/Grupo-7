@@ -238,16 +238,12 @@ function altearStatusColaborador(novaDescricao, idAviso) {
     return database.executar(instrucao);
 }
 
-function reiniciarmaq(
-    reiniciarMaq, idMaq
-  ) {
+function reiniciarMaquina(idMaq) {
     var instrucao = `
-    update [dbo].[maquina] set reiniciar = ${reiniciarMaq} where id = ${idMaq}
-);
+    update [dbo].[maquina] set reiniciar = 1 where id = ${idMaq};
       `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
-    console.log('MANDOU 1 PRA MAQUINA')
   }
 
 
@@ -276,6 +272,7 @@ function atualizarTotem(idTotem, sistema, fabricante, ipTotem) {
     var instrucao = `
           DELETE FROM totem WHERE idTotem = 52;
       `;
+      //delete from [dbo].[medicoes] where Fk_MaqRe = 607
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
   }
@@ -294,7 +291,7 @@ module.exports = {
     cadastrar,
     cadastrarEmpresa,
     listar,
-    reiniciarmaq,
+    //reiniciarmaq,
     getMemoriaRamTotal,
     getMemoriaRamEmUso,
     getMemoriaEmUso,
@@ -316,5 +313,6 @@ module.exports = {
     listarTotem,
     getUsuario,
     getBotao,
+    reiniciarMaquina,
     updateUsuario
 };

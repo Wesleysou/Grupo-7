@@ -101,13 +101,18 @@ router.put("/atualizar/:idUsuario", function (req, res) {
        avisoController.atualizar(req, res);
    });
 
-router.post("/:idMaq", function (req, res) {
-       usuarioController.reiniciarmaq(req, res);
-     });
+// router.post("/:idMaq", function (req, res) {
+//        usuarioController.reiniciarmaq(req, res);
+//      });
 
 router.put("/:idUsuario", function (req, res) {
        console.log("CHEGOU AQiiii"); 
        usuarioController.atualizarUsuario(req, res);
+});
+
+router.post("/reiniciarMaquina", function (req, res) {
+       console.log("CHEGOU AQiiii"); 
+       usuarioController.reiniciarMaquina(req, res);
 });
 
 

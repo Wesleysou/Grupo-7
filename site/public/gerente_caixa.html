@@ -241,37 +241,37 @@
     //      chageTheAlertColor();
     //  }, 8000)
 
-    function reiniciarmaq() {
+    // function reiniciarmaq() {
 
-        fetch("/usuarios/reiniciarmaq", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                reiniciarMaqServer: 1,
-                idMaq: sessionStorage.ID_MAQ
-
-
-            })
-        }).then(function (resposta) {
-
-            //   console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("maquina reiniciada com sucesso");
-                limparFormulario();
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            //   console.log(`#ERRO: ${resposta}`);
-
-        });
+    //     fetch("/usuarios/reiniciarmaq", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             reiniciarMaqServer: 1,
+    //             idMaq: sessionStorage.ID_MAQ
 
 
-    }
+    //         })
+    //     }).then(function (resposta) {
+
+    //         //   console.log("resposta: ", resposta);
+
+    //         if (resposta.ok) {
+    //             window.alert("maquina reiniciada com sucesso");
+    //             limparFormulario();
+
+    //         } else {
+    //             throw ("Houve um erro ao tentar realizar o cadastro!");
+    //         }
+    //     }).catch(function (resposta) {
+    //         //   console.log(`#ERRO: ${resposta}`);
+
+    //     });
+
+
+    //}
 
     // ===========================ADC TOTENS================================================
 
@@ -327,6 +327,22 @@
                 button_remover.setAttribute("class", "button_remover");
                 alerta.setAttribute("class", "alerta");
                 number.setAttribute("class", "number");
+
+                button_reiniciar.onclick = function reiniciarMaquina(){
+                    
+                    fetch("/usuarios/reiniciarMaquina", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            idMaquinaServer: usuarios[i].id, 
+                        }),
+                    }).then((res) => console.log(res));
+
+                    document.location.reload(true);
+                    window.alert("Alteração realizada com sucesso")
+                }
 
             }
         });

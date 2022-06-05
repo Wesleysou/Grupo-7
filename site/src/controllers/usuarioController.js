@@ -556,6 +556,26 @@ function atualizarUsuario(req, res) {
         });
     }
 
+function reiniciarMaquina(req, res) {
+    var id = req.body.idMaquinaServer;
+
+    console.log("CONTROLLER: ", id);
+    
+      usuarioModel
+        .reiniciarMaquina(id)
+        .then(function (resultado) {
+          res.json(resultado);
+        })
+        .catch(function (erro) {
+          console.log(erro);
+          console.log(
+            "\nHouve um erro ao atualizar usuario! Erro: ",
+            erro.sqlMessage
+          );
+          res.status(10).json(erro.sqlMessage);
+        });
+    }
+
     function getMemoriaRamEmUso(req, res) {
 
         var id = req.body.idMaquinaServer;
@@ -604,6 +624,7 @@ module.exports = {
     listarUsuario,
     listarBotoes,
     atualizarUsuario,
+    reiniciarMaquina,
     // atualizarTotem,
     // removerTotem
 }
