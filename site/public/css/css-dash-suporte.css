@@ -419,6 +419,20 @@ a{
     border-right: white 1px solid;
 }
 
+.botoes::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .botoes::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+  
+  .botoes::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    border: 3px solid #ffffff;
+  }
+
 .botoes button{
     width: 70%;
     height: 9.5vh;

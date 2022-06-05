@@ -26,21 +26,95 @@ h2{
     height: 75vh;
     width: 100vw;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
+    /* flex-direction: column; */
+    /* justify-content: end; */
+    /* align-items: center; */
 }
 
 .cards{
     display: grid;
-    height: 70rem;
-    width: 80%;
+    height: 22rem;
+    width: 50%;
     padding: 1rem 0;
     margin: auto;
     flex-direction: column;
     justify-content: space-around;
     overflow-x: hidden;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto;
+    overflow-y: scroll;
+
+}
+
+.cards::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  .cards::-webkit-scrollbar-track {
+    background-color: var(--color-gray);
+  }
+  
+  .cards::-webkit-scrollbar-thumb {
+    background-color: var(--color-weight);
+    border-radius: 20px;
+    border: 3px solid var(--color-gray);
+  }
+
+.alertasFixos{
+    height: 28rem;
+    width: 50%;
+}
+
+.alertasMovimento{
+    height: 50vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alertasInstrucaoSocial{
+    height: 25vh;
+    width: auto;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    display: flex;
+
+}
+
+.alertasInstrucao{
+    height: 10vh;
+    width: 5vw;
+    border-radius: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#alertaVerde{
+    background-color: #137200;
+}
+#alertaAmarelo{
+    background-color: #e6ff07;
+}
+#alertaLaranja{
+    background-color: #f67b00;
+}
+#alertaVermelho{
+    background-color: #bd1212;
+}
+
+.alertaGigante{
+    height: 34vh;
+    width: 17vw;
+    border-radius: 500px;
+    background-color: #137200;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    font-size: xx-large;
+    font-weight: bolder;
 }
 
 .social_dash{
@@ -127,7 +201,7 @@ h2{
 
 .button_reiniciar{
     padding: 5px;
-    background-color: #3cb0fd;
+    background-color: #7c8f9b;
     border: 0px;
     border-radius: 5px;
     margin: 5px 0px 5px 0px;
@@ -146,11 +220,11 @@ h2{
 
 .button_remover{
     padding: 5px;
-    background-color: #fd1818;
+    background-color: #7c8f9b;
     border: 0px;
     border-radius: 5px;
     margin: 5px 0px 5px 0px;
-    color: black;
+    color: white;
     font-weight: bolder;
     cursor: pointer;
     
@@ -160,6 +234,24 @@ h2{
     padding-right: 9px;
     padding-left: 9px;
     background-color: #bd1212;
+}
+
+.trocar_maquina{
+    padding: 5px;
+    background-color: #7c8f9b;
+    border: 0px;
+    border-radius: 5px;
+    margin: 5px 0px 5px 0px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    
+}
+
+.trocar_maquina:hover{
+    padding-right: 9px;
+    padding-left: 9px;
+    background-color: #0e5100;
 }
 /* .face2{
     width: 10vw;

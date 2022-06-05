@@ -58,10 +58,22 @@
 
         </div>
 
+        <div class="alertasFixos">
+            <div class="alertasMovimento">
+                <div class="alertaGigante">50%</div>
+            </div>
+            <div class="alertasInstrucaoSocial">
+                <div class="alertasInstrucao" id="alertaVerde">0-50</div>
+                <div class="alertasInstrucao" id="alertaAmarelo">51-70</div>
+                <div class="alertasInstrucao" id="alertaLaranja">71-80</div>
+                <div class="alertasInstrucao" id="alertaVermelho">80-100</div>
+            </div>
+        </div>
+    </div>
         <!-- Start of omniview2898 Zendesk Widget script -->
         <script id="ze-snippet"
             src="https://static.zdassets.com/ekr/snippet.js?key=decaa74e-b0bf-41bd-bfb5-a8e236097538">
-            </script>
+        </script>
 
 </body>
 
@@ -309,13 +321,14 @@
                 flo.append(face)
                 face.append(alinhar_componentes)
                 alinhar_componentes.append(titulo)
+                alinhar_componentes.append(trocar_maquina)
                 alinhar_componentes.append(button_reiniciar)
                 alinhar_componentes.append(button_remover)
-                alinhar_componentes.append(trocar_maquina)
 
                 titulo.innerHTML = "TOTEM " + usuarios[i].id
                 button_reiniciar.innerHTML = "Reiniciar maquina"
                 button_remover.innerHTML = "Remover maquina"
+                trocar_maquina.innerHTML = "Visualizar andamento"
 
 
 
