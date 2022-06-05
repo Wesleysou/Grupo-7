@@ -94,8 +94,8 @@ h2{
     transition: all .5s;
 }
 .face{
-    width: 10rem;
-    height: 7rem;
+    width: 13rem;
+    height: 9rem;
     display: flex;
     justify-content: center;
     margin-right: 1rem;
@@ -127,16 +127,40 @@ h2{
 
 .button_reiniciar{
     padding: 5px;
-    background-color: #97ABB7;
+    background-color: #3cb0fd;
     border: 0px;
     border-radius: 5px;
-    margin: 15px 0px 15px 0px;
+    margin: 5px 0px 5px 0px;
     color: white;
     font-weight: bolder;
     cursor: pointer;
 
 }
 
+.button_reiniciar:hover{
+    padding-right: 9px;
+    padding-left: 9px;
+    background-color: #3192d2;
+}
+
+
+.button_remover{
+    padding: 5px;
+    background-color: #fd1818;
+    border: 0px;
+    border-radius: 5px;
+    margin: 5px 0px 5px 0px;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+    
+}
+
+.button_remover:hover{
+    padding-right: 9px;
+    padding-left: 9px;
+    background-color: #bd1212;
+}
 /* .face2{
     width: 10vw;
     height: 20vh;
