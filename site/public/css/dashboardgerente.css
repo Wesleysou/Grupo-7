@@ -112,7 +112,7 @@ h2{
     justify-content: center;
     align-items: center;
     text-align: center;
-    display: flex;
+    display: grid;
     font-size: xx-large;
     font-weight: bolder;
 }
@@ -123,6 +123,17 @@ h2{
     justify-content: center;
     height: 35vh;
     width: 65vw;
+}
+
+#id_totem{
+    font-size: medium;
+}
+
+#div_toten_id{
+    margin-bottom: 60px;
+}
+#div_porcentagem_id{
+    margin-top: 50px;
 }
 
 /* #position_card{
