@@ -60,232 +60,39 @@
 
         <div class="alertasFixos">
             <div class="alertasMovimento">
-                <div class="alertaGigante">50%</div>
+                <div id="divAlerta" class="alertaGigante">
+
+                    <div>
+                    <span id="porcentagemAlerta">-- </span><span>%</span> 
+                </div>
+
+                <div>
+                    <span>TOTEM<span id="idTotemAlerta"></span> </span>
+                </div>
+
+                </div>
             </div>
             <div class="alertasInstrucaoSocial">
-                <div class="alertasInstrucao" id="alertaVerde">0-50</div>
-                <div class="alertasInstrucao" id="alertaAmarelo">51-70</div>
-                <div class="alertasInstrucao" id="alertaLaranja">71-80</div>
+                <div class="alertasInstrucao" id="alertaVerde">0-60</div>
+                <div class="alertasInstrucao" id="alertaAmarelo">60-70</div>
+                <div class="alertasInstrucao" id="alertaLaranja">70-80</div>
                 <div class="alertasInstrucao" id="alertaVermelho">80-100</div>
             </div>
         </div>
     </div>
-        <!-- Start of omniview2898 Zendesk Widget script -->
-        <script id="ze-snippet"
-            src="https://static.zdassets.com/ekr/snippet.js?key=decaa74e-b0bf-41bd-bfb5-a8e236097538">
-        </script>
+    <!-- Start of omniview2898 Zendesk Widget script -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=decaa74e-b0bf-41bd-bfb5-a8e236097538">
+    </script>
 
 </body>
 
 </html>
 <script>
 
-    function getram() {
-
-        var ramTotal = sessionStorage.RAMTOTAL;
-        var ramTotalTot2 = sessionStorage.RAMTOTALTOT2;
-        var ramTotalTot3 = sessionStorage.RAMTOTALTOT3;
-        var ramTotalTot4 = sessionStorage.RAMTOTALTOT4;
-        var ramTotalTot5 = sessionStorage.RAMTOTALTOT5;
-
-        var ramMaquina = sessionStorage.RAMEMUSO;
-        numberr.innerHTML = ramMaquina;
-
-        var ramMaquina2 = sessionStorage.RAMEMUSOTOT2;
-        numberr2.innerHTML = ramMaquina2;
-
-        var ramMaquina3 = sessionStorage.RAMEMUSOTOT3;
-        numberr3.innerHTML = ramMaquina3;
-
-        var ramMaquina4 = sessionStorage.RAMEMUSOTOT4;
-        numberr4.innerHTML = ramMaquina4;
-
-        var ramMaquina5 = sessionStorage.RAMEMUSOTOT5;
-        numberr5.innerHTML = ramMaquina5;
-
-        var valorCheio = ramTotal;
-        var valorUsado = ramMaquina;
-        var calculoPorcentagem = ((valorUsado * 100) / valorCheio).toFixed(0);
-
-        // console.log("AQUIII TOTEM 2:" + ramTotalTot2)
-        // console.log("AQUIII TOTEM 3:" + ramTotalTot3)
-        // console.log("AQUIII TOTEM 4:" + ramTotalTot4)
-        // console.log("AQUIII TOTEM 5:" + ramTotalTot5)
-
-        var valorCheio = ramTotalTot2;
-        var valorUsado = ramMaquina2;
-        var calculoPorcentagem2 = ((valorUsado * 100) / valorCheio).toFixed(0);
-
-        var valorCheio = ramTotalTot3;
-        var valorUsado = ramMaquina3;
-        var calculoPorcentagem3 = ((valorUsado * 100) / valorCheio).toFixed(0);
-
-        var valorCheio = ramTotalTot4;
-        var valorUsado = ramMaquina4;
-        var calculoPorcentagem4 = ((valorUsado * 100) / valorCheio).toFixed(0);
-
-        var valorCheio = ramTotalTot5;
-        var valorUsado = ramMaquina5;
-        var calculoPorcentagem5 = ((valorUsado * 100) / valorCheio).toFixed(0);
-
-
-
-        // ================ Muda a dor do totem 1 ==============
-        if (calculoPorcentagem <= 70) {
-            totem.style.backgroundColor = 'green';
-        }
-
-        else if (calculoPorcentagem <= 80) {
-            totem.style.backgroundColor = 'yellow';
-
-        }
-
-        else if (calculoPorcentagem <= 90) {
-            totem.style.backgroundColor = 'orange';
-
-        }
-
-        else {
-            totem.style.backgroundColor = 'red';
-        }
-
-        // ===================== Muda a acor maquina 2 ============ 
-
-        if (calculoPorcentagem2 <= 70) {
-            totem2.style.backgroundColor = 'green';
-        }
-
-        else if (calculoPorcentagem2 <= 80) {
-            totem2.style.backgroundColor = 'yellow';
-
-        }
-
-        else if (calculoPorcentagem2 <= 90) {
-
-            totem2.style.backgroundColor = 'orange';
-        }
-
-        else {
-            totem2.style.backgroundColor = 'red';
-        }
-
-        // ======================= alete totem 3============= 
-
-        if (calculoPorcentagem3 <= 70) {
-            totem3.style.backgroundColor = 'green';
-        }
-
-        else if (calculoPorcentagem3 <= 80) {
-            totem3.style.backgroundColor = 'yellow';
-
-        }
-
-        else if (calculoPorcentagem3 <= 90) {
-
-            totem3.style.backgroundColor = 'orange';
-        }
-
-        else {
-            totem3.style.backgroundColor = 'red';
-        }
-        // ======================= alete totem 4============= 
-
-        if (calculoPorcentagem4 <= 70) {
-            totem4.style.backgroundColor = 'green';
-        }
-
-        else if (calculoPorcentagem4 <= 80) {
-            totem4.style.backgroundColor = 'yellow';
-
-        }
-
-        else if (calculoPorcentagem4 <= 90) {
-
-            totem4.style.backgroundColor = 'orange';
-        }
-
-        else {
-            totem4.style.backgroundColor = 'red';
-        }
-
-        // // ======================= alete totem 5============= 
-
-        if (calculoPorcentagem5 <= 70) {
-            totem5.style.backgroundColor = 'blue';
-        }
-
-        else if (calculoPorcentagem5 <= 80) {
-            totem5.style.backgroundColor = 'yellow';
-
-        }
-
-        else if (calculoPorcentagem5 <= 90) {
-
-            totem5.style.backgroundColor = 'orange';
-        }
-
-        else {
-            totem5.style.backgroundColor = 'red';
-        }
-    }
-
-
-
-    // var alerta;
-
-    // function chageTheAlertColor() {
-
-    //     var numero = sessionStorage.RAMTOTAL;
-    //     var valorCheio = Number(numero);
-    //     var valorUsado = Number(ramMaquina);
-    //     var calculo = Number((valorUsado * 100)/valorCheio);
-
-    //     console.log("RAM AQUIIII" + calculo);
-
-    //     if (sessionStorage.RAMEMUSO > 6) {
-    //         totem.style.backgroundColor = 'red';
-    //     }
-
-    // }
-
-    //  setInterval(() =>{
-    //      getram();
-    //      chageTheAlertColor();
-    //  }, 8000)
-
-    // function reiniciarmaq() {
-
-    //     fetch("/usuarios/reiniciarmaq", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             reiniciarMaqServer: 1,
-    //             idMaq: sessionStorage.ID_MAQ
-
-
-    //         })
-    //     }).then(function (resposta) {
-
-    //         //   console.log("resposta: ", resposta);
-
-    //         if (resposta.ok) {
-    //             window.alert("maquina reiniciada com sucesso");
-    //             limparFormulario();
-
-    //         } else {
-    //             throw ("Houve um erro ao tentar realizar o cadastro!");
-    //         }
-    //     }).catch(function (resposta) {
-    //         //   console.log(`#ERRO: ${resposta}`);
-
-    //     });
-
-
-    //}
-
     // ===========================ADC TOTENS================================================
+
+    var idMaquina
+    var ramTotalConta 
 
     function listarBotoes() {
         fetch("/usuarios/getBotao", {
@@ -308,15 +115,6 @@
                 let trocar_maquina = document.createElement("button")
                 let number = document.createElement("span")
 
-                //       listarTotemId.innerHTML +=  `<div class="flip" >
-                //     <div class="face">
-                //         <div class="alinhar_componentes">
-                //             <h5>TOTEM ${totens[i].id}</h5>
-                //             <button ${onclick=reiniciarmaq()} class="button_reiniciar">Reiniciar aplicação</button>
-                //             <div class="alerta" id="totem"><span id="numberr"></span></div>
-                //         </div>
-                //     </div>
-                // </div>`
                 container.append(flo)
                 flo.append(face)
                 face.append(alinhar_componentes)
@@ -330,8 +128,6 @@
                 button_remover.innerHTML = "Remover maquina"
                 trocar_maquina.innerHTML = "Visualizar andamento"
 
-
-
                 flo.setAttribute("class", "flip");
                 face.setAttribute("class", "face");
                 alinhar_componentes.setAttribute("class", "alinhar_componentes");
@@ -340,15 +136,15 @@
                 trocar_maquina.setAttribute("class", "trocar_maquina");
                 number.setAttribute("class", "number");
 
-                button_reiniciar.onclick = function reiniciarMaquina(){
-                    
+                button_reiniciar.onclick = function reiniciarMaquina() {
+
                     fetch("/usuarios/reiniciarMaquina", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                            idMaquinaServer: usuarios[i].id, 
+                            idMaquinaServer: usuarios[i].id,
                         }),
                     }).then((res) => console.log(res));
 
@@ -356,7 +152,7 @@
                     window.alert("Alteração realizada com sucesso")
                 }
 
-                button_remover.onclick = function removerMaquina(){
+                button_remover.onclick = function removerMaquina() {
 
                     fetch("/usuarios/removerMaquina", {
                         method: "DELETE",
@@ -364,7 +160,7 @@
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                            idMaquinaServer: usuarios[i].id, 
+                            idMaquinaServer: usuarios[i].id,
                         }),
                     }).then((res) => console.log(res));
 
@@ -372,10 +168,97 @@
                     window.alert("Maquina DELETADA com sucesso")
                 }
 
+                trocar_maquina.onclick = function trocar_maquina() {
+
+                    idMaquina = usuarios[i].id
+                    ramTotalConta = usuarios[i].ramTotal
+
+                    idTotemAlerta.innerHTML = idMaquina
+
+                    var ram = sessionStorage.RAMEMUSOTOT2
+                    console.log(ram)
+                }
             }
         });
     }
 
+    
+    function getMemoriaRamEmUsoTot2() {
+
+fetch("/usuarios/getMemoriaRamEmUsoTot2", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        idMaqServer: idMaquina
+
+    })
+}).then(function (resposta) {
+    //console.log("ESTOU NO THEN DO getMemoriaRamEmUsoTot2()!")
+    if (resposta.ok) {
+        resposta.json().then(function (resposta) {
+            //console.log("Dados recebidos do usuario: ", JSON.stringify(resposta));
+
+            ramEmuso = resposta[resposta.indexOf(':') + 1]//não sei pq mas isso funciona
+            //console.log(ramEmuso.RamEmUsobd);
+            sessionStorage.RAMEMUSOTOT2 = ramEmuso.RamEmUsobd;
+
+        });
+    } else {
+        //console.log("Dados recebidos: ", JSON.stringify(resposta));
+    }
+}).catch(function (erro) {
+    console.log(erro);
+})
+return false;
+//.then(async function (resposta) {
+//   // onde eu vou renderizar as coisas
+//   const container = document.querySelector(".botoes");
+//   const usuarios = await resposta.json();
+//   console.log ("NAO NAO NAO" + usuarios.ram)
+// })
+
+};
+
+  function getram() {
+
+var ramTotal = Number(ramTotalConta);
+
+var ramMaquina = Number(sessionStorage.RAMEMUSOTOT2);
+
+var valorCheio = ramTotal;
+var valorUsado = ramMaquina;
+var calculoPorcentagem = ((valorUsado * 100) / valorCheio).toFixed(0);
+
+porcentagemAlerta.innerHTML = calculoPorcentagem
+
+// ================ Muda a dor do totem 1 ==============
+if (calculoPorcentagem <= 60) {
+    divAlerta.style.backgroundColor = 'green';
+}
+
+else if (calculoPorcentagem <= 70) {
+    divAlerta.style.backgroundColor = 'yellow';
+
+}
+
+else if (calculoPorcentagem <= 80) {
+    divAlerta.style.backgroundColor = 'orange';
+
+}
+
+else {
+    divAlerta.style.backgroundColor = 'red';
+}
+
+}
+
+setInterval(() => {
+    getMemoriaRamEmUsoTot2();
+    getram();
+  }, 1000)
+  
     window.addEventListener("load", listarBotoes);
 
 </script>
