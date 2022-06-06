@@ -70,16 +70,20 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .alertasInstrucaoSocial{
-    height: 25vh;
-    width: auto;
+    height: 15vh;
+    width: 80%;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     display: flex;
-
+    background-color: #dee4e8;
+    border-radius: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .alertasInstrucao{
@@ -89,6 +93,7 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #b6c2c9;
 }
 
 #alertaVerde{
