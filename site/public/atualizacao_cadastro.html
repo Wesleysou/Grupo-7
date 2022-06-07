@@ -14,69 +14,71 @@
     <title>OmniView | Cadastro</title>
 
     <style>
-
-        .divConteudo{
+        .divConteudo {
             width: 400px;
-    height: 50px;
-    margin-bottom: 10px;
-    justify-content: center;
-    flex-direction: column;
-            }
+            height: 50px;
+            margin-bottom: 10px;
+            justify-content: center;
+            flex-direction: column;
+        }
 
-        .divNome{
+        .divNome {
             width: 17rem;
             height: 3rem;
-        display: flex;
-        flex-direction: column;
-        float: left;
-        align-items: flex-start;
-        justify-content: flex-end;
-        justify-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            float: left;
+            align-items: flex-start;
+            justify-content: flex-end;
+            justify-items: flex-start;
         }
 
-        .divBotao{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        .divBotao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .conteudoNome{
+        .conteudoNome {
             display: flex;
             width: auto;
             height: auto;
             float: left;
         }
 
-        .conteudoNome{
+        .conteudoNome {
             display: flex;
             width: auto;
             height: auto;
             float: right;
         }
 
-        .botaostyle{
+        .botaostyle {
             background-color: #324048;
             color: white;
-    margin-top: 0.5vh;
-    border: 0px;
-    padding: 2px;
-    width: 50%;
-    border-radius: 20px;
+            margin-top: 0.5vh;
+            border: 0px;
+            padding: 2px;
+            width: 50%;
+            border-radius: 20px;
         }
 
-        .botaostyle:hover{
+        .botaostyle:hover {
             background-color: #273137;
-            color:whitesmoke
+            color: whitesmoke
         }
 
-        .nomeStyle{
+        .nomeStyle {
             font-weight: bolder;
         }
 
-        .emailStyle{
+        .emailStyle {
             font-style: italic;
         }
-
+        .divConfirmacao{
+            height: 50px;
+            width: 30px;
+        }
     </style>
 </head>
 
@@ -127,10 +129,10 @@
 
             <div class="card medio">
                 <h2>Status do funcionario</h2><br><br>
-       
-                </div>
+
             </div>
         </div>
+    </div>
 
 
 </body>
@@ -139,8 +141,8 @@
 
 <script>
 
-    var statusDoUsuario 
-    
+    var statusDoUsuario
+
     function listarUsuario() {
         fetch("/usuarios/getUsuario", {
             method: "GET",
@@ -156,6 +158,7 @@
                 let conteudoNome = document.createElement("span")
                 let conteudoEmail = document.createElement("span")
                 let botaoOff = document.createElement("button")
+                let divConfirmacao = document.createElement("div")
                 let botaoOn = document.createElement("button")
                 let divConteudo = document.createElement("div")
                 let divNome = document.createElement("div")
@@ -173,11 +176,12 @@
                 // div conteudo englobando  divNome e email
                 divConteudo.append(divNome)
                 divConteudo.append(divBotao)
+                
 
                 // div pegando o nome e o email
                 divNome.append(conteudoNome)
                 divNome.append(conteudoEmail)
-
+                divNome.append(divConfirmacao)
                 // botoes
                 divBotao.append(botaoOff)
                 divBotao.append(botaoOn)
@@ -189,11 +193,19 @@
                 botaoOff.setAttribute("class", "botaostyle")
                 botaoOn.setAttribute("class", "botaostyle")
                 botaoOff.setAttribute("id", "IdBotaoOff")
+                divConfirmacao.setAttribute("class", "divConfirmacao")
                 botaoOn.setAttribute("id", "IdBotaoOn")
-                conteudoNome.setAttribute("class","nomeStyle")
-                conteudoEmail.setAttribute("class","emailStyle")
+                conteudoNome.setAttribute("class", "nomeStyle")
+                conteudoEmail.setAttribute("class", "emailStyle")
 
-                botaoOn.onclick = function ativarUsuario(){
+
+                if (usuarios[i].status_user == 1) {
+                    divConfirmacao.style.backgroundColor = "green";
+                } else {
+                    divConfirmacao.style.backgroundColor = "red";
+                }
+
+                botaoOn.onclick = function ativarUsuario() {
                     statusDoUsuario = 1;
                     fetch("/usuarios/" + usuarios[i].id, {
                         method: "PUT",
@@ -201,7 +213,7 @@
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                            statusUserServer: statusDoUsuario, 
+                            statusUserServer: statusDoUsuario,
                         }),
                     }).then((res) => console.log(res));
 
@@ -209,7 +221,7 @@
                     window.alert("Alteração realizada com sucesso")
                 }
 
-                botaoOff.onclick = function desativarUsuario(){
+                botaoOff.onclick = function desativarUsuario() {
                     statusDoUsuario = 0;
                     fetch("/usuarios/" + usuarios[i].id, {
                         method: "PUT",
@@ -217,7 +229,7 @@
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({
-                            statusUserServer: statusDoUsuario, 
+                            statusUserServer: statusDoUsuario,
                         }),
                     }).then((res) => console.log(res));
 
@@ -228,5 +240,5 @@
         })
     }
 
-window.addEventListener("load", listarUsuario);
+    window.addEventListener("load", listarUsuario);
 </script>
