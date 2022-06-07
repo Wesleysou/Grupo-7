@@ -82,7 +82,6 @@
                         <br>
                         <input id="endereco_input" type="text" placeholder="******" class="style_imput">
                         <br>
-                        <!---------- SEM VALIDAÇÃO ------------->
                         CNPJ:
                         <br>
                         <input id="cnpj_input" oninput="mascara(this)" type="text" placeholder="******" class="style_imput">
@@ -221,11 +220,10 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                enderecoServer: enderecoVar,
-                cnpjServer: cnpjVar
+                nomeEmpServer: nomeVar,
+                senhaEmpServer: senhaVar,
+                enderecoEmpServer: enderecoVar,
+                cnpjEmpServer: cnpjVar,
             })
         }).then(function (resposta) {
 

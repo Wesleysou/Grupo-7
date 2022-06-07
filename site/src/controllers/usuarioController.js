@@ -129,21 +129,18 @@ function cadastrar(req, res) {
 }
 
 function cadastrarEmpresa(req, res) { 
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var endereco = req.body.enderecoServer;
-    var cnpj = req.body.cnpjServer;
+    var nomeEmp = req.body.nomeEmpServer;
+    var senhaEmp = req.body.senhaEmpServer;
+    var enderecoEmp = req.body.enderecoEmpServer;
+    var cnpjEmp = req.body.cnpjEmpServer;
 
-    if (nome == undefined) {
+    if (nomeEmp == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    } else if (senhaEmp == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
-        usuarioModel.cadastrarEmpresa(nome, email, senha,endereco, cnpj)
+        usuarioModel.cadastrarEmpresa(nomeEmp, senhaEmp,enderecoEmp, cnpjEmp)
             .then(
                 function (resultado) {
                     res.status(200).json(resultado);

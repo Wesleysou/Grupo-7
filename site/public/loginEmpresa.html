@@ -64,7 +64,7 @@
     <section class="forms">
 
         <div class="login_left">
-            <img style="height: 40%; align-self: center;" src="assets/imgs/beneficio1.png" alt="" srcset="">
+            <img style="height: 100%; align-self: center;" src="assets/imgs/Nextel-NOC (2).jpg" alt="" srcset="">
             </div>
 
         <div class="login_right">
@@ -73,9 +73,11 @@
                     <div class="card medio">
                         <div class="formulario">
                             <div class="login_styles">
+                                <h1>LOGIN EMPRESA</h1>
+                                <br><br>
                                 <br>
                                 Nome:
-                                <input id="nome_input" type="text" placeholder="Nome">
+                                <input id="nome_input" type="text" placeholder="Nome da empresa">
                                 <br>
                                 Senha:
                                 <input id="senha_input" type="password" placeholder="******">
@@ -165,8 +167,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        console.log('UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUIIIIIIIII')
-                        if (nomeVar == "Omniview") {
+                        if (nomeVar == "omniview") {
                             window.location = "cadastrar_empresa.html";
                         } else {
                             window.location = "cadastro.html";
